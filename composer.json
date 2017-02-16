@@ -3,7 +3,7 @@
     "description": "A WordPress package to nudge users to upgrade their software versions (starting with PHP)",
     "type": "library",
     "require-dev": {
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^3.0.0"
     },
     "license": "GPL-3.0+",
     "authors": [
@@ -12,5 +12,10 @@
             "email": "support@yoast.com"
         }
     ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
     "require": {}
 }
