@@ -9,4 +9,11 @@ interface VersionDetector {
 	 * @return string
 	 */
 	public function detect();
+
+	/**
+	 * Returns the message that should be shown if a version is not deemed appropriate by the implementation.
+	 *
+	 * @return string
+	 */
+	public function getMessage();
 }
