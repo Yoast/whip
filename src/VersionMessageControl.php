@@ -27,7 +27,7 @@ class VersionMessageControl {
 		$versionRelation = version_compare( $current_version, $version );
 
 		if ( ! $this->isStatisfied( $version ) ) {
-			$this->showMessages();
+			$this->showMessage( $this->versionDetector->getMessage() );
 		}
 	}
 
