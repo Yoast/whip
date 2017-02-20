@@ -8,4 +8,6 @@ php:
 - '5.2'
 
 install:
+- phpenv local 5.3
 - composer install
+- phpenv local --unset
