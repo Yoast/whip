@@ -1,7 +1,7 @@
 <?php
 
 
-interface MessagePresenter {
+interface Whip_MessagePresenter {
 
 	/**
 	 * Shows a message to the user

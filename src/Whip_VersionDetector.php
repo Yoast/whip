@@ -1,7 +1,7 @@
 <?php
 
 
-interface VersionDetector {
+interface Whip_VersionDetector {
 
 	/**
 	 * Detects the version of the installed software

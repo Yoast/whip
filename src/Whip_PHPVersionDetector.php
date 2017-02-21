@@ -3,7 +3,7 @@
 /**
  * A version detector for PHP
  */
-class PHPVersionDetector implements VersionDetector {
+class Whip_PHPVersionDetector implements Whip_VersionDetector {
 	const HOST_NAME_KEY = 'WHIP_NAME_OF_HOST';
 	const HOST_MESSAGE_KEY = 'WHIP_MESSAGE_FROM_HOST_ABOUT_PHP';
 

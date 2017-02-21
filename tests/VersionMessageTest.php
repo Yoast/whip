@@ -1,6 +1,6 @@
 <?php
 
-class StaticVersionDetector implements VersionDetector {
+class StaticVersionDetector implements Whip_VersionDetector {
 	public function __construct( $version ) {
 		$this->version = $version;
 	}
@@ -14,7 +14,7 @@ class StaticVersionDetector implements VersionDetector {
 	}
 }
 
-class MessageCollector implements MessagePresenter {
+class MessageCollector implements Whip_MessagePresenter {
 	protected $messages = array();
 
 	public function show( $message ) {

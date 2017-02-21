@@ -6,16 +6,16 @@
 class Whip_VersionMessage {
 
 	/**
-	 * @var VersionDetector
+	 * @var Whip_VersionDetector
 	 */
 	protected $versionDetector;
 
 	/**
-	 * @var MessagePresenter[]
+	 * @var Whip_MessagePresenter[]
 	 */
 	protected $messagePresenters;
 
-	public function __construct( VersionDetector $versionDetector, array $messagePresenters ) {
+	public function __construct( Whip_VersionDetector $versionDetector, array $messagePresenters ) {
 		$this->versionDetector = $versionDetector;
 		$this->messagePresenters = $messagePresenters;
 	}
@@ -57,14 +57,14 @@ class Whip_VersionMessage {
 	/**
 	 * Returns the configured version detector
 	 *
-	 * @return VersionDetector
+	 * @return Whip_VersionDetector
 	 */
 	public function getVersionDetector() {
 		return $this->versionDetector;
 	}
 
 	/**
-	 * @param VersionDetector $versionDetector
+	 * @param Whip_VersionDetector $versionDetector
 	 */
 	public function setVersionDetector( $versionDetector ) {
 		$this->versionDetector = $versionDetector;
@@ -73,14 +73,14 @@ class Whip_VersionMessage {
 	/**
 	 * Returns the configured message presenters
 	 *
-	 * @return MessagePresenter[]
+	 * @return Whip_MessagePresenter[]
 	 */
 	public function getMessagePresenters() {
 		return $this->messagePresenters;
 	}
 
 	/**
-	 * @param MessagePresenter[] $messagePresenters
+	 * @param Whip_MessagePresenter[] $messagePresenters
 	 */
 	public function setMessagePresenters( $messagePresenters ) {
 		$this->messagePresenters = $messagePresenters;
@@ -95,14 +95,14 @@ class Whip_VersionMessage {
 	 */
 	public static function wp_require_versions( $config, $textdomain ) {
 		$whips = array();
-		$wpMessagePresenter = new WPMessagePresenter();
+		$wpMessagePresenter = new Whip_WPMessagePresenter();
 		$wpMessagePresenter->register_hooks();
 
 		foreach ( $config as $type => $version ) {
 			switch ( $type ) {
 				default:
 				case 'php':
-					$detector = new PHPVersionDetector( $textdomain );
+					$detector = new Whip_PHPVersionDetector( $textdomain );
 					break;
 			}
 

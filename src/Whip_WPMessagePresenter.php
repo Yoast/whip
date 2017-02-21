@@ -1,7 +1,7 @@
 <?php
 
 
-class WPMessagePresenter implements MessagePresenter {
+class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
 	/**
 	 * @var string[]
