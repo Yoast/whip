@@ -18,13 +18,17 @@ class WPMessagePresenter implements MessagePresenter {
 	/**
 	 * Shows a message to the user
 	 *
-	 * @param string $message The message to show to the user
+	 * @param string $message The message to show to the user.
 	 */
 	public function show( $message ) {
 		$this->messages[] = $message;
 	}
 
 	public function renderMessage() {
+		if ( empty( $this->messages ) ) {
+			return;
+		}
+
 		?>
 			<div class="error">
 				<?php echo $this->kses( $this->messages[0] ); ?>
