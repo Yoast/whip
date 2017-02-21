@@ -1,7 +1,9 @@
 <?php
 
-
-class VersionMessageControl {
+/**
+ * Send a message to the user to update the versions of their software.
+ */
+class Whip_VersionMessage {
 
 	/**
 	 * @var VersionDetector
@@ -82,6 +84,35 @@ class VersionMessageControl {
 	 */
 	public function setMessagePresenters( $messagePresenters ) {
 		$this->messagePresenters = $messagePresenters;
+	}
+
+	/**
+	 * Requires certain versions in a WordPress environment
+	 *
+	 * @param array  $config The configuration for the messages.
+	 * @param string $textdomain The textdomain to use for translating the messages.
+	 * @return self[] Returns the instance we create to require the versions.
+	 */
+	public static function wp_require_versions( $config, $textdomain ) {
+		$whips = array();
+		$wpMessagePresenter = new WPMessagePresenter();
+		$wpMessagePresenter->register_hooks();
+
+		foreach ( $config as $type => $version ) {
+			switch ( $type ) {
+				default:
+				case 'php':
+					$detector = new PHPVersionDetector( $textdomain );
+					break;
+			}
+
+			$whip = new self( $detector, array( $wpMessagePresenter ) );
+			$whip->requireVersion( $version );
+
+			$whips[] = $whip;
+		}
+
+		return $whips;
 	}
 }
 

@@ -27,7 +27,7 @@ class MessageCollector implements MessagePresenter {
 }
 
 /**
- * @property VersionMessageControl versionMessageControl
+ * @property Whip_VersionMessage   versionMessageControl
  * @property StaticVersionDetector versionDetector
  */
 class VersionMessageControlTest extends PHPUnit_Framework_TestCase {
@@ -35,7 +35,7 @@ class VersionMessageControlTest extends PHPUnit_Framework_TestCase {
 	public function setUp() {
 		$this->versionDetector = new StaticVersionDetector( '1.0' );
 
-		$this->versionMessageControl = new VersionMessageControl(
+		$this->versionMessageControl = new Whip_VersionMessage(
 			$this->versionDetector,
 			array()
 		);
@@ -43,7 +43,7 @@ class VersionMessageControlTest extends PHPUnit_Framework_TestCase {
 
 	public function testConstructor() {
 
-		$versionMessageControl = new VersionMessageControl(
+		$versionMessageControl = new Whip_VersionMessage(
 			$this->versionDetector,
 			array()
 		);
@@ -56,7 +56,7 @@ class VersionMessageControlTest extends PHPUnit_Framework_TestCase {
 	 *
 	 */
 	public function testRequireVersion() {
-		$versionMessageControl = new VersionMessageControl(
+		$versionMessageControl = new Whip_VersionMessage(
 			$this->versionDetector,
 			array()
 		);
