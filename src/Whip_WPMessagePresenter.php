@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * A message presenter to show a WordPress notice.
+ */
 class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
 	/**
@@ -25,6 +27,9 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		$this->addMessage( $message );
 	}
 
+	/**
+	 * Renders the messages present in the global to notices.
+	 */
 	public function renderMessage() {
 		if ( empty( $GLOBALS['whip_messages'] ) ) {
 			return;
@@ -33,12 +38,19 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		$message = $this->getLatestMessage();
 
 		?>
-        <div class="error">
+		<div class="error">
 			<?php echo $this->kses( $message ); ?>
-        </div>
+		</div>
 		<?php
 	}
 
+	/**
+	 * Removes content from the message that we don't want to show
+	 *
+	 * @param string $message The message to clean.
+	 *
+	 * @return string The cleaned message.
+	 */
 	public function kses( $message ) {
 		return wp_kses( $message, array(
 			'a'      => array(
@@ -66,7 +78,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @param string $message The message to add to the global.
 	 */
 	public function addMessage( $message ) {
-	    $whipVersion = require dirname( __FILE__ ) . '/version.php';
+		$whipVersion = require dirname( __FILE__ ) . '/version.php';
 
 		$this->ensureDataStructure();
 
@@ -76,7 +88,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	/**
 	 * Retrieves the latest message from the messages global
 	 *
-     * @return string The latest message from the messages global.
+	 * @return string The latest message from the messages global.
 	 */
 	public function getLatestMessage() {
 		$messages = $GLOBALS['whip_messages'];

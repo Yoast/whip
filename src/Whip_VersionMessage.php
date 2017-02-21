@@ -15,6 +15,10 @@ class Whip_VersionMessage {
 	 */
 	protected $messagePresenters;
 
+	/**
+	 * @param Whip_VersionDetector $versionDetector The version detector to use for detecting the version.
+	 * @param array                $messagePresenters The presenters that should show the message.
+	 */
 	public function __construct( Whip_VersionDetector $versionDetector, array $messagePresenters ) {
 		$this->versionDetector = $versionDetector;
 		$this->messagePresenters = $messagePresenters;
@@ -22,7 +26,7 @@ class Whip_VersionMessage {
 	/**
 	 * Requires a certain version for the given version detector and show a message using the message presenter.
 	 *
-	 * @param string $version
+	 * @param string $version The version that we want to require.
 	 */
 	public function requireVersion( $version ) {
 		if ( ! $this->isStatisfied( $version ) ) {
@@ -33,13 +37,14 @@ class Whip_VersionMessage {
 	/**
 	 * Returns if the given version is statisfied by the installed version
 	 *
-	 * @param string $required_version The required version.
-	 * @returns bool
+	 * @param string $requiredVersion The required version.
+	 *
+*@returns bool
 	 */
-	public function isStatisfied( $required_version ) {
+	public function isStatisfied( $requiredVersion ) {
 		$current_version = $this->versionDetector->detect();
 
-		return version_compare( $current_version, $required_version, ">=" );
+		return version_compare( $current_version, $requiredVersion, '>=' );
 	}
 
 	/**
@@ -64,7 +69,7 @@ class Whip_VersionMessage {
 	}
 
 	/**
-	 * @param Whip_VersionDetector $versionDetector
+	 * @param Whip_VersionDetector $versionDetector The new version detector.
 	 */
 	public function setVersionDetector( $versionDetector ) {
 		$this->versionDetector = $versionDetector;
@@ -80,7 +85,7 @@ class Whip_VersionMessage {
 	}
 
 	/**
-	 * @param Whip_MessagePresenter[] $messagePresenters
+	 * @param Whip_MessagePresenter[] $messagePresenters The new message presenters.
 	 */
 	public function setMessagePresenters( $messagePresenters ) {
 		$this->messagePresenters = $messagePresenters;

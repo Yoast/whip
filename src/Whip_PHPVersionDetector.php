@@ -31,7 +31,9 @@ class Whip_PHPVersionDetector implements Whip_VersionDetector {
 	}
 
 	/**
+	 * Returns the message relevant for an outdated PHP version.
 	 *
+	 * @returns string The message to show to the user.
 	 */
 	public function getMessage() {
 		$textdomain = $this->textdomain;

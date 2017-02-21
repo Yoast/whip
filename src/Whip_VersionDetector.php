@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * An interface that represents a version detector and message.
+ */
 interface Whip_VersionDetector {
 
 	/**
