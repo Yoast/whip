@@ -1,6 +1,8 @@
 # whip
 A WordPress package to nudge users to upgrade their software versions (starting with PHP)
 
+![Screenshot of the WordPress notice](./images/wp-message.png)
+
 ## Requirements
 
 The following versions of PHP are supported:
