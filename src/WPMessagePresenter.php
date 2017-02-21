@@ -8,6 +8,9 @@ class WPMessagePresenter implements MessagePresenter {
 	 */
 	protected $messages;
 
+	/**
+	 * Registers hooks to WordPress. This is a seperate function so you can control when the hooks are registered.
+	 */
 	public function register_hooks() {
 		add_action( 'admin_notices', array( $this, 'renderMessage' ) );
 	}
