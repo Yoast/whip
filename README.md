@@ -13,6 +13,7 @@ The following versions of PHP are supported:
 * PHP 7.0
 * PHP 7.1
 
+WordPress is also required for certain functionality:
 
 * The `WPMessagePresenter` requires WordPress or a function called `add_action`, to hook into WordPress.
 * The `PHPVersionDetector` requires WordPress or a function called `__`, to translate strings.
