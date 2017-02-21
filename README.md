@@ -39,13 +39,19 @@ $versionMessageControl = new VersionMessageControl(
 $versionMessageControl->requireVersion( '5.6' );
 ```
 
-There is also a convenient helper function that you can use:
+There is also a convenient helper method that you can use:
 
 ```php
 Whip_VersionMessage::require_versions( array(
 	'php' => '5.6',
 ) );
 ```
+
+## Backwards compatibility policy
+
+We follow [semantic versioning][semver] with an extra strict rule for MAJOR versions. We will do a major version bump whenever we add new methods. We have to do this because of the shared namespace in PHP. When this package will be used in multiple plugins we cannot safely add and use a method without bumping a major version. This is because the version without the new method may be autoloaded and then a fatal error occurs.
+
+This also means that any major version bump is accompanied by a change of all class names in the package. So for version 2 of this package all classes will be postfixed with `_v2`. This prevents fatal errors when two plugins include different versions of this package.
 
 ## Changelog
 
@@ -57,3 +63,6 @@ If you discover any security related issues, please email security@yoast.com ins
 ## Credits
 
 * [Team Yoast](https://github.com/yoast)
+
+
+[semver]: http://semver.org/
