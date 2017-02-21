@@ -23,9 +23,6 @@ class VersionMessageControl {
 	 * @param string $version
 	 */
 	public function requireVersion( $version ) {
-		$current_version = $this->versionDetector->detect();
-		$versionRelation = version_compare( $current_version, $version );
-
 		if ( ! $this->isStatisfied( $version ) ) {
 			$this->showMessage( $this->versionDetector->getMessage() );
 		}
@@ -74,7 +71,7 @@ class VersionMessageControl {
 	/**
 	 * Returns the configured message presenters
 	 *
-	 * @return MessagePresenter
+	 * @return MessagePresenter[]
 	 */
 	public function getMessagePresenters() {
 		return $this->messagePresenters;
