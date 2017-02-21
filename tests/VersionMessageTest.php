@@ -8,6 +8,10 @@ class StaticVersionDetector implements VersionDetector {
 	public function detect() {
 		return $this->version;
 	}
+
+	public function getMessage() {
+		return '';
+	}
 }
 
 class MessageCollector implements MessagePresenter {
