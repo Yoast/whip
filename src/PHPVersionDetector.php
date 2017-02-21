@@ -8,6 +8,20 @@ class PHPVersionDetector implements VersionDetector {
 	const HOST_MESSAGE_KEY = 'WHIP_MESSAGE_FROM_HOST_ABOUT_PHP';
 
 	/**
+	 * @var string
+	 */
+	protected $textdomain;
+
+	/**
+	 * PHPVersionDetector constructor.
+	 *
+	 * @param string $textdomain The textdomain with which to translate the message.
+	 */
+	public function __construct( $textdomain ) {
+		$this->textdomain = $textdomain;
+	}
+
+	/**
 	 * Detects the version of the installed software
 	 *
 	 * @return string
@@ -20,7 +34,7 @@ class PHPVersionDetector implements VersionDetector {
 	 *
 	 */
 	public function getMessage() {
-		$textdomain = '';
+		$textdomain = $this->textdomain;
 		$message = array();
 
 		$nameOfHost = $this->getNameOfHost();
