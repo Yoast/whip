@@ -95,6 +95,6 @@ class Whip_PHPVersionDetector implements Whip_VersionDetector {
 	 * @return string The wrapped text.
 	 */
 	private function p( $toWrap ) {
-		return '<p>' . strip_tags( $toWrap, '<p><a>' ) . '</p>';
+		return '<p>' . strip_tags( $toWrap, '<p><a><ul><ol><li>' ) . '</p>';
 	}
 }
