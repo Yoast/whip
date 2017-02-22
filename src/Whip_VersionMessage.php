@@ -29,19 +29,19 @@ class Whip_VersionMessage {
 	 * @param string $version The version that we want to require.
 	 */
 	public function requireVersion( $version ) {
-		if ( ! $this->isStatisfied( $version ) ) {
+		if ( ! $this->isSatisfied( $version ) ) {
 			$this->showMessage( $this->versionDetector->getMessage() );
 		}
 	}
 
 	/**
-	 * Returns if the given version is statisfied by the installed version
+	 * Returns if the given version is satisfied by the installed version
 	 *
 	 * @param string $requiredVersion The required version.
 	 *
 *@returns bool
 	 */
-	public function isStatisfied( $requiredVersion ) {
+	public function isSatisfied( $requiredVersion ) {
 		$current_version = $this->versionDetector->detect();
 
 		return version_compare( $current_version, $requiredVersion, '>=' );

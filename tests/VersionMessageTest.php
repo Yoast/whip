@@ -70,7 +70,7 @@ class VersionMessageControlTest extends PHPUnit_Framework_TestCase {
 	public function testIsStatisfied( $expected, $installedVersion, $requiredVersion ) {
 		$this->versionMessageControl->setVersionDetector( new StaticVersionDetector( $installedVersion ) );
 
-		$this->assertEquals( $expected, $this->versionMessageControl->isStatisfied( $requiredVersion ) );
+		$this->assertEquals( $expected, $this->versionMessageControl->isSatisfied( $requiredVersion ) );
 	}
 
 	public function testShowMessages() {
