@@ -39,7 +39,7 @@ class Whip_PHPVersionDetector implements Whip_VersionDetector {
 		$textdomain = $this->textdomain;
 		$message = array();
 
-		$nameOfHost = $this->getNameOfHost();
+		$nameOfHost = $this->getNameOfHost() || 'your hosting provider';
 		$messageFromHost = $this->getMessageFromHost();
 
 		$message[] = $this->p( $this->strong( __( 'Your site could be faster and more secure with a newer PHP version.', $textdomain ) ) ) . '<br />';
@@ -49,8 +49,8 @@ class Whip_PHPVersionDetector implements Whip_VersionDetector {
 		$message[] = $this->p( $this->strong( __( 'To which version should I update?', $textdomain ) ) ) . '<br />';
 		$message[] = $this->p( __( 'You should update your PHP version to either 5.6 or to 7.0 or 7.1. On a normal WordPress site, switching to PHP 5.6 should never cause issues. We would however actually recommend you switch to PHP7. There are some plugins that are not ready for PHP7 though, so do some testing first. We have an article on how to test whether that\'s an option for you here. PHP7 is much faster than PHP 5.6. It\'s also the only PHP version still in active development and therefore the better option for your site in the long run.', $textdomain ) );
 
-		if ( $nameOfHost !== '' ) {
-			$message[] = $this->strong( sprintf( __( 'A message from %1$s', $textdomain ), $nameOfHost ) ) . '<br />';
+		if ( $messageFromHost !== '' ) {
+			$message[] = $this->strong( sprintf( __( 'A message from %1$s:', $textdomain ), $nameOfHost ) ) . '<br />';
 			$message[] = $this->p( $messageFromHost );
 		}
 
