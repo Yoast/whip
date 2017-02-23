@@ -85,7 +85,7 @@ class Whip_PHPVersionDetector implements Whip_VersionDetector {
 	 * @return string The wrapped text.
 	 */
 	private function strong( $toWrap ) {
-		return '<strong>' . $toWrap . '</strong>';
+		return '<strong>' . strip_tags( $toWrap ) . '</strong>';
 	}
 
 	/**
@@ -95,6 +95,6 @@ class Whip_PHPVersionDetector implements Whip_VersionDetector {
 	 * @return string The wrapped text.
 	 */
 	private function p( $toWrap ) {
-		return '<p>' . $toWrap . '</p>';
+		return '<p>' . strip_tags( $toWrap, '<p><a><ul><ol><li>' ) . '</p>';
 	}
 }
