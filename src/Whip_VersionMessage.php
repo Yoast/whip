@@ -39,7 +39,7 @@ class Whip_VersionMessage {
 	 *
 	 * @param string $requiredVersion The required version.
 	 *
-*@returns bool
+	 * @returns bool
 	 */
 	public function isSatisfied( $requiredVersion ) {
 		$current_version = $this->versionDetector->detect();
