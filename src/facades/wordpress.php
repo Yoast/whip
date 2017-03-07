@@ -7,13 +7,9 @@
  */
 function CheckVersions( $requirements ) {
 	// Only show for admin users.
-	if ( ! current_user_can( 'manage_options' ) ) {
+	if ( ! current_user_can( 'manage_options' ) || ! is_array( $requirements ) ) {
 		return;
  	}
-
- 	if ( ! is_array( $requirements ) ) {
-		return;
-    }
 
 	$checker = new Whip_RequirementsChecker( $requirements );
 	$checker->check();
