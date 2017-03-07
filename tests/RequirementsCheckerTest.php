@@ -92,7 +92,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertNotEmpty( $recentMessage  );
 		$this->assertInternalType( 'string', $recentMessage->body() );
 		$this->assertFalse( $checker->hasMessages() );
-		$this->assertTrue( get_class( $recentMessage ) === Whip_UpgradePhpMessage::class );
+		$this->assertTrue( get_class( $recentMessage ) === 'Whip_UpgradePhpMessage' );
 	}
 
 	public function testCheckIfRequirementIsNotFulfilled() {
@@ -108,7 +108,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertNotEmpty( $recentMessage  );
 		$this->assertFalse( $checker->hasMessages() );
-		$this->assertTrue( get_class( $recentMessage ) === Whip_InvalidVersionRequirementMessage::class );
+		$this->assertTrue( get_class( $recentMessage ) === 'Whip_InvalidVersionRequirementMessage' );
 	}
 
 	public function testCheckIfRequirementIsFulfilledWithSpecificComparison() {
