@@ -7,8 +7,12 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
 	private $message;
 
-	public function __construct( Whip_Message $message )
-    {
+	/**
+	 * Whip_WPMessagePresenter constructor.
+	 *
+	 * @param Whip_Message $message The message to use in the presenter.
+	 */
+	public function __construct( Whip_Message $message ) {
 	    $this->message = $message;
     }
 
