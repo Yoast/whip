@@ -18,8 +18,29 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	 * @expectedException TypeError
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassed() {
+		if ( version_compare( phpversion(), 7.0, '<' ) ) {
+			$this->markTestSkipped();
+		}
+
 		$checker = new Whip_RequirementsChecker();
 		$checker->addRequirement( new \stdClass() );
+	}
+
+	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassedInPHP5() {
+		if ( version_compare( phpversion(), 7.0, '>=' ) ) {
+			$this->markTestSkipped();
+		}
+
+		$exceptionCaught = false;
+
+		$checker = new Whip_RequirementsChecker();
+		try {
+			$checker->addRequirement( new \stdClass() );
+		} catch( \Error $e ) {
+			$exceptionCaught = true;
+		}
+
+		$this->assertTrue( $exceptionCaught );
 	}
 
 	public function testItOnlyContainsUniqueComponents() {
