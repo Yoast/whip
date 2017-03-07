@@ -10,7 +10,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 
 	public function testItReturnsANegativeNumberIfRequirementCannotBeFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
-		$requirement = $this->getMockBuilder( Whip_Requirement::class )
+		$requirement = $this->getMockBuilder( 'Whip_Requirement' )
 							->setMethods(['component'])
 							->getMock();
 
@@ -22,7 +22,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 
 	public function testItReturnsAnEntryIfRequirementIsFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
-		$requirement = $this->getMockBuilder( Whip_Requirement::class )
+		$requirement = $this->getMockBuilder( 'Whip_Requirement' )
 		                    ->setMethods( ['component'] )
 		                    ->getMock();
 
@@ -33,13 +33,13 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 
 	public function testIfRequirementIsConfigurated() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
-		$requirement = $this->getMockBuilder( Whip_Requirement::class )
+		$requirement = $this->getMockBuilder( 'Whip_Requirement' )
 		                    ->setMethods( ['component'] )
 		                    ->getMock();
 
 		$requirement->method('component')->willReturn('php');
 
-		$falseRequirement = $this->getMockBuilder( Whip_Requirement::class )
+		$falseRequirement = $this->getMockBuilder( 'Whip_Requirement' )
 		                         ->setMethods( ['component'] )
 		                         ->getMock();
 
