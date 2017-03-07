@@ -14,8 +14,8 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 							->setMethods( array( 'component' ) )
 							->getMock();
 
-		$requirement->method('component')
-			->willReturn('mysql');
+		$requirement->method( 'component' )
+			->willReturn( 'mysql' );
 
 		$this->assertEquals( -1, $configuration->configuredVersion( $requirement ) );
 	}
@@ -26,7 +26,8 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 		                    ->setMethods( array( 'component' ) )
 		                    ->getMock();
 
-		$requirement->method('component')->willReturn('php');
+		$requirement->method( 'component' )
+			->willReturn( 'php' );
 
 		$this->assertEquals( '5.6', $configuration->configuredVersion( $requirement ) );
 	}
@@ -37,7 +38,8 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 		                    ->setMethods( array( 'component' ) )
 		                    ->getMock();
 
-		$requirement->method('component')->willReturn('php');
+		$requirement->method( 'component' )
+			->willReturn( 'php' );
 
 		$falseRequirement = $this->getMockBuilder( 'Whip_Requirement' )
 		                         ->setMethods( array( 'component' ) )

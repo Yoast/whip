@@ -24,7 +24,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		}
 
 		$checker = new Whip_RequirementsChecker();
-		$checker->addRequirement( new \stdClass() );
+		$checker->addRequirement( new stdClass() );
 	}
 
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassedInPHP5() {
@@ -37,8 +37,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$checker = new Whip_RequirementsChecker();
 
 		try {
-			$checker->addRequirement( new \stdClass() );
-		} catch( \Exception $e ) {
+			$checker->addRequirement( new stdClass() );
+		} catch( Exception $e ) {
 			$exceptionCaught = true;
 		}
 
