@@ -15,4 +15,4 @@ install:
 
 script:
 - echo $TRAVIS_PHP_VERSION
-- if [[ "$TRAVIS_PHP_VERSION" == "5.2" ]]; then phpunit; else ./vendor/bin/phpunit; fi
+- php ./vendor/phpunit/phpunit/phpunit.php
