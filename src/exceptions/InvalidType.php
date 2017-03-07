@@ -3,7 +3,7 @@
 /**
  * Class InvalidType
  */
-class InvalidType extends \Exception {
+class InvalidType extends Exception {
 
 	/**
 	 * InvalidType constructor.

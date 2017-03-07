@@ -3,7 +3,7 @@
 /**
  * Class InvalidOperatorType
  */
-class InvalidOperatorType extends \Exception {
+class InvalidOperatorType extends Exception {
 
 	private $validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' );
 
