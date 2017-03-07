@@ -12,3 +12,6 @@ install:
 - phpenv local 5.3
 - composer install
 - phpenv local --unset
+
+script:
+- ./vendor/bin/phpunit
