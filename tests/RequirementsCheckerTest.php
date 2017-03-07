@@ -35,9 +35,10 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$exceptionCaught = false;
 
 		$checker = new Whip_RequirementsChecker();
+
 		try {
 			$checker->addRequirement( new \stdClass() );
-		} catch( \Error $e ) {
+		} catch( \Exception $e ) {
 			$exceptionCaught = true;
 		}
 
