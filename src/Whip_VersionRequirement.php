@@ -126,7 +126,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_InvalidType( 'Operator', 'string', $operator );
 		}
 
-		if ( ! in_array( $operator, array( '=', '==', '===', '<', '>', '<=', '>=' ) ) ) {
+		if ( ! in_array( $operator, array( '=', '==', '===', '<', '>', '<=', '>=' ), true ) ) {
 			throw new Whip_InvalidOperatorType( $operator );
 		}
 	}

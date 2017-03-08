@@ -88,7 +88,7 @@ class Whip_RequirementsChecker {
 		$available_version = $this->configuration->configuredVersion( $requirement );
 		$required_version = $requirement->version();
 
-		if ( in_array( $requirement->operator(), array( '=', '==', '===' ) ) ) {
+		if ( in_array( $requirement->operator(), array( '=', '==', '===' ), true ) ) {
 			return -1 !== version_compare( $available_version, $required_version );
 		}
 
