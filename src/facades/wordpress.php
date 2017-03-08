@@ -15,8 +15,8 @@ if ( ! function_exists( 'CheckVersions' ) ) {
 		$config  = include_once dirname( __FILE__ ) . '/../configs/default.php';
 		$checker = new Whip_RequirementsChecker( $config );
 
-		foreach ( $requirements as $component => $version ) {
-			$checker->addRequirement( new Whip_VersionRequirement( $component, $version ) );
+		foreach ( $requirements as $component => $versionComparison ) {
+			$checker->addRequirement( Whip_VersionRequirement::fromCompareString( $component, $versionComparison ) );
 		}
 
 		$checker->check();
