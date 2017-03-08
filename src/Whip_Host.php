@@ -18,7 +18,7 @@ class Whip_Host {
 	}
 
 	/**
-	 * Filters the name if we are in a WordPress context.
+	 * Filters the name if we are in a WordPress context. In a non-WordPress content this function just returns the passed name.
 	 *
 	 * @param string $name The current name of the host.
 	 * @returns string The filtered name of the host.
@@ -45,9 +45,9 @@ class Whip_Host {
 	}
 
 	/**
-	 * Filters the message if we are in a WordPress context.
+	 * Filters the message if we are in a WordPress context. In a non-WordPress content this function just returns the passed message.
 	 *
-	 * @param string $filterKey The key used for the environment variable.
+	 * @param string $messageKey The key used for the environment variable.
 	 * @param string $message The current message from the host.
 	 *
 	 * @return string

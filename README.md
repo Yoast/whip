@@ -63,7 +63,7 @@ add_filter( 'whip_message_from_host_about_php', 'my_host__php_message_for_whip' 
 
 The WordPress filters can also read the value previously set by the environment variables.
 
-As a general rule, the filter is the same as the environment variable lowercased.
+As a general rule, the filter is the same as the environment variable, but lowercased.
 
 ## Backwards compatibility policy
 
