@@ -11,7 +11,7 @@ php:
 install:
 - phpenv local 5.3
 - composer install
-- if [[ "$TRAVIS_PHP_VERSION" == "5.2" ]]; then composer remove phpunit/phpunit; fi
+- if [[ "$TRAVIS_PHP_VERSION" == "5.2" ]]; then composer remove --dev phpunit/phpunit; fi
 - phpenv local --unset
 
 script:
