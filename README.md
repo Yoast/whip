@@ -28,26 +28,14 @@ $ composer require yoast/whip
 
 ## Usage
 
-To require users to have PHP 5.6 or higher and show them a message if this is not the case you can use the following code:
-
+The easiest way to use Whip in WordPress is just by using the included function to check the versions. In this case checking if PHP 5.6 or greater is installed: 
 ```php
-$wpMessagePresenter = new WPMessagePresenter();
-$wpMessagePresenter->register_hooks();
-
-$versionMessageControl = new VersionMessageControl(
-	new PHPVersionDetector(),
-	array( $wpMessagePresenter )
-);
-$versionMessageControl->requireVersion( '5.6' );
-```
-
-There is also a convenient helper method that you can use:
-
-```php
-Whip_VersionMessage::require_versions( array(
-	'php' => '5.6',
+Whip_Wp_CheckVersions( array(
+	'php' => '>=5.6',
 ) );
 ```
+
+This will show a message to all users of your plugin on PHP5.2 to PHP 5.5.
 
 ### Adding a message as a host
 
