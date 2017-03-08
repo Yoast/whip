@@ -36,7 +36,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( '5.6', $configuration->configuredVersion( $requirement ) );
 	}
 
-	public function testIfRequirementIsConfigurated() {
+	public function testIfRequirementIsConfigured() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
 		$requirement = $this->getMockBuilder( 'Whip_Requirement' )
 		                    ->setMethods( array( 'component' ) )
