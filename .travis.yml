@@ -14,4 +14,5 @@ install:
 - phpenv local --unset
 
 script:
-- ./vendor/bin/phpunit
+- echo $TRAVIS_PHP_VERSION
+- php ./vendor/phpunit/phpunit/phpunit.php
