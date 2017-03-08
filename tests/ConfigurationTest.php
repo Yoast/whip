@@ -36,7 +36,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( '5.6', $configuration->configuredVersion( $requirement ) );
 	}
 
-	public function testIfRequirementIsConfigurated() {
+	public function testIfRequirementIsConfigured() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
 		$requirement = $this->getMockBuilder( 'Whip_Requirement' )
 		                    ->setMethods( array( 'component' ) )
@@ -56,7 +56,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 			->method( 'component' )
 			->will( $this->returnValue( 'mysql' ) );
 
-		$this->assertTrue( $configuration->hasRequirementConfigurated( $requirement ) );
-		$this->assertFalse( $configuration->hasRequirementConfigurated( $falseRequirement ) );
+		$this->assertTrue( $configuration->hasRequirementConfigured( $requirement ) );
+		$this->assertFalse( $configuration->hasRequirementConfigured( $falseRequirement ) );
 	}
 }

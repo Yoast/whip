@@ -52,7 +52,7 @@ class Whip_MessagesManager {
 	}
 
 	/**
-	 * Gets the lastest message.
+	 * Gets the latest message.
 	 *
 	 * @return Whip_Message The message. Returns a NullMessage if none is found.
 	 */

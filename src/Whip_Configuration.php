@@ -34,7 +34,7 @@ class Whip_Configuration {
 	 * @return int The version of the passed requirement that was detected.
 	 */
 	public function configuredVersion( Whip_Requirement $requirement ) {
-		if ( ! $this->hasRequirementConfigurated( $requirement ) ) {
+		if ( ! $this->hasRequirementConfigured( $requirement ) ) {
 			return -1;
 		}
 
@@ -48,7 +48,7 @@ class Whip_Configuration {
 	 *
 	 * @return bool Whether or not the requirement is present in the configuration.
 	 */
-	public function hasRequirementConfigurated( Whip_Requirement $requirement ) {
+	public function hasRequirementConfigured( Whip_Requirement $requirement ) {
 		return array_key_exists( $requirement->component(), $this->configuration );
 	}
 }

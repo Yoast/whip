@@ -93,7 +93,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	/**
 	 * Validates the parameters passed to the requirement.
 	 *
-	 * @param string $component The compoenent name.
+	 * @param string $component The component name.
 	 * @param string $version   The component version.
 	 * @param string $operator  The operator to use when comparing version.
 	 *
