@@ -48,6 +48,19 @@ putenv( "WHIP_MESSAGE_FROM_HOST_ABOUT_PHP=A message from the host" );
 
 The `WHIP_NAME_OF_HOST` environment variable could be reused in the future for showing messages about different software packages.
 
+Both the name and the message for PHP can also be changed using WordPress filters:
+```php
+function my_host_name_for_whip() {
+	return 'Name of the host';
+}
+apply_filters( 'whip_name_of_host', 'my_host_name_for_whip' );
+
+function my_host_php_message_for_whip( $message ) {
+	return 'A message from the host';
+}
+apply_filters( 'whip_message_from_host_about_php', 'my_host_php_message_for_whip' );
+```
+
 ## Backwards compatibility policy
 
 We follow [semantic versioning][semver] with an extra strict rule for MAJOR versions. We will do a major version bump whenever we add new methods. We have to do this because of the shared namespace in PHP. When this package will be used in multiple plugins we cannot safely add and use a method without bumping a major version. This is because the version without the new method may be autoloaded and then a fatal error occurs.

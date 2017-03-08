@@ -16,14 +16,20 @@ class Whip_HostMessage implements Whip_Message {
 	private $messageKey;
 
 	/**
+	 * @var string
+	 */
+	private $filterKey;
+
+	/**
 	 * Whip_Message constructor.
 	 *
 	 * @param string $messageKey The environment key to use to retrieve the message from.
 	 * @param string $textdomain The text domain to use for translations.
 	 */
-	public function __construct( $messageKey, $textdomain ) {
+	public function __construct( $messageKey, $filterKey, $textdomain ) {
 		$this->textdomain = $textdomain;
 		$this->messageKey = $messageKey;
+		$this->filterKey = $filterKey;
 	}
 
 	/**
@@ -35,7 +41,7 @@ class Whip_HostMessage implements Whip_Message {
 		$message = array();
 
 		$message[] = Whip_MessageFormatter::strong( $this->title() ) . '<br />';
-		$message[] = Whip_MessageFormatter::paragraph( Whip_Host::message( $this->messageKey ) );
+		$message[] = Whip_MessageFormatter::paragraph( Whip_Host::message( $this->messageKey, $this->filterKey ) );
 
 		return implode( $message, "\n" );
 	}
