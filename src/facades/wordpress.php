@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Facade to quickly check if version requirements are met.
  *
@@ -11,7 +12,13 @@ function CheckVersions( $requirements ) {
 		return;
  	}
 
-	$checker = new Whip_RequirementsChecker( $requirements );
+ 	$config  = include_once '../configs/default.php';
+	$checker = new Whip_RequirementsChecker( $config );
+
+	foreach ( $requirements as $component => $version ) {
+		$checker->addRequirement( new Whip_VersionRequirement( $component, $version ) );
+	}
+
 	$checker->check();
 
 	if ( ! $checker->hasMessages() ) {
