@@ -32,11 +32,11 @@ class Whip_BasicMessage implements Whip_Message {
 
 	private function validateParameters( $body ) {
 		if ( empty( $body ) ) {
-			throw new EmptyProperty( "Message body" );
+			throw new EmptyProperty( 'Message body' );
 		}
 
 		if ( ! is_string( $body ) ) {
-			throw new InvalidType( "Message body", "string", $body );
+			throw new InvalidType( 'Message body', 'string', $body );
 		}
 	}
 }

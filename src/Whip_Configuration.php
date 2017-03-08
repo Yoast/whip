@@ -19,7 +19,7 @@ class Whip_Configuration {
 	 */
 	public function __construct( $configuration = array() ) {
 		if ( ! is_array( $configuration ) ) {
-			throw new InvalidType( "Configuration", gettype( $configuration), "array" );
+			throw new InvalidType( 'Configuration', gettype( $configuration), 'array' );
 		}
 
 	    $this->configuration = $configuration;

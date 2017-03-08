@@ -13,6 +13,6 @@ class InvalidType extends Exception {
 	 * @param string $expectedType
 	 */
 	public function __construct( $property, $value, $expectedType ) {
-		parent::__construct( sprintf( "%s should be of type %s. Found %s.", $property, $expectedType, gettype( $value ) ) );
+		parent::__construct( sprintf( '%s should be of type %s. Found %s.', $property, $expectedType, gettype( $value ) ) );
 	}
 }

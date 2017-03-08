@@ -2,7 +2,7 @@
 
 class MessageTest extends PHPUnit_Framework_TestCase {
 	public function testMessageHasBody() {
-		$message = new Whip_BasicMessage( "This is a message" );
+		$message = new Whip_BasicMessage( 'This is a message' );
 
 		$this->assertNotEmpty($message->body());
 	}
@@ -11,7 +11,7 @@ class MessageTest extends PHPUnit_Framework_TestCase {
 	 * @expectedException EmptyProperty
 	 */
 	public function testMessageCannotBeEmpty() {
-		new Whip_BasicMessage( "" );
+		new Whip_BasicMessage( '' );
 	}
 
 	/**
