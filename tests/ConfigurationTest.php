@@ -56,7 +56,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 			->method( 'component' )
 			->will( $this->returnValue( 'mysql' ) );
 
-		$this->assertTrue( $configuration->hasRequirementConfigurated( $requirement ) );
-		$this->assertFalse( $configuration->hasRequirementConfigurated( $falseRequirement ) );
+		$this->assertTrue( $configuration->hasRequirementConfigured( $requirement ) );
+		$this->assertFalse( $configuration->hasRequirementConfigured( $falseRequirement ) );
 	}
 }
