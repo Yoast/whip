@@ -12,7 +12,7 @@ if ( ! function_exists( 'Whip_Wp_CheckVersions' ) ) {
 			return;
 		}
 
-		$config  = include_once dirname( __FILE__ ) . '/../configs/default.php';
+		$config  = include dirname( __FILE__ ) . '/../configs/default.php';
 		$checker = new Whip_RequirementsChecker( $config );
 
 		foreach ( $requirements as $component => $versionComparison ) {
