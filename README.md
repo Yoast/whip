@@ -49,6 +49,17 @@ Whip_VersionMessage::require_versions( array(
 ) );
 ```
 
+### Adding a message as a host
+
+It is possible to add a custom message to the PHP version message by setting specific environment variables:
+
+```php
+putenv( "WHIP_NAME_OF_HOST=Name of the host" );
+putenv( "WHIP_MESSAGE_FROM_HOST_ABOUT_PHP=A message from the host" );
+```
+
+The `WHIP_NAME_OF_HOST` environment variable could be reused in the future for showing messages about different software packages.
+
 ## Backwards compatibility policy
 
 We follow [semantic versioning][semver] with an extra strict rule for MAJOR versions. We will do a major version bump whenever we add new methods. We have to do this because of the shared namespace in PHP. When this package will be used in multiple plugins we cannot safely add and use a method without bumping a major version. This is because the version without the new method may be autoloaded and then a fatal error occurs.
