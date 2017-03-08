@@ -3,7 +3,7 @@
 /**
  * Class InvalidOperatorType
  */
-class InvalidOperatorType extends Exception {
+class Whip_InvalidOperatorType extends Exception {
 
 	private $validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' );
 

@@ -2,7 +2,7 @@
 
 class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	/**
-	 * @expectedException InvalidType
+	 * @expectedException Whip_InvalidType
 	 */
 	public function testItThrowsAnErrorIfAFaultyConfigurationIsPassed() {
 		$configuration = new Whip_Configuration( 'Invalid configuration' );

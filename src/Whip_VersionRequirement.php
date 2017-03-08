@@ -64,10 +64,12 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	/**
 	 * Creates a new version requirement from a comparison string
 	 *
-	 * @throws InvalidVersionComparisonString When an invalid version comparison string is passed.
-	 * @param string $component        The component for this version requirement.
+	 * @throws Whip_InvalidVersionComparisonString When an invalid version comparison string is passed.
+	 *
+*@param string $component        The component for this version requirement.
 	 * @param string $comparisonString The comparison string for this version requirement.
-	 * @returns Whip_VersionRequirement The parsed version requirement.
+	 *
+*@returns Whip_VersionRequirement The parsed version requirement.
 	 */
 	public static function fromCompareString( $component, $comparisonString ) {
 
@@ -79,7 +81,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 		           '([^>=<\s]+)'; // Matches anything except >, <, =, and whitespace.
 
 		if ( ! preg_match( '#' . $matcher . '#', $comparisonString, $match ) ) {
-			throw new InvalidVersionComparisonString( $comparisonString );
+			throw new Whip_InvalidVersionComparisonString( $comparisonString );
 		}
 
 		$version = $match[4];
@@ -95,37 +97,37 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 * @param string $version   The component version.
 	 * @param string $operator  The operator to use when comparing version.
 	 *
-	 * @throws EmptyProperty
-	 * @throws InvalidOperatorType
-	 * @throws InvalidType
+	 * @throws Whip_EmptyProperty
+	 * @throws Whip_InvalidOperatorType
+	 * @throws Whip_InvalidType
 	 */
 	private function validateParameters( $component, $version, $operator ) {
 		if ( empty( $component ) ) {
-			throw new EmptyProperty( "Component" );
+			throw new Whip_EmptyProperty( "Component" );
 		}
 
 		if ( !is_string( $component ) ) {
-			throw new InvalidType( "Component", "string", $component );
+			throw new Whip_InvalidType( "Component", "string", $component );
 		}
 
 		if ( empty( $version ) ) {
-			throw new EmptyProperty( "Version" );
+			throw new Whip_EmptyProperty( "Version" );
 		}
 
 		if ( !is_string( $version ) ) {
-			throw new InvalidType( "Version", "string", $version );
+			throw new Whip_InvalidType( "Version", "string", $version );
 		}
 
 		if ( empty( $operator ) ) {
-			throw new EmptyProperty( "Operator" );
+			throw new Whip_EmptyProperty( "Operator" );
 		}
 
 		if ( !is_string( $operator ) ) {
-			throw new InvalidType( 'Operator', 'string', $operator );
+			throw new Whip_InvalidType( 'Operator', 'string', $operator );
 		}
 
 		if ( ! in_array( $operator, array( '=', '==', '===', '<', '>', '<=', '>=' ) ) ) {
-			throw new InvalidOperatorType( $operator );
+			throw new Whip_InvalidOperatorType( $operator );
 		}
 	}
 }

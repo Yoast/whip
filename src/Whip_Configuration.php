@@ -15,11 +15,11 @@ class Whip_Configuration {
 	 *
 	 * @param array $configuration The configuration to use.
 	 *
-	 * @throws InvalidType
+	 * @throws Whip_InvalidType
 	 */
 	public function __construct( $configuration = array() ) {
 		if ( ! is_array( $configuration ) ) {
-			throw new InvalidType( "Configuration", gettype( $configuration), "array" );
+			throw new Whip_InvalidType( "Configuration", gettype( $configuration), "array" );
 		}
 
 	    $this->configuration = $configuration;
