@@ -143,7 +143,7 @@ class Whip_RequirementsChecker {
 	/**
 	 * Gets the most recent message from the message manager.
 	 *
-	 * @return string The latest message.
+	 * @return Whip_Message The latest message.
 	 */
 	public function getMostRecentMessage() {
 		return $this->messageMananger->getLatestMessage();
