@@ -30,7 +30,7 @@ $ composer require yoast/whip
 
 The easiest way to use Whip in WordPress is just by using the included function to check the versions. In this case checking if PHP 5.6 or greater is installed: 
 ```php
-Whip_Wp_CheckVersions( array(
+whip_wp_check_versions( array(
 	'php' => '>=5.6',
 ) );
 ```

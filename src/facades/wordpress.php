@@ -1,12 +1,12 @@
 <?php
 
-if ( ! function_exists( 'Whip_Wp_CheckVersions' ) ) {
+if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 	/**
 	 * Facade to quickly check if version requirements are met.
 	 *
 	 * @param array $requirements The requirements to check.
 	 */
-	function Whip_Wp_CheckVersions( $requirements ) {
+	function whip_wp_check_versions( $requirements ) {
 		// Only show for admin users.
 		if ( ! current_user_can( 'manage_options' ) || ! is_array( $requirements ) ) {
 			return;
