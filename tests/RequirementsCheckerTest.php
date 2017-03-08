@@ -19,6 +19,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassed() {
 		if ( version_compare( phpversion(), 7.0, '<' ) ) {
+			return;
 			$this->markTestSkipped( 'Skipped due to incompatible PHP version.' );
 		}
 
