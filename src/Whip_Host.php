@@ -14,7 +14,7 @@ class Whip_Host {
 	public static function name() {
 		$name = (string) getenv( self::HOST_NAME_KEY );
 
-		return self::filter_name( $name );
+		return self::filterName( $name );
 	}
 
 	/**
@@ -23,7 +23,7 @@ class Whip_Host {
 	 * @param string $name The current name of the host.
 	 * @returns string The filtered name of the host.
 	 */
-	private static function filter_name( $name ) {
+	private static function filterName( $name ) {
 		if ( function_exists( 'apply_filters' ) ) {
 			return (string) apply_filters( strtolower( self::HOST_NAME_KEY ), $name );
 		}
@@ -41,7 +41,7 @@ class Whip_Host {
 	public static function message( $messageKey ) {
 		$message = (string) getenv( $messageKey );
 
-		return self::filter_message( $messageKey, $message );
+		return self::filterMessage( $messageKey, $message );
 	}
 
 	/**
@@ -52,7 +52,7 @@ class Whip_Host {
 	 *
 	 * @return string
 	 */
-	private static function filter_message( $messageKey, $message ) {
+	private static function filterMessage( $messageKey, $message ) {
 		if ( function_exists( 'apply_filters' ) ) {
 			return (string) apply_filters( strtolower( $messageKey ), $message );
 		}
