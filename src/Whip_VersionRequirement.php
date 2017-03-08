@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Whip_Requirement
+ * A value object containing a version requirement for a component version.
  */
 class Whip_VersionRequirement implements Whip_Requirement {
 	/**

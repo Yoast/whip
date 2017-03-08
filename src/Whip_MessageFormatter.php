@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Whip_MessageFormatter
+ * A helper class to format messages
  */
-class Whip_MessageFormatter {
+final class Whip_MessageFormatter {
 
 	/**
 	 * Wraps a piece of text in HTML strong tags

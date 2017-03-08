@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Whip_MessagesManager
+ * Manages messages using a global to prevent duplicate messages.
  */
 class Whip_MessagesManager {
 

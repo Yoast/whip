@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Whip_Host
+ * Represents a host
  */
 class Whip_Host {
 	const HOST_NAME_KEY = 'WHIP_NAME_OF_HOST';

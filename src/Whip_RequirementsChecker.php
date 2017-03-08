@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Whip_RequirementsChecker
+ * Main controller class to require a certain version of software.
  */
 class Whip_RequirementsChecker {
 
