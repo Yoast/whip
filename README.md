@@ -35,7 +35,7 @@ whip_wp_check_versions( array(
 ) );
 ```
 
-This will show a message to all users of your plugin on PHP5.2 to PHP 5.5.
+This will show a message to all users of your plugin on PHP5.2 to PHP 5.5. By default the message will be shown on every page of the admin and to every user. It is up to the implementing plugin to restrict this to certain users and/or pages.
 
 ### Adding a message as a host
 
