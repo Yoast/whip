@@ -117,6 +117,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertNotEmpty( $recentMessage  );
 		$this->assertFalse( $checker->hasMessages() );
 		$this->assertTrue( get_class( $recentMessage ) === 'Whip_InvalidVersionRequirementMessage' );
+		$this->assertStringStartsWith( 'Invalid version detected', $recentMessage->body() );
 	}
 
 	public function testCheckIfRequirementIsFulfilledWithSpecificComparison() {

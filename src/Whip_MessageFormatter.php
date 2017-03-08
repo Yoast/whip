@@ -32,6 +32,6 @@ class Whip_MessageFormatter {
 	 * @return string The wrapped text.
 	 */
 	public static function strongParagraph( $toWrap ) {
-		return '<p><strong>' . $toWrap . '</strong></p>';
+		return self::paragraph( self::strong( $toWrap ) );
 	}
 }
