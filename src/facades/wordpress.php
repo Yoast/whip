@@ -1,12 +1,12 @@
 <?php
 
-if ( ! function_exists( 'CheckVersions' ) ) {
+if ( ! function_exists( 'check_versions' ) ) {
 	/**
 	 * Facade to quickly check if version requirements are met.
 	 *
 	 * @param array $requirements The requirements to check.
 	 */
-	function CheckVersions( $requirements ) {
+	function check_versions( $requirements ) {
 		// Only show for admin users.
 		if ( ! current_user_can( 'manage_options' ) || ! is_array( $requirements ) ) {
 			return;
