@@ -50,16 +50,20 @@ The `WHIP_NAME_OF_HOST` environment variable could be reused in the future for s
 
 Both the name and the message for PHP can also be changed using WordPress filters:
 ```php
-function my_host_name_for_whip() {
+function my_host__name_for_whip() {
 	return 'Name of the host';
 }
-apply_filters( 'whip_name_of_host', 'my_host_name_for_whip' );
+add_filter( 'whip_name_of_host', 'my_host__name_for_whip' );
 
-function my_host_php_message_for_whip( $message ) {
+function my_host__php_message_for_whip( $message ) {
 	return 'A message from the host';
 }
-apply_filters( 'whip_message_from_host_about_php', 'my_host_php_message_for_whip' );
+add_filter( 'whip_message_from_host_about_php', 'my_host__php_message_for_whip' );
 ```
+
+The WordPress filters can also read the value previously set by the environment variables.
+
+As a general rule, the filter is the same as the environment variable lowercased.
 
 ## Backwards compatibility policy
 

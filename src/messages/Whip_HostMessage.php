@@ -26,10 +26,9 @@ class Whip_HostMessage implements Whip_Message {
 	 * @param string $messageKey The environment key to use to retrieve the message from.
 	 * @param string $textdomain The text domain to use for translations.
 	 */
-	public function __construct( $messageKey, $filterKey, $textdomain ) {
+	public function __construct( $messageKey, $textdomain ) {
 		$this->textdomain = $textdomain;
 		$this->messageKey = $messageKey;
-		$this->filterKey = $filterKey;
 	}
 
 	/**

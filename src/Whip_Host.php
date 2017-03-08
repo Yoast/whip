@@ -5,7 +5,6 @@
  */
 class Whip_Host {
 	const HOST_NAME_KEY = 'WHIP_NAME_OF_HOST';
-	const HOST_NAME_FILTER_KEY = 'whip_name_of_host';
 
 	/**
 	 * Retrieves the name of the host if set.
@@ -26,7 +25,7 @@ class Whip_Host {
 	 */
 	private static function filter_name( $name ) {
 		if ( function_exists( 'apply_filters' ) ) {
-			return (string) apply_filters( self::HOST_NAME_FILTER_KEY, $name );
+			return (string) apply_filters( strtolower( self::HOST_NAME_KEY ), $name );
 		}
 
 		return $name;
@@ -36,27 +35,26 @@ class Whip_Host {
 	 * Retrieves the message from the host if set.
 	 *
 	 * @param string $messageKey The key to use as the environment variable.
-	 * @param string $filterKey The key with which to filter in a WordPress env.
 	 *
 	 * @return string The message as set by the host.
 	 */
-	public static function message( $messageKey, $filterKey ) {
+	public static function message( $messageKey ) {
 		$message = (string) getenv( $messageKey );
 
-		return self::filter_message( $filterKey, $message );
+		return self::filter_message( $messageKey, $message );
 	}
 
 	/**
 	 * Filters the message if we are in a WordPress context.
 	 *
-	 * @param string $filterKey The filter to use.
+	 * @param string $filterKey The key used for the environment variable.
 	 * @param string $message The current message from the host.
 	 *
 	 * @return string
 	 */
-	private static function filter_message( $filterKey, $message ) {
+	private static function filter_message( $messageKey, $message ) {
 		if ( function_exists( 'apply_filters' ) ) {
-			return (string) apply_filters( $filterKey, $message );
+			return (string) apply_filters( strtolower( $messageKey ), $message );
 		}
 
 		return $message;
