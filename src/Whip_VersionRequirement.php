@@ -62,6 +62,33 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
+	 * Creates a new version requirement from a comparison string
+	 *
+	 * @throws InvalidVersionComparisonString When an invalid version comparison string is passed.
+	 * @param string $component        The component for this version requirement.
+	 * @param string $comparisonString The comparison string for this version requirement.
+	 * @returns Whip_VersionRequirement The parsed version requirement.
+	 */
+	public static function fromCompareString( $component, $comparisonString ) {
+
+		$matcher = '(' .
+		               '(>=?)' . // Matches >= and >.
+		               '|' .
+		               '(<=?)' . // Matches <= and <.
+		           ')' .
+		           '([^>=<\s]+)'; // Matches anything except >, <, =, and whitespace.
+
+		if ( ! preg_match( '#' . $matcher . '#', $comparisonString, $match ) ) {
+			throw new InvalidVersionComparisonString( $comparisonString );
+		}
+
+		$version = $match[4];
+		$operator = $match[1];
+
+		return new Whip_VersionRequirement( $component, $version, $operator );
+	}
+
+	/**
 	 * Validates the parameters passed to the requirement.
 	 *
 	 * @param string $component The compoenent name.

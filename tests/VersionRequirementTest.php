@@ -64,5 +64,36 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( '5.6', $requirement->version() );
 		$this->assertEquals( '=',   $requirement->operator() );
 	}
+
+	/**
+	 * @dataProvider dataFromCompareString
+	 */
+	public function testFromCompareString( $expectation, $component, $compareString ) {
+		$requirement = Whip_VersionRequirement::fromCompareString( $component, $compareString );
+
+		$this->assertEquals( $expectation[0], $requirement->component() );
+		$this->assertEquals( $expectation[1], $requirement->version() );
+		$this->assertEquals( $expectation[2], $requirement->operator() );
+	}
+
+	public function dataFromCompareString() {
+		return array(
+			array( array( 'php', '5.5', '>' ), 'php', '>5.5' ),
+			array( array( 'php', '5.5', '>=' ), 'php', '>=5.5' ),
+			array( array( 'php', '5.5', '<' ), 'php', '<5.5' ),
+			array( array( 'php', '5.5', '<=' ), 'php', '<=5.5' ),
+			array( array( 'php', '7.3', '>' ), 'php', '>7.3' ),
+			array( array( 'php', '7.3', '>=' ), 'php', '>=7.3' ),
+			array( array( 'php', '7.3', '<' ), 'php', '<7.3' ),
+			array( array( 'php', '7.3', '<=' ), 'php', '<=7.3' ),
+		);
+	}
+
+	/**
+	 * @expectedException InvalidVersionComparisonString
+	 */
+	public function testFromCompareStringException() {
+		Whip_VersionRequirement::fromCompareString( 'php', '> 2.3' );
+	}
 }
 
