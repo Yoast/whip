@@ -35,7 +35,8 @@ class Whip_UpgradePhpMessage implements Whip_Message {
 		$message[] = Whip_MessageFormatter::paragraph( __( 'You should update your PHP version to either 5.6 or to 7.0 or 7.1. On a normal WordPress site, switching to PHP 5.6 should never cause issues. We would however actually recommend you switch to PHP7. There are some plugins that are not ready for PHP7 though, so do some testing first. We have an article on how to test whether that\'s an option for you here. PHP7 is much faster than PHP 5.6. It\'s also the only PHP version still in active development and therefore the better option for your site in the long run.', $textdomain ) );
 
 		if ( Whip_Host::name() !== '' ) {
-			$message[] = new Whip_HostMessage( 'WHIP_MESSAGE_FROM_HOST_ABOUT_PHP', $textdomain );
+			$hostMessage = new Whip_HostMessage( 'WHIP_MESSAGE_FROM_HOST_ABOUT_PHP', $textdomain );
+			$message[] = $hostMessage->body();
 		}
 
 		$message[] = Whip_MessageFormatter::strongParagraph( __( 'Can\'t update? Ask your host!', $textdomain ) ) . '<br />';

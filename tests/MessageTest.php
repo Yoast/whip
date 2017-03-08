@@ -8,14 +8,14 @@ class MessageTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @expectedException EmptyProperty
+	 * @expectedException Whip_EmptyProperty
 	 */
 	public function testMessageCannotBeEmpty() {
 		new Whip_BasicMessage( "" );
 	}
 
 	/**
-	 * @expectedException InvalidType
+	 * @expectedException Whip_InvalidType
 	 */
 	public function testMessageMustBeString() {
 		new Whip_BasicMessage( 123 );

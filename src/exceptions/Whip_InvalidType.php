@@ -3,7 +3,7 @@
 /**
  * Class InvalidType
  */
-class InvalidType extends Exception {
+class Whip_InvalidType extends Exception {
 
 	/**
 	 * InvalidType constructor.

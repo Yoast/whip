@@ -9,49 +9,49 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @expectedException EmptyProperty
+	 * @expectedException Whip_EmptyProperty
 	 */
 	public function testComponentCannotBeEmpty() {
 		new Whip_VersionRequirement( '', '5.2' );
 	}
 
 	/**
-	 * @expectedException EmptyProperty
+	 * @expectedException Whip_EmptyProperty
 	 */
 	public function testVersionCannotBeEmpty() {
 		new Whip_VersionRequirement( 'php', '' );
 	}
 
 	/**
-	 * @expectedException InvalidType
+	 * @expectedException Whip_InvalidType
 	 */
 	public function testComponentMustBeString() {
 		new Whip_VersionRequirement( 123, '5.2' );
 	}
 
 	/**
-	 * @expectedException InvalidType
+	 * @expectedException Whip_InvalidType
 	 */
 	public function testVersionMustBeString() {
 		new Whip_VersionRequirement( 'php', 123 );
 	}
 
 	/**
-	 * @expectedException EmptyProperty
+	 * @expectedException Whip_EmptyProperty
 	 */
 	public function testOperatorCannotBeEmpty() {
 		new Whip_VersionRequirement( 'php', '5.6', '' );
 	}
 
 	/**
-	 * @expectedException InvalidType
+	 * @expectedException Whip_InvalidType
 	 */
 	public function testOperatorMustBeString() {
 		new Whip_VersionRequirement( 'php', '5.2', 6 );
 	}
 
 	/**
-	 * @expectedException InvalidOperatorType
+	 * @expectedException Whip_InvalidOperatorType
 	 */
 	public function testOperatorMustBeValid() {
 		new Whip_VersionRequirement( 'php', '5.2', '->' );
@@ -90,7 +90,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @expectedException InvalidVersionComparisonString
+	 * @expectedException Whip_InvalidVersionComparisonString
 	 */
 	public function testFromCompareStringException() {
 		Whip_VersionRequirement::fromCompareString( 'php', '> 2.3' );
