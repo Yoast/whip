@@ -8,7 +8,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 	 */
 	function whip_wp_check_versions( $requirements ) {
 		// Only show for admin users.
-		if ( ! current_user_can( 'manage_options' ) || ! is_array( $requirements ) ) {
+		if ( ! is_array( $requirements ) ) {
 			return;
 		}
 
