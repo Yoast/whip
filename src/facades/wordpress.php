@@ -10,9 +10,9 @@ function CheckVersions( $requirements ) {
 	// Only show for admin users.
 	if ( ! current_user_can( 'manage_options' ) || ! is_array( $requirements ) ) {
 		return;
- 	}
+	}
 
- 	$config  = include_once '../configs/default.php';
+	$config  = include_once dirname( __FILE__ ) . '/../configs/default.php';
 	$checker = new Whip_RequirementsChecker( $config );
 
 	foreach ( $requirements as $component => $version ) {
