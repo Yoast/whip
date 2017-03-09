@@ -21,7 +21,7 @@ class Whip_MessagesManager {
 	 * @param Whip_Message $message The message to add.
 	 */
 	public function addMessage( Whip_Message $message ) {
-		$whipVersion = require dirname( __FILE__ ) . '/version.php';
+		$whipVersion = require dirname( __FILE__ ) . '/configs/version.php';
 
 		$GLOBALS[ 'whip_messages' ][$whipVersion] = $message;
 	}
