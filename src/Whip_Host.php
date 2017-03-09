@@ -5,6 +5,7 @@
  */
 class Whip_Host {
 	const HOST_NAME_KEY = 'WHIP_NAME_OF_HOST';
+	const HOSTING_PAGE_FILTER_KEY = 'whip_hosting_page_url_wordpress';
 
 	/**
 	 * Retrieves the name of the host if set.
@@ -58,5 +59,30 @@ class Whip_Host {
 		}
 
 		return $message;
+	}
+
+	/**
+	 * Returns the URL for the hosting page
+	 *
+	 * @returns string The URL to the hosting overview page.
+	 */
+	public static function hostingPageUrl() {
+		$url = 'https://yoa.st/w3';
+
+		return self::filterHostingPageUrl( $url );
+	}
+
+	/**
+	 * Filters the hosting page url if we are in a WordPress context. In a non-WordPress context this function just returns a link to the Yoast hosting page.
+	 *
+	 * @param string $url The previous URL.
+	 * @returns string The new URL to the hosting overview page.
+	 */
+	private static function filterHostingPageUrl( $url ) {
+		if ( function_exists( 'apply_filters' ) && apply_filters( self::HOSTING_PAGE_FILTER_KEY, false ) ) {
+			return 'https://wordpress.org/hosting/';
+		}
+
+		return $url;
 	}
 }

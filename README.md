@@ -65,6 +65,14 @@ The WordPress filters can also read the value previously set by the environment 
 
 As a general rule, the filter is the same as the environment variable, but lowercased.
 
+### Linking to the WordPress.org hosting page
+
+We have created a hosting overview page on yoast.com which only contains hosts that we've vetted. The PHP message links to this page by default. If you really prefer to link to the WordPress.org hosting page that is possible. Just use the `whip_hosting_page_url_wordpress` filter:
+
+```php
+add_filter( 'whip_hosting_page_url_wordpress', '__return_true' );
+```
+
 ## Backwards compatibility policy
 
 We follow [semantic versioning][semver] with an extra strict rule for MAJOR versions. We will do a major version bump whenever we add new methods. We have to do this because of the shared namespace in PHP. When this package will be used in multiple plugins we cannot safely add and use a method without bumping a major version. This is because the version without the new method may be autoloaded and then a fatal error occurs.

@@ -42,6 +42,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		return wp_kses( $message, array(
 			'a'      => array(
 				'href' => true,
+				'target' => true,
 			),
 			'strong' => true,
 			'p'      => true,
