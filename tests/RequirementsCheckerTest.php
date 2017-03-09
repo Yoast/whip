@@ -4,6 +4,10 @@ function __( $message ) {
 	return $message;
 }
 
+function esc_url( $url ) {
+	return $url;
+}
+
 class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 	public function testItReceivesAUsableRequirementObject() {
