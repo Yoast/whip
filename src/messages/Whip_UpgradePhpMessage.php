@@ -35,11 +35,19 @@ class Whip_UpgradePhpMessage implements Whip_Message {
 		$message[] = Whip_MessageFormatter::paragraph( __( 'You should update your PHP version to either 5.6 or to 7.0 or 7.1. On a normal WordPress site, switching to PHP 5.6 should never cause issues. We would however actually recommend you switch to PHP7. There are some plugins that are not ready for PHP7 though, so do some testing first. We have an article on how to test whether that\'s an option for you here. PHP7 is much faster than PHP 5.6. It\'s also the only PHP version still in active development and therefore the better option for your site in the long run.', $textdomain ) );
 
 		if ( Whip_Host::name() !== '' ) {
-			$message[] = new Whip_HostMessage( 'WHIP_MESSAGE_FROM_HOST_ABOUT_PHP', $textdomain );
+			$hostMessage = new Whip_HostMessage( 'WHIP_MESSAGE_FROM_HOST_ABOUT_PHP', $textdomain );
+			$message[] = $hostMessage->body();
 		}
 
+		$hostingPageUrl = Whip_Host::hostingPageUrl();
+
 		$message[] = Whip_MessageFormatter::strongParagraph( __( 'Can\'t update? Ask your host!', $textdomain ) ) . '<br />';
-		$message[] = Whip_MessageFormatter::paragraph( __( 'If you cannot upgrade your PHP version yourself, you can send an email to your host. We have examples here. If they don\'t want to upgrade your PHP version, we would suggest you switch hosts. Have a look at one of our recommended WordPress hosting partners, they\'ve all been vetted by our Yoast support team and provide all the features a modern host should provide.', $textdomain ) );
+
+		if ( function_exists( 'apply_filters' ) && apply_filters( Whip_Host::HOSTING_PAGE_FILTER_KEY, false ) ) {
+			$message[] = Whip_MessageFormatter::paragraph( sprintf( __( 'If you cannot upgrade your PHP version yourself, you can send an email to your host. We have examples here. If they don\'t want to upgrade your PHP version, we would suggest you switch hosts. Have a look at one of the recommended %1$sWordPress hosting partners%2$s.', $textdomain ), sprintf( '<a href="%1$s" target="_blank">', esc_url( $hostingPageUrl ) ), '</a>' ) );
+		} else {
+			$message[] = Whip_MessageFormatter::paragraph( sprintf( __( 'If you cannot upgrade your PHP version yourself, you can send an email to your host. We have examples here. If they don\'t want to upgrade your PHP version, we would suggest you switch hosts. Have a look at one of our recommended %1$sWordPress hosting partners%2$s, they\'ve all been vetted by our Yoast support team and provide all the features a modern host should provide.', $textdomain ), sprintf( '<a href="%1$s" target="_blank">', esc_url( $hostingPageUrl ) ), '</a>' ) );
+		}
 
 		return implode( $message, "\n" );
 	}

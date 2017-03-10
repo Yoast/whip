@@ -15,11 +15,11 @@ class Whip_Configuration {
 	 *
 	 * @param array $configuration The configuration to use.
 	 *
-	 * @throws InvalidType
+	 * @throws Whip_InvalidType
 	 */
 	public function __construct( $configuration = array() ) {
 		if ( ! is_array( $configuration ) ) {
-			throw new InvalidType( 'Configuration', gettype( $configuration), 'array' );
+			throw new Whip_InvalidType( 'Configuration', gettype( $configuration), "array" );
 		}
 
 	    $this->configuration = $configuration;
@@ -34,7 +34,7 @@ class Whip_Configuration {
 	 * @return int The version of the passed requirement that was detected.
 	 */
 	public function configuredVersion( Whip_Requirement $requirement ) {
-		if ( ! $this->hasRequirementConfigurated( $requirement ) ) {
+		if ( ! $this->hasRequirementConfigured( $requirement ) ) {
 			return -1;
 		}
 
@@ -48,7 +48,7 @@ class Whip_Configuration {
 	 *
 	 * @return bool Whether or not the requirement is present in the configuration.
 	 */
-	public function hasRequirementConfigurated( Whip_Requirement $requirement ) {
+	public function hasRequirementConfigured( Whip_Requirement $requirement ) {
 		return array_key_exists( $requirement->component(), $this->configuration );
 	}
 }

@@ -17,7 +17,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
     }
 
     /**
-	 * Registers hooks to WordPress. This is a seperate function so you can
+	 * Registers hooks to WordPress. This is a separate function so you can
 	 * control when the hooks are registered.
 	 */
 	public function register_hooks() {
@@ -42,6 +42,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		return wp_kses( $message, array(
 			'a'      => array(
 				'href' => true,
+				'target' => true,
 			),
 			'strong' => true,
 			'p'      => true,

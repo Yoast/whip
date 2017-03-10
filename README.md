@@ -28,25 +28,49 @@ $ composer require yoast/whip
 
 ## Usage
 
-To require users to have PHP 5.6 or higher and show them a message if this is not the case you can use the following code:
-
+The easiest way to use Whip in WordPress is just by using the included function to check the versions. In this case checking if PHP 5.6 or greater is installed: 
 ```php
-$wpMessagePresenter = new WPMessagePresenter();
-$wpMessagePresenter->register_hooks();
-
-$versionMessageControl = new VersionMessageControl(
-	new PHPVersionDetector(),
-	array( $wpMessagePresenter )
-);
-$versionMessageControl->requireVersion( '5.6' );
+whip_wp_check_versions( array(
+	'php' => '>=5.6',
+) );
 ```
 
-There is also a convenient helper method that you can use:
+This will show a message to all users of your plugin on PHP5.2 to PHP 5.5. By default the message will be shown on every page of the admin and to every user. It is up to the implementing plugin to restrict this to certain users and/or pages.
+
+### Adding a message as a host
+
+It is possible to add a custom message to the PHP version message by setting specific environment variables:
 
 ```php
-Whip_VersionMessage::require_versions( array(
-	'php' => '5.6',
-) );
+putenv( "WHIP_NAME_OF_HOST=Name of the host" );
+putenv( "WHIP_MESSAGE_FROM_HOST_ABOUT_PHP=A message from the host" );
+```
+
+The `WHIP_NAME_OF_HOST` environment variable could be reused in the future for showing messages about different software packages.
+
+Both the name and the message for PHP can also be changed using WordPress filters:
+```php
+function my_host__name_for_whip() {
+	return 'Name of the host';
+}
+add_filter( 'whip_name_of_host', 'my_host__name_for_whip' );
+
+function my_host__php_message_for_whip( $message ) {
+	return 'A message from the host';
+}
+add_filter( 'whip_message_from_host_about_php', 'my_host__php_message_for_whip' );
+```
+
+The WordPress filters can also read the value previously set by the environment variables.
+
+As a general rule, the filter is the same as the environment variable, but lowercased.
+
+### Linking to the WordPress.org hosting page
+
+We have created a hosting overview page on yoast.com which only contains hosts that we've vetted. The PHP message links to this page by default. If you really prefer to link to the WordPress.org hosting page that is possible. Just use the `whip_hosting_page_url_wordpress` filter:
+
+```php
+add_filter( 'whip_hosting_page_url_wordpress', '__return_true' );
 ```
 
 ## Backwards compatibility policy

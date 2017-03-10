@@ -3,7 +3,7 @@
 /**
  * Exception for an invalid version comparison string
  */
-class InvalidVersionComparisonString extends Exception {
+class Whip_InvalidVersionComparisonString extends Exception {
 
 	/**
 	 * @param string $value The passed version comparison string.

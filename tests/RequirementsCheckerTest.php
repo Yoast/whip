@@ -4,6 +4,10 @@ function __( $message ) {
 	return $message;
 }
 
+function esc_url( $url ) {
+	return $url;
+}
+
 class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 	public function testItReceivesAUsableRequirementObject() {
@@ -100,7 +104,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertNotEmpty( $recentMessage  );
 		$this->assertInternalType( 'string', $recentMessage->body() );
 		$this->assertFalse( $checker->hasMessages() );
-		$this->assertTrue( get_class( $recentMessage ) === 'Whip_UpgradePhpMessage' );
+		$this->assertInstanceOf( 'Whip_UpgradePhpMessage', $recentMessage );
 	}
 
 	public function testCheckIfRequirementIsNotFulfilled() {
@@ -116,7 +120,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertNotEmpty( $recentMessage  );
 		$this->assertFalse( $checker->hasMessages() );
-		$this->assertTrue( get_class( $recentMessage ) === 'Whip_InvalidVersionRequirementMessage' );
+		$this->assertInstanceOf( 'Whip_InvalidVersionRequirementMessage', $recentMessage );
 		$this->assertStringStartsWith( 'Invalid version detected', $recentMessage->body() );
 	}
 

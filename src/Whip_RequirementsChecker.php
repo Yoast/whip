@@ -88,12 +88,8 @@ class Whip_RequirementsChecker {
 		$available_version = $this->configuration->configuredVersion( $requirement );
 		$required_version = $requirement->version();
 
-		if ( in_array( $requirement->operator(), array( '=', '==', '===' ) ) ) {
-			if ( version_compare( $available_version, $required_version ) === -1 ) {
-				return false;
-			}
-
-			return true;
+		if ( in_array( $requirement->operator(), array( '=', '==', '===' ), true ) ) {
+			return -1 !== version_compare( $available_version, $required_version );
 		}
 
 		return version_compare( $available_version, $required_version, $requirement->operator() );
@@ -143,7 +139,7 @@ class Whip_RequirementsChecker {
 	/**
 	 * Gets the most recent message from the message manager.
 	 *
-	 * @return string The latest message.
+	 * @return Whip_Message The latest message.
 	 */
 	public function getMostRecentMessage() {
 		return $this->messageMananger->getLatestMessage();
