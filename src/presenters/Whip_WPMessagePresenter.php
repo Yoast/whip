@@ -46,6 +46,8 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 			),
 			'strong' => true,
 			'p'      => true,
+			'ul'     => true,
+			'li'     => true,
 		) );
 	}
 }
