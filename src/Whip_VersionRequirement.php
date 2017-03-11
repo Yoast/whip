@@ -103,23 +103,23 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 */
 	private function validateParameters( $component, $version, $operator ) {
 		if ( empty( $component ) ) {
-			throw new Whip_EmptyProperty( "Component" );
+			throw new Whip_EmptyProperty( 'Component' );
 		}
 
 		if ( !is_string( $component ) ) {
-			throw new Whip_InvalidType( "Component", "string", $component );
+			throw new Whip_InvalidType( 'Component', 'string', $component );
 		}
 
 		if ( empty( $version ) ) {
-			throw new Whip_EmptyProperty( "Version" );
+			throw new Whip_EmptyProperty( 'Version' );
 		}
 
 		if ( !is_string( $version ) ) {
-			throw new Whip_InvalidType( "Version", "string", $version );
+			throw new Whip_InvalidType( 'Version', 'string', $version );
 		}
 
 		if ( empty( $operator ) ) {
-			throw new Whip_EmptyProperty( "Operator" );
+			throw new Whip_EmptyProperty( 'Operator' );
 		}
 
 		if ( !is_string( $operator ) ) {
