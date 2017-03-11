@@ -21,14 +21,39 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * control when the hooks are registered.
 	 */
 	public function register_hooks() {
-		add_action( 'admin_notices', array( $this, 'renderMessage' ) );
+		add_action( 'admin_notices', array( $this, 'renderMessage' ), $this->getHookPriority() );
 	}
 
 	/**
 	 * Renders the messages present in the global to notices.
 	 */
 	public function renderMessage() {
-	    printf( '<div class="error">%s</div>', $this->kses( $this->message->body() ) );
+		if ( $this->hasRendered() ) {
+			return;
+		}
+
+		$GLOBALS['whip_wp_has_rendered'] = true;
+
+		printf( '<div class="error">%s</div>', $this->kses( $this->message->body() ) );
+	}
+
+	/**
+	 * Whether any WPMessagePresenter has rendered before.
+	 */
+	public function hasRendered() {
+		return isset( $GLOBALS['whip_wp_has_rendered'] ) && $GLOBALS['whip_wp_has_rendered'];
+	}
+
+	/**
+	 * Gets the hook priority based on the version.
+	 */
+	public function getHookPriority() {
+		$version = include dirname( __FILE__ ) . '/../configs/version.php';
+
+		$version = (int) str_replace( '.', '', $version );
+
+		// This will work until we hit version 100.
+		return ( 10000 - $version );
 	}
 
 	/**
