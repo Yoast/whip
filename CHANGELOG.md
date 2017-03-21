@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.0.1]
+### Fixed
+* Fix a missing link when the PHP message is switched to the WordPress.org hosting page.
+
+## [1.0.0]
 ### Changed
 * Updated screenshot in README
 
