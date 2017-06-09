@@ -14,14 +14,18 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 */
 	public function __construct( Whip_Message $message ) {
 	    $this->message = $message;
-    }
+	}
 
-    /**
+	/**
 	 * Registers hooks to WordPress. This is a separate function so you can
 	 * control when the hooks are registered.
 	 */
 	public function register_hooks() {
-		add_action( 'admin_notices', array( $this, 'renderMessage' ) );
+		global $whip_admin_notices_added;
+		if ( null === $whip_admin_notices_added || ! $whip_admin_notices_added ) {
+			add_action( 'admin_notices', array( $this, 'renderMessage' ) );
+			$whip_admin_notices_added = true;
+		}
 	}
 
 	/**
