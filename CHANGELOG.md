@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.2]
 ### Fixed
-* When multiple plugins containing whip are activated, the message is no longer shown multiple times.
+* When multiple plugins containing whip are activated, the message is no longer shown multiple times, props [Andrea](https://github.com/sciamannikoo).
 
 ## [1.0.1]
 ### Fixed
