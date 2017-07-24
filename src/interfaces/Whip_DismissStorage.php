@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Interface Whip_DissmissStorage
+ * Interface Whip_DismissStorage
  */
-interface Whip_DissmisStorage {
+interface Whip_DismissStorage {
 
 	/**
 	 * Saves the value.

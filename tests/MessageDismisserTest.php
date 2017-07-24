@@ -1,6 +1,6 @@
 <?php
 
-class Whip_DismissStorageMock implements Whip_DissmisStorage {
+class Whip_DismissStorageMock implements Whip_DismissStorage {
 
 	protected $dismissed = array();
 

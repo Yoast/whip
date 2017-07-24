@@ -3,7 +3,7 @@
 /**
  * Represents the WordPress option for saving the dismissed messages.
  */
-class Whip_WPDismissOption implements Whip_DissmisStorage {
+class Whip_WPDismissOption implements Whip_DismissStorage {
 
 	/**
 	 * Saves the value to the options.

@@ -19,7 +19,7 @@ final class Whip_MessageDismisser {
 	 * Whip_MessageDismisser constructor.
 	 *
 	 * @param int                 $expirationDate
-	 * @param Whip_DissmisStorage $storage
+	 * @param Whip_DismissStorage $storage
 	 */
 	public function __construct( $expirationDate, Whip_DissmisStorage $storage ) {
 		$this->expirationDate = $expirationDate;
