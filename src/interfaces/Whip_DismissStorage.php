@@ -8,9 +8,9 @@ interface Whip_DismissStorage {
 	/**
 	 * Saves the value.
 	 *
-	 * @param array $dismissed The value to save.
+	 * @param string $dismissedVersion The value to save.
 	 */
-	public function save( array $dismissed );
+	public function set( $dismissedVersion );
 
 	/**
 	 * Returns the value.

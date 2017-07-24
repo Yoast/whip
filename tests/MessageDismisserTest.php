@@ -7,10 +7,10 @@ class Whip_DismissStorageMock implements Whip_DismissStorage {
 	/**
 	 * Saves the value.
 	 *
-	 * @param array $dismissed The value to save.
+	 * @param string $dismissedVersion The value to save.
 	 */
-	public function save( array $dismissed ) {
-		$this->dismissed = $dismissed;
+	public function set( $dismissedVersion ) {
+		$this->dismissed = $dismissedVersion;
 	}
 
 	/**

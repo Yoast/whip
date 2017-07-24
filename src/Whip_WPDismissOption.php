@@ -8,21 +8,21 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 	/**
 	 * Saves the value to the options.
 	 *
-	 * @param array $dismissed The value to save.
+	 * @param string $dismissedVersion The value to save.
 	 */
-	public function save( array $dismissed ) {
-		update_option( 'whip_dismissed', $dismissed );
+	public function set( $dismissedVersion ) {
+		update_option( 'whip_dismissed', $dismissedVersion );
 	}
 
 	/**
 	 * Returns the value of the whip_dismissed option.
 	 *
-	 * @return array
+	 * @return string
 	 */
 	public function get() {
-		$dismissedOption = maybe_unserialize( get_option( 'whip_dismissed' ) );
+		$dismissedOption = get_option( 'whip_dismissed' );
 		if ( ! $dismissedOption ) {
-			return array() ;
+			return '';
 		}
 
 		return $dismissedOption;
