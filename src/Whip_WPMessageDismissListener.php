@@ -13,8 +13,8 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 	/**
 	 * Sets the dismisser attribute.
 	 */
-	public function __construct() {
-		$this->dismisser = new Whip_MessageDismisser( time() + MONTH_IN_SECONDS, new Whip_WPDismissOption() );
+	public function __construct( $dismisser ) {
+		$this->dismisser = $dismisser;
 	}
 
 	/**
@@ -25,24 +25,19 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 		$nonce  = filter_input(INPUT_GET, 'nonce' );
 
 		if ( $action === 'whip_dismiss' && wp_verify_nonce( $nonce, 'whip_dismiss' ) ) {
-			$component = (string) filter_input( INPUT_GET, 'component' );
-
-			$this->dismisser->dismiss( $component );
+			$this->dismisser->dismiss();
 		}
 	}
 
 	/**
 	 * Creates an url for dismissing the notice.
 	 *
-	 * @param string $component The component.
-	 *
 	 * @return string .
 	 */
-	public static function get_dismissurl( $component ) {
+	public static function get_dismissurl() {
 		return sprintf(
-			admin_url( 'index.php?action=whip_dismiss&nonce=%1$s&component=%2$s' ),
-			wp_create_nonce( 'whip_dismiss' ),
-			$component
+			admin_url( 'index.php?action=whip_dismiss&nonce=%1$s' ),
+			wp_create_nonce( 'whip_dismiss' )
 		);
 	}
 
