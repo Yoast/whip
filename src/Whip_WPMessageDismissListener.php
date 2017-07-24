@@ -26,19 +26,27 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 
 		if ( $action === 'whip_dismiss' && wp_verify_nonce( $nonce, 'whip_dismiss' ) ) {
 			$component = (string) filter_input( INPUT_GET, 'component' );
-			$version_compare = (string) filter_input( INPUT_GET, 'action' );
+			$version_compare = (string) filter_input( INPUT_GET, 'version' );
 
-			$this->dismisser->dismiss( $component, $version_compare );
+			$this->dismisser->dismiss( urldecode( $component ), urldecode( $version_compare ) );
 		}
 	}
 
 	/**
 	 * Creates an url for dismissing the notice.
 	 *
-	 * @return string.
+	 * @param string $component The component.
+	 * @param string $version   The version comparison string.
+	 *
+	 * @return string .
 	 */
-	public static function get_dismissurl() {
-		return admin_url( 'index.php?action=whip_dismiss&nonce=' . wp_create_nonce( 'whip_dismiss' ) );
+	public static function get_dismissurl( $component, $version ) {
+		return sprintf(
+			admin_url( 'index.php?action=whip_dismiss&nonce=%1$s&component=%2$s&version=%3$s' ),
+			wp_create_nonce( 'whip_dismiss' ),
+			urlencode( $component ),
+			urlencode( $version )
+		);
 	}
 
 }

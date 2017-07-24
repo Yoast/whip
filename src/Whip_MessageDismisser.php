@@ -54,14 +54,18 @@ final class Whip_MessageDismisser {
 	 */
 	public function isDismissed( $versionComparison, $component ) {
 		if ( ! isset( $this->dismissed[ $component ] ) ) {
-			return true;
+			return false;
 		}
 
 		if ( ! isset( $this->dismissed[ $component ][ $versionComparison ] ) ) {
-			return true;
+			return false;
 		}
 
-		return ! $this->isExpired( $this->dismissed[ $component ][ $versionComparison ] );
+		if ( $this->isExpired( $this->dismissed[ $component ][ $versionComparison ] ) ) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**

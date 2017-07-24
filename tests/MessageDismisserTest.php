@@ -41,17 +41,16 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 		$storage = new Whip_DismissStorageMock();
 		$dismisser = new Whip_MessageDismisser( $expirationDate, $storage );
 
-		$this->assertTrue( $dismisser->isDismissed( '>=5.5', 'php' ) );
+		$this->assertFalse( $dismisser->isDismissed( '>=5.5', 'php' ) );
 
 		$dismisser->dismiss( 'php', '>=5.4' );
 		$this->assertTrue( $dismisser->isDismissed( '>=5.4', 'php' ) );
 
-
-		$this->assertTrue( $dismisser->isDismissed( '>=5.2', 'php' ) );
+		$this->assertFalse( $dismisser->isDismissed( '>=5.2', 'php' ) );
 	}
 
 	public function testIsDismissedExpired() {
-		$expirationDate = time() - ( 60 * 60 * 24 * 302 );
+		$expirationDate = time() - ( 60 * 60 * 24 * 32 );
 		$storage = new Whip_DismissStorageMock();
 		$dismisser = new Whip_MessageDismisser( $expirationDate, $storage );
 
