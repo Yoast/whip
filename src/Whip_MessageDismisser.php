@@ -19,8 +19,8 @@ final class Whip_MessageDismisser {
 	 * @param Whip_DismissStorage $storage
 	 */
 	public function __construct( $currentVersion, Whip_DismissStorage $storage ) {
-		$this->currentVersion   = $currentVersion;
-		$this->storage          = $storage;
+		$this->currentVersion = $this->toMajorVersion( $currentVersion );
+		$this->storage        = $storage;
 	}
 
 	/**
@@ -37,5 +37,16 @@ final class Whip_MessageDismisser {
 	 */
 	public function isDismissible() {
 		return version_compare( $this->currentVersion, $this->storage->get(), '>' );
+	}
+
+	/**
+	 * Converts the version number to a major version number.
+	 *
+	 * @param string $versionToConvert
+	 *
+	 * @return string
+	 */
+	private function toMajorVersion( $versionToConvert ) {
+		return implode( '.', explode( '.', $versionToConvert, -1 ) );
 	}
 }
