@@ -20,9 +20,11 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		$dismissListener = new Whip_WPMessageDismissListener( $dismisser );
 		$dismissListener->listen();
 
-		$requirements = array_filter( $requirements, array( $dismisser, 'isDismissed' ), ARRAY_FILTER_USE_BOTH );
-
 		foreach ( $requirements as $component => $versionComparison ) {
+			if ( $dismisser->isDismissed( $versionComparison, $component ) ) {
+				continue;
+			}
+
 			$checker->addRequirement( Whip_VersionRequirement::fromCompareString( $component, $versionComparison ) );
 		}
 
