@@ -15,14 +15,12 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		$config  = include dirname( __FILE__ ) . '/../configs/default.php';
 		$checker = new Whip_RequirementsChecker( $config );
 
-		$dismisser = new Whip_WPMessageDismisser();
-		$dismisser->listen();
+		$dismisser = new Whip_MessageDismisser( time() + MONTH_IN_SECONDS, new Whip_WPDismissOption() );
 
-		$dismissedOption = $dismisser->getDismissed();
-		if ( $dismissedOption ) {
-			$requirementsFilter = new Whip_RequirementsFilter( time() + MONTH_IN_SECONDS, $requirements );
-			$requirements = $requirementsFilter->filter( $dismissedOption );
-		}
+		$dismissListener = new Whip_WPMessageDismissListener( $dismisser );
+		$dismissListener->listen();
+
+		$requirements = array_filter( $requirements, array( $dismisser, 'isDismissed' ), ARRAY_FILTER_USE_BOTH );
 
 		foreach ( $requirements as $component => $versionComparison ) {
 			$checker->addRequirement( Whip_VersionRequirement::fromCompareString( $component, $versionComparison ) );
