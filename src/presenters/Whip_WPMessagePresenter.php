@@ -35,8 +35,8 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		$message = $this->message->body();
 		/* translators: 1: is a link to dismiss url 2: closing link tag */
 		$message .= sprintf(
-			'<a href="' . Whip_WPMessageDismissListener::get_dismissurl() . '">',
 			__( '<p>%1$sMute this message for 40 days%2$s</p>', 'whip' ),
+			'<a href="' . Whip_WPMessageDismissListener::get_dismissurl( 'php' ) . '">',
 			'</a>'
 		);
 

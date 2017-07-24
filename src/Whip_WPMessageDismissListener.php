@@ -26,9 +26,8 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 
 		if ( $action === 'whip_dismiss' && wp_verify_nonce( $nonce, 'whip_dismiss' ) ) {
 			$component = (string) filter_input( INPUT_GET, 'component' );
-			$version_compare = (string) filter_input( INPUT_GET, 'version' );
 
-			$this->dismisser->dismiss( urldecode( $component ), urldecode( $version_compare ) );
+			$this->dismisser->dismiss( $component );
 		}
 	}
 
@@ -36,16 +35,14 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 	 * Creates an url for dismissing the notice.
 	 *
 	 * @param string $component The component.
-	 * @param string $version   The version comparison string.
 	 *
 	 * @return string .
 	 */
-	public static function get_dismissurl( $component, $version ) {
+	public static function get_dismissurl( $component ) {
 		return sprintf(
-			admin_url( 'index.php?action=whip_dismiss&nonce=%1$s&component=%2$s&version=%3$s' ),
+			admin_url( 'index.php?action=whip_dismiss&nonce=%1$s&component=%2$s' ),
 			wp_create_nonce( 'whip_dismiss' ),
-			urlencode( $component ),
-			urlencode( $version )
+			$component
 		);
 	}
 
