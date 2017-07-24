@@ -32,4 +32,13 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 		}
 	}
 
+	/**
+	 * Creates an url for dismissing the notice.
+	 *
+	 * @return string.
+	 */
+	public static function get_dismissurl() {
+		return admin_url( 'index.php?action=whip_dismiss&nonce=' . wp_create_nonce( 'whip_dismiss' ) );
+	}
+
 }
