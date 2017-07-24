@@ -47,6 +47,10 @@ final class Whip_MessageDismisser {
 	 * @return string
 	 */
 	private function toMajorVersion( $versionToConvert ) {
+		if ( substr_count( $versionToConvert, '.' ) === 1 ) {
+			return $versionToConvert;
+		}
+
 		return implode( '.', explode( '.', $versionToConvert, -1 ) );
 	}
 }
