@@ -2,7 +2,7 @@
 
 class Whip_DismissStorageMock implements Whip_DismissStorage {
 
-	protected $dismissed = array();
+	protected $dismissed = '';
 
 	/**
 	 * Saves the value.
@@ -16,7 +16,7 @@ class Whip_DismissStorageMock implements Whip_DismissStorage {
 	/**
 	 * Returns the value.
 	 *
-	 * @return array
+	 * @return string
 	 */
 	public function get() {
 		return $this->dismissed;
@@ -27,35 +27,28 @@ class Whip_DismissStorageMock implements Whip_DismissStorage {
 class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 
 	public function testDismiss() {
-		$expirationDate = time() + 3600;
 		$storage = new Whip_DismissStorageMock();
-		$dismisser = new Whip_MessageDismisser( $expirationDate, $storage );
+		$dismisser = new Whip_MessageDismisser( '4.8', $storage );
 
-		$dismisser->dismiss( 'php', '>=5.4' );
+		$dismisser->dismiss( 'php' );
 
-		$this->assertEquals( array( 'php' => array( '>=5.4' => $expirationDate ) ), $storage->get() );
+		$this->assertEquals( '4.8' , $storage->get() );
 	}
 
 	public function testIsDismissed() {
-		$expirationDate = time() + 3600;
 		$storage = new Whip_DismissStorageMock();
-		$dismisser = new Whip_MessageDismisser( $expirationDate, $storage );
+		$storage->set( '4.7' );
 
-		$this->assertFalse( $dismisser->isDismissed( '>=5.5', 'php' ) );
+		$dismisser = new Whip_MessageDismisser( '4.8', $storage );
 
-		$dismisser->dismiss( 'php', '>=5.4' );
-		$this->assertTrue( $dismisser->isDismissed( '>=5.4', 'php' ) );
-
-		$this->assertFalse( $dismisser->isDismissed( '>=5.2', 'php' ) );
+		$this->assertTrue( $dismisser->isDismissible() );
 	}
 
-	public function testIsDismissedExpired() {
-		$expirationDate = time() - ( 60 * 60 * 24 * 32 );
+	public function testIsDismissibleNotNeeded() {
 		$storage = new Whip_DismissStorageMock();
-		$dismisser = new Whip_MessageDismisser( $expirationDate, $storage );
+		$storage->set( '4.8' );
+		$dismisser = new Whip_MessageDismisser( '4.8', $storage );
 
-		$dismisser->dismiss( 'php', '>=5.4' );
-
-		$this->assertFalse( $dismisser->isDismissed( '>=5.4', 'php' ) );
+		$this->assertFalse( $dismisser->isDismissible() );
 	}
 }
