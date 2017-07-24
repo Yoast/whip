@@ -10,8 +10,11 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 	 */
 	protected $dismisser;
 
+	/**
+	 * Sets the dismisser attribute.
+	 */
 	public function __construct() {
-		$this->dismisser = new Whip_MessageDismisser();
+		$this->dismisser = new Whip_MessageDismisser( time() + MONTH_IN_SECONDS, new Whip_WPDismissOption() );
 	}
 
 	/**
