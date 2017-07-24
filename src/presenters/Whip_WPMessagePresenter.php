@@ -32,15 +32,14 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * Renders the messages present in the global to notices.
 	 */
 	public function renderMessage() {
-		$message = $this->message->body();
 		/* translators: 1: is a link to dismiss url 2: closing link tag */
-		$message .= sprintf(
-			__( '<p>%1$sMute this message for 40 days%2$s</p>', 'whip' ),
-			'<a href="' . Whip_WPMessageDismissListener::get_dismissurl( 'php' ) . '">',
+		$dismiss_button = sprintf(
+			__( '<p>%1$sRemind me again after the next WordPress release.%2$s</p>', 'wordpress' ),
+			'<a href="' . Whip_WPMessageDismissListener::get_dismissurl() . '">',
 			'</a>'
 		);
 
-		printf( '<div class="error">%s</div>', $this->kses( $message ) );
+		printf( '<div class="error">%s<p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismiss_button );
 	}
 
 	/**
