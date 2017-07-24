@@ -12,19 +12,22 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 			return;
 		}
 
+		global $wp_version;
+
+
 		$config  = include dirname( __FILE__ ) . '/../configs/default.php';
 		$checker = new Whip_RequirementsChecker( $config );
 
-		$dismisser = new Whip_MessageDismisser( time() + MONTH_IN_SECONDS, new Whip_WPDismissOption() );
+		$dismisser = new Whip_MessageDismisser( $wp_version, new Whip_WPDismissOption() );
 
 		$dismissListener = new Whip_WPMessageDismissListener( $dismisser );
 		$dismissListener->listen();
 
-		foreach ( $requirements as $component => $versionComparison ) {
-			if ( $dismisser->isDismissed( $versionComparison, $component ) ) {
-				continue;
-			}
+		if ( ! $dismisser->isDismissible() ) {
+			return;
+		}
 
+		foreach ( $requirements as $component => $versionComparison ) {
 			$checker->addRequirement( Whip_VersionRequirement::fromCompareString( $component, $versionComparison ) );
 		}
 
