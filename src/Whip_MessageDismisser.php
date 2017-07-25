@@ -4,10 +4,10 @@
 /**
  * A class to dismiss messages
  */
-final class Whip_MessageDismisser {
+class Whip_MessageDismisser {
 
 	/** @var Whip_DismissStorage */
-	protected $storage;
+	private $storage;
 
 	/** @var int */
 	private $currentVersion;
@@ -15,8 +15,8 @@ final class Whip_MessageDismisser {
 	/**
 	 * Whip_MessageDismisser constructor.
 	 *
-	 * @param int                 $currentVersion
-	 * @param Whip_DismissStorage $storage
+	 * @param int                 $currentVersion The current version of the installation.
+	 * @param Whip_DismissStorage $storage        The storage object handling storage of versioning.
 	 */
 	public function __construct( $currentVersion, Whip_DismissStorage $storage ) {
 		$this->currentVersion = $this->toMajorVersion( $currentVersion );
@@ -24,7 +24,7 @@ final class Whip_MessageDismisser {
 	}
 
 	/**
-	 * Dismisses the message for the given component/version.
+	 * Saves the version number to the storage to indicate the message as being dismissed.
 	 */
 	public function dismiss() {
 		$this->storage->set( $this->currentVersion );
@@ -33,24 +33,22 @@ final class Whip_MessageDismisser {
 	/**
 	 * Checks if the dismissed version is lower then the installation version.
 	 *
-	 * @return bool
+	 * @return bool True when saved version is bigger then the current version.
 	 */
-	public function isDismissible() {
-		return version_compare( $this->currentVersion, $this->storage->get(), '>' );
+	public function isDismissed() {
+		return version_compare( $this->storage->get(), $this->currentVersion, '<' );
 	}
 
 	/**
 	 * Converts the version number to a major version number.
 	 *
-	 * @param string $versionToConvert
+	 * @param string $versionToConvert The version to convert.
 	 *
-	 * @return string
+	 * @return string The major version number.
 	 */
 	private function toMajorVersion( $versionToConvert ) {
-		if ( substr_count( $versionToConvert, '.' ) === 1 ) {
-			return $versionToConvert;
-		}
+		$parts = explode( '.', $versionToConvert, 3 );
 
-		return implode( '.', explode( '.', $versionToConvert, -1 ) );
+		return implode( '.', array_slice( $parts, 0, 2 ) );
 	}
 }

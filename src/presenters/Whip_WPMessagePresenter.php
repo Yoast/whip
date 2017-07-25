@@ -39,7 +39,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 			'</a>'
 		);
 
-		printf( '<div class="error">%s<p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismiss_button );
+		printf( '<div class="error">%1$s<p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismiss_button );
 	}
 
 	/**

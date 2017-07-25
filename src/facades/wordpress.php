@@ -23,7 +23,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		$dismissListener = new Whip_WPMessageDismissListener( $dismisser );
 		$dismissListener->listen();
 
-		if ( ! $dismisser->isDismissible() ) {
+		if ( ! $dismisser->isDismissed() ) {
 			return;
 		}
 
