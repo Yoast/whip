@@ -31,9 +31,9 @@ class Whip_MessageDismisser {
 	}
 
 	/**
-	 * Checks if the dismissed version is lower then the installation version.
+	 * Checks if the saved version is lower than the current version.
 	 *
-	 * @return bool True when saved version is bigger then the current version.
+	 * @return bool True when saved version is lower than the current version.
 	 */
 	public function isDismissed() {
 		return version_compare( $this->storage->get(), $this->currentVersion, '<' );
