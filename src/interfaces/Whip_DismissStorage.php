@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Interface Whip_DismissStorage
+ * Interface Whip_DismissStorage.
  */
 interface Whip_DismissStorage {
 

@@ -5,6 +5,8 @@
  */
 class Whip_WPMessageDismissListener implements Whip_Listener {
 
+	const ACTION_NAME = 'whip_dismiss';
+
 	/**
 	 * @var Whip_MessageDismisser
 	 */
@@ -28,7 +30,7 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 		$action = filter_input( INPUT_GET, 'action' );
 		$nonce  = filter_input( INPUT_GET, 'nonce' );
 
-		if ( $action === 'whip_dismiss' && wp_verify_nonce( $nonce, 'whip_dismiss' ) ) {
+		if ( $action === self::ACTION_NAME && wp_verify_nonce( $nonce, self::ACTION_NAME ) ) {
 			$this->dismisser->dismiss();
 		}
 	}
@@ -40,8 +42,9 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 	 */
 	public static function get_dismissurl() {
 		return sprintf(
-			admin_url( 'index.php?action=whip_dismiss&nonce=%1$s' ),
-			wp_create_nonce( 'whip_dismiss' )
+			admin_url( 'index.php?action=%1$s&nonce=%2$s' ),
+			self::ACTION_NAME,
+			wp_create_nonce( self::ACTION_NAME )
 		);
 	}
 

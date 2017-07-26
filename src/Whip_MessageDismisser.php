@@ -2,20 +2,20 @@
 
 
 /**
- * A class to dismiss messages
+ * A class to dismiss messages.
  */
 class Whip_MessageDismisser {
 
 	/** @var Whip_DismissStorage */
-	private $storage;
+	protected $storage;
 
-	/** @var int */
-	private $currentVersion;
+	/** @var string */
+	protected $currentVersion;
 
 	/**
 	 * Whip_MessageDismisser constructor.
 	 *
-	 * @param int                 $currentVersion The current version of the installation.
+	 * @param string              $currentVersion The current version of the installation.
 	 * @param Whip_DismissStorage $storage        The storage object handling storage of versioning.
 	 */
 	public function __construct( $currentVersion, Whip_DismissStorage $storage ) {
@@ -46,7 +46,7 @@ class Whip_MessageDismisser {
 	 *
 	 * @return string The major version number.
 	 */
-	private function toMajorVersion( $versionToConvert ) {
+	protected function toMajorVersion( $versionToConvert ) {
 		$parts = explode( '.', $versionToConvert, 3 );
 
 		return implode( '.', array_slice( $parts, 0, 2 ) );

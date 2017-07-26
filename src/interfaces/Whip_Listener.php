@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Interface Whip_Listener
+ * Interface Whip_Listener.
  */
 interface Whip_Listener {
 

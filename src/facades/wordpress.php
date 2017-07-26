@@ -20,9 +20,6 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 
 		$dismisser = new Whip_MessageDismisser( $wp_version, new Whip_WPDismissOption() );
 
-		$dismissListener = new Whip_WPMessageDismissListener( $dismisser );
-		$dismissListener->listen();
-
 		if ( ! $dismisser->isDismissed() ) {
 			return;
 		}
@@ -38,6 +35,6 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		}
 
 		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage() );
-		$presenter->register_hooks();
+		$presenter->register_hooks( $dismisser );
 	}
 }

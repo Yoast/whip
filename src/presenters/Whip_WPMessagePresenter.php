@@ -19,13 +19,19 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	/**
 	 * Registers hooks to WordPress. This is a separate function so you can
 	 * control when the hooks are registered.
+	 *
+	 * @param Whip_MessageDismisser $dismisser Dismisser object.
 	 */
-	public function register_hooks() {
+	public function register_hooks( Whip_MessageDismisser $dismisser ) {
 		global $whip_admin_notices_added;
+
 		if ( null === $whip_admin_notices_added || ! $whip_admin_notices_added ) {
 			add_action( 'admin_notices', array( $this, 'renderMessage' ) );
 			$whip_admin_notices_added = true;
 		}
+
+		$dismissListener = new Whip_WPMessageDismissListener( $dismisser );
+		$dismissListener->listen();
 	}
 
 	/**

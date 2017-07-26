@@ -13,7 +13,7 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 	 *
 	 * @param string $dismissedVersion The value to save.
 	 *
-	 * @return bool True when successfull.
+	 * @return bool True when successful.
 	 */
 	public function set( $dismissedVersion ) {
 		return update_option( $this->option_name, $dismissedVersion );
