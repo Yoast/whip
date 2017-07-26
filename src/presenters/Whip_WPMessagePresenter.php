@@ -7,41 +7,45 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
 	private $message;
 
+	/** @var Whip_MessageDismisser */
+	private $dismisser;
+
 	/**
 	 * Whip_WPMessagePresenter constructor.
 	 *
-	 * @param Whip_Message $message The message to use in the presenter.
+	 * @param Whip_Message          $message The message to use in the presenter.
+	 * @param Whip_MessageDismisser $dismisser Dismisser object.
 	 */
-	public function __construct( Whip_Message $message ) {
-	    $this->message = $message;
+	public function __construct( Whip_Message $message, Whip_MessageDismisser $dismisser ) {
+	    $this->message   = $message;
+		$this->dismisser = $dismisser;
 	}
 
 	/**
 	 * Registers hooks to WordPress. This is a separate function so you can
 	 * control when the hooks are registered.
 	 *
-	 * @param Whip_MessageDismisser $dismisser Dismisser object.
 	 */
-	public function register_hooks( Whip_MessageDismisser $dismisser ) {
+	public function register_hooks() {
 		global $whip_admin_notices_added;
 
 		if ( null === $whip_admin_notices_added || ! $whip_admin_notices_added ) {
 			add_action( 'admin_notices', array( $this, 'renderMessage' ) );
 			$whip_admin_notices_added = true;
 		}
-
-		$dismissListener = new Whip_WPMessageDismissListener( $dismisser );
-		$dismissListener->listen();
 	}
 
 	/**
 	 * Renders the messages present in the global to notices.
 	 */
 	public function renderMessage() {
+		$dismissListener = new Whip_WPMessageDismissListener( $this->dismisser );
+		$dismissListener->listen();
+
 		/* translators: 1: is a link to dismiss url 2: closing link tag */
 		$dismiss_button = sprintf(
 			__( '<p>%1$sRemind me again after the next WordPress release.%2$s</p>', 'wordpress' ),
-			'<a href="' . Whip_WPMessageDismissListener::get_dismissurl() . '">',
+			'<a href="' . $dismissListener->get_dismissurl() . '">',
 			'</a>'
 		);
 

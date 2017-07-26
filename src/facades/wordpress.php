@@ -34,7 +34,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 			return;
 		}
 
-		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage() );
-		$presenter->register_hooks( $dismisser );
+		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage(), $dismisser );
+		$presenter->register_hooks();
 	}
 }
