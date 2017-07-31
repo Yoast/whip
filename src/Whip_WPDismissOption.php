@@ -6,7 +6,7 @@
 class Whip_WPDismissOption implements Whip_DismissStorage {
 
 	/** @var string */
-	protected $option_name = 'whip_dismissed_for_wp_version';
+	protected $optionName = 'whip_dismissed_for_wp_version';
 
 	/**
 	 * Saves the value to the options.
@@ -16,7 +16,7 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 	 * @return bool True when successful.
 	 */
 	public function set( $dismissedVersion ) {
-		return update_option( $this->option_name, $dismissedVersion );
+		return update_option( $this->optionName, $dismissedVersion );
 	}
 
 	/**
@@ -25,7 +25,7 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 	 * @return string Returns the value of the option or an empty string when not set.
 	 */
 	public function get() {
-		$dismissedOption = get_option( $this->option_name );
+		$dismissedOption = get_option( $this->optionName );
 		if ( ! $dismissedOption ) {
 			return '';
 		}

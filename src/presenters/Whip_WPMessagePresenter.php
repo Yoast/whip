@@ -49,7 +49,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		/* translators: 1: is a link to dismiss url 2: closing link tag */
 		$dismiss_button = sprintf(
 			__( '<p>%1$sRemind me again after the next WordPress release.%2$s</p>', 'wordpress' ),
-			'<a href="' . $dismissListener->get_dismissurl() . '">',
+			'<a href="' . $dismissListener->getDismissURL() . '">',
 			'</a>'
 		);
 

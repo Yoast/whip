@@ -40,7 +40,7 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 	 *
 	 * @return string The url for dismissing the message.
 	 */
-	public function get_dismissurl() {
+	public function getDismissURL() {
 		return sprintf(
 			admin_url( 'index.php?action=%1$s&nonce=%2$s' ),
 			self::ACTION_NAME,
