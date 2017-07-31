@@ -47,13 +47,13 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		}
 
 		/* translators: 1: is a link to dismiss url 2: closing link tag */
-		$dismiss_button = sprintf(
+		$dismissButton = sprintf(
 			__( '<p>%1$sRemind me again after the next WordPress release.%2$s</p>', 'wordpress' ),
 			'<a href="' . $dismissListener->getDismissURL() . '">',
 			'</a>'
 		);
 
-		printf( '<div class="error">%1$s<p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismiss_button );
+		printf( '<div class="error">%1$s<p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismissButton );
 	}
 
 	/**
