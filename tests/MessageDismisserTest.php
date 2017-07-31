@@ -60,12 +60,12 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 
 	public function versionNumbersProvider() {
 		return array(
-			array( '4.8', '4.8', false ),
-			array( '4.8', '4.8.1', false ),
-			array( '4.7', '4.8', true ),
-			array( '4.7', '4.8.1', true ),
-			array( '4.7.1', '4.8.1', true ),
-			array( '4.7', '4.7-alpha', false ),
+			array( '4.8', '4.8', true ),
+			array( '4.8', '4.8.1', true ),
+			array( '4.7', '4.8', false ),
+			array( '4.7', '4.8.1', false ),
+			array( '4.7.1', '4.8.1', false ),
+			array( '4.7', '4.7-alpha', true ),
 		);
 	}
 
