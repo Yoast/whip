@@ -42,6 +42,10 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 		$dismissListener = new Whip_WPMessageDismissListener( $this->dismisser );
 		$dismissListener->listen();
 
+		if ( $this->dismisser->isDismissed() ) {
+			return;
+		}
+
 		/* translators: 1: is a link to dismiss url 2: closing link tag */
 		$dismiss_button = sprintf(
 			__( '<p>%1$sRemind me again after the next WordPress release.%2$s</p>', 'wordpress' ),

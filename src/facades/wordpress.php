@@ -14,15 +14,8 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 
 		global $wp_version;
 
-
 		$config  = include dirname( __FILE__ ) . '/../configs/default.php';
 		$checker = new Whip_RequirementsChecker( $config );
-
-		$dismisser = new Whip_MessageDismisser( $wp_version, new Whip_WPDismissOption() );
-
-		if ( ! $dismisser->isDismissed() ) {
-			return;
-		}
 
 		foreach ( $requirements as $component => $versionComparison ) {
 			$checker->addRequirement( Whip_VersionRequirement::fromCompareString( $component, $versionComparison ) );
@@ -33,6 +26,8 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		if ( ! $checker->hasMessages() ) {
 			return;
 		}
+
+		$dismisser = new Whip_MessageDismisser( $wp_version, new Whip_WPDismissOption() );
 
 		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage(), $dismisser );
 		$presenter->register_hooks();
