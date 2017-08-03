@@ -48,10 +48,9 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
 		/* translators: 1: is a link to dismiss url 2: closing link tag */
 		$dismissButton = sprintf(
-			__( '<p>%1$sRemind me again after %3$d weeks.%2$s</p>', 'wordpress' ),
+			__( '<p>%1$sRemind me again after 4 weeks.%2$s</p>', 'wordpress' ),
 			'<a href="' . $dismissListener->getDismissURL() . '">',
-			'</a>',
-			4
+			'</a>'
 		);
 
 		printf( '<div class="error">%1$s<p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismissButton );

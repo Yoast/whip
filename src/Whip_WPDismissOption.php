@@ -11,7 +11,7 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 	/**
 	 * Saves the value to the options.
 	 *
-	 * @param string $dismissedValue The value to save.
+	 * @param int $dismissedValue The value to save.
 	 *
 	 * @return bool True when successful.
 	 */
@@ -22,7 +22,7 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 	/**
 	 * Returns the value of the whip_dismissed option.
 	 *
-	 * @return string|int Returns the value of the option or an empty string when not set.
+	 * @return int Returns the value of the option or an empty string when not set.
 	 */
 	public function get() {
 		$dismissedOption = get_option( $this->optionName );
@@ -30,7 +30,7 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 			return 0;
 		}
 
-		return $dismissedOption;
+		return (int) $dismissedOption;
 	}
 
 }

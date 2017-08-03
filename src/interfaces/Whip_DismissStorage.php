@@ -8,7 +8,7 @@ interface Whip_DismissStorage {
 	/**
 	 * Saves the value.
 	 *
-	 * @param string $dismissedValue The value to save.
+	 * @param int $dismissedValue The value to save.
 	 *
 	 * @return bool True when successful.
 	 */
@@ -17,7 +17,7 @@ interface Whip_DismissStorage {
 	/**
 	 * Returns the value.
 	 *
-	 * @return string|int
+	 * @return int
 	 */
 	public function get();
 

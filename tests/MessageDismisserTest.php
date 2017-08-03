@@ -13,7 +13,7 @@ class Whip_DismissStorageMock implements Whip_DismissStorage {
 	/**
 	 * Saves the value.
 	 *
-	 * @param string $dismissedValue The value to save.
+	 * @param int $dismissedValue The value to save.
 	 *
 	 * @return boolean
 	 */
@@ -26,7 +26,7 @@ class Whip_DismissStorageMock implements Whip_DismissStorage {
 	/**
 	 * Returns the value.
 	 *
-	 * @return string|int
+	 * @return int
 	 */
 	public function get() {
 		return $this->dismissed;
