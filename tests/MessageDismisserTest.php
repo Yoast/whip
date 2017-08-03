@@ -1,23 +1,32 @@
 <?php
 
+if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
+	define( 'WEEK_IN_SECONDS', 60 * 60 * 24 * 7 );
+}
+
+
 class Whip_DismissStorageMock implements Whip_DismissStorage {
 
-	/** @var string  */
-	protected $dismissed = '';
+	/** @var int */
+	protected $dismissed = 0;
 
 	/**
 	 * Saves the value.
 	 *
-	 * @param string $dismissedVersion The value to save.
+	 * @param string $dismissedValue The value to save.
+	 *
+	 * @return boolean
 	 */
-	public function set( $dismissedVersion ) {
-		$this->dismissed = $dismissedVersion;
+	public function set( $dismissedValue ) {
+		$this->dismissed = $dismissedValue;
+
+		return true;
 	}
 
 	/**
 	 * Returns the value.
 	 *
-	 * @return string
+	 * @return string|int
 	 */
 	public function get() {
 		return $this->dismissed;
@@ -31,41 +40,47 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	 * @covers Whip_MessageDismisser::dismiss()
 	 */
 	public function testDismiss() {
-		$storage = new Whip_DismissStorageMock();
-		$dismisser = new Whip_MessageDismisser( '4.8', $storage );
+		$currentTime = time();
+		$storage     = new Whip_DismissStorageMock();
+		$dismisser = new Whip_MessageDismisser( $currentTime, $storage );
+
+		$this->assertEquals( 0, $storage->get() );
 
 		$dismisser->dismiss();
 
-		$this->assertEquals( '4.8' , $storage->get() );
+		$this->assertEquals( $currentTime, $storage->get() );
 	}
 
 	/**
 	 * @dataProvider versionNumbersProvider
 	 *
-	 * @param string $savedVersion   The saved version number.
-	 * @param string $currentVersion The current version number.
-	 * @param bool   $expected       The expected value.
+	 * @param int $savedTime   The saved time.
+	 * @param int $currentTime The current time.
+	 * @param bool   $expected The expected value.
 	 *
 	 * @covers Whip_MessageDismisser::__construct()
 	 * @covers Whip_MessageDismisser::isDismissed()
-	 * @covers Whip_MessageDismisser::toMajorVersion()
+	 * @covers Whip_MessageDismisser::getThreshold()
 	 */
-	public function testIsDismissibleWithVersions( $savedVersion, $currentVersion, $expected ) {
+	public function testIsDismissibleWithVersions( $savedTime, $currentTime, $expected ) {
 		$storage = new Whip_DismissStorageMock();
-		$storage->set( $savedVersion );
-		$dismisser = new Whip_MessageDismisser( $currentVersion, $storage );
+		$storage->set( $savedTime );
+		$dismisser = new Whip_MessageDismisser( $currentTime, $storage );
 
 		$this->assertEquals( $expected, $dismisser->isDismissed() );
 	}
 
+	/**
+	 * Provides array with test values.
+	 *
+	 * @return array
+	 */
 	public function versionNumbersProvider() {
 		return array(
-			array( '4.8', '4.8', true ),
-			array( '4.8', '4.8.1', true ),
-			array( '4.7', '4.8', false ),
-			array( '4.7', '4.8.1', false ),
-			array( '4.7.1', '4.8.1', false ),
-			array( '4.7', '4.7-alpha', true ),
+			array( strtotime( "-2weeks" ), time(), true ),
+			array( strtotime( "-4weeks" ), time(), false ),
+			array( strtotime( "-6weeks" ), time(), false ),
+			array( time(), time(), true ),
 		);
 	}
 
