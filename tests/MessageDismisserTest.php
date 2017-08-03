@@ -78,8 +78,9 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	public function versionNumbersProvider() {
 		return array(
 			array( strtotime( "-2weeks" ), time(), true ),
-			array( strtotime( "-4weeks" ), time(), false ),
+			array( strtotime( "-4weeks" ), time(), true ),
 			array( strtotime( "-6weeks" ), time(), false ),
+			array( time(), time(), true ),
 		);
 	}
 
