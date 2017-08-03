@@ -35,11 +35,11 @@ class Whip_MessageDismisser {
 	}
 
 	/**
-	 * Checks if the stored time is lower than the current time.
+	 * Checks if the current time is lower than the stored time extended by the threshold.
 	 *
-	 * @return bool True when stored value + threshold is bigger than current time.
+	 * @return bool True when current time is lower than stored value + threshold.
 	 */
 	public function isDismissed() {
-		return ( ( $this->storage->get() + $this->threshold ) > $this->currentTime );
+		return ( $this->currentTime <= ( $this->storage->get() + $this->threshold ) );
 	}
 }
