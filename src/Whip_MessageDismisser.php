@@ -11,14 +11,19 @@ class Whip_MessageDismisser {
 	/** @var string */
 	protected $currentTime;
 
+	/** @var int */
+	protected $threshold;
+
 	/**
 	 * Whip_MessageDismisser constructor.
 	 *
 	 * @param int                 $currentTime The current time.
+	 * @param int                 $threshold   The number of seconds till dismiss state expires.
 	 * @param Whip_DismissStorage $storage     The storage object handling storage of the time.
 	 */
-	public function __construct( $currentTime, Whip_DismissStorage $storage ) {
+	public function __construct( $currentTime, $threshold, Whip_DismissStorage $storage ) {
 		$this->currentTime = $currentTime;
+		$this->threshold   = $threshold;
 		$this->storage     = $storage;
 	}
 
@@ -35,18 +40,6 @@ class Whip_MessageDismisser {
 	 * @return bool True when stored value + threshold is bigger than current time.
 	 */
 	public function isDismissed() {
-		return ( ( $this->storage->get() + $this->getThreshold() ) > $this->currentTime );
+		return ( ( $this->storage->get() + $this->threshold ) > $this->currentTime );
 	}
-
-	/**
-	 * Returns the threshold.
-	 *
-	 * @return integer The total amount of seconds.
-	 */
-	protected function getThreshold() {
-		$numberOfWeeks = 4;
-
-		return ( WEEK_IN_SECONDS * $numberOfWeeks );
-	}
-
 }

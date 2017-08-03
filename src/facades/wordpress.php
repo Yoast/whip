@@ -25,7 +25,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 			return;
 		}
 
-		$dismisser = new Whip_MessageDismisser( time(), new Whip_WPDismissOption() );
+		$dismisser = new Whip_MessageDismisser( time(), WEEK_IN_SECONDS * 4, new Whip_WPDismissOption() );
 
 		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage(), $dismisser );
 		$presenter->register_hooks();
