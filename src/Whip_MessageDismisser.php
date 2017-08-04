@@ -18,8 +18,8 @@ class Whip_MessageDismisser {
 	 * Whip_MessageDismisser constructor.
 	 *
 	 * @param int                 $currentTime The current time.
-	 * @param int                 $threshold   The number of seconds till dismiss state expires.
-	 * @param Whip_DismissStorage $storage     The storage object handling storage of the time.
+	 * @param int                 $threshold   The number of seconds the message will be dismissed.
+	 * @param Whip_DismissStorage $storage     Storage object to manage the dismissal state.
 	 */
 	public function __construct( $currentTime, $threshold, Whip_DismissStorage $storage ) {
 		$this->currentTime = $currentTime;
