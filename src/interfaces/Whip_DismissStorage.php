@@ -8,16 +8,16 @@ interface Whip_DismissStorage {
 	/**
 	 * Saves the value.
 	 *
-	 * @param string $dismissedVersion The value to save.
+	 * @param int $dismissedValue The value to save.
 	 *
 	 * @return bool True when successful.
 	 */
-	public function set( $dismissedVersion );
+	public function set( $dismissedValue );
 
 	/**
 	 * Returns the value.
 	 *
-	 * @return string
+	 * @return int The stored value.
 	 */
 	public function get();
 

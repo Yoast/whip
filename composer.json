@@ -32,6 +32,9 @@
         ],
         "post-autoload-dump": [
             "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
         ]
     }
 }

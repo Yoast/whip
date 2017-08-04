@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * A class to dismiss messages.
  */
@@ -10,45 +9,37 @@ class Whip_MessageDismisser {
 	protected $storage;
 
 	/** @var string */
-	protected $currentVersion;
+	protected $currentTime;
+
+	/** @var int */
+	protected $threshold;
 
 	/**
 	 * Whip_MessageDismisser constructor.
 	 *
-	 * @param string              $currentVersion The current version of the installation.
-	 * @param Whip_DismissStorage $storage        The storage object handling storage of versioning.
+	 * @param int                 $currentTime The current time.
+	 * @param int                 $threshold   The number of seconds the message will be dismissed.
+	 * @param Whip_DismissStorage $storage     Storage object to manage the dismissal state.
 	 */
-	public function __construct( $currentVersion, Whip_DismissStorage $storage ) {
-		$this->currentVersion = $this->toMajorVersion( $currentVersion );
-		$this->storage        = $storage;
+	public function __construct( $currentTime, $threshold, Whip_DismissStorage $storage ) {
+		$this->currentTime = $currentTime;
+		$this->threshold   = $threshold;
+		$this->storage     = $storage;
 	}
 
 	/**
 	 * Saves the version number to the storage to indicate the message as being dismissed.
 	 */
 	public function dismiss() {
-		$this->storage->set( $this->currentVersion );
+		$this->storage->set( $this->currentTime );
 	}
 
 	/**
-	 * Checks if the stored version is equal or higher than the version to check against.
+	 * Checks if the current time is lower than the stored time extended by the threshold.
 	 *
-	 * @return bool True when saved version is equal or higher than the provided version.
+	 * @return bool True when current time is lower than stored value + threshold.
 	 */
 	public function isDismissed() {
-		return version_compare( $this->storage->get(), $this->currentVersion, '>=' );
-	}
-
-	/**
-	 * Converts the version number to a major version number.
-	 *
-	 * @param string $versionToConvert The version to convert.
-	 *
-	 * @return string The major version number.
-	 */
-	protected function toMajorVersion( $versionToConvert ) {
-		$parts = explode( '.', $versionToConvert, 3 );
-
-		return implode( '.', array_slice( $parts, 0, 2 ) );
+		return ( $this->currentTime <= ( $this->storage->get() + $this->threshold ) );
 	}
 }
