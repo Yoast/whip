@@ -60,7 +60,6 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_MessageDismisser::__construct()
 	 * @covers Whip_MessageDismisser::isDismissed()
-	 * @covers Whip_MessageDismisser::getThreshold()
 	 */
 	public function testIsDismissibleWithVersions( $savedTime, $currentTime, $expected ) {
 		$storage = new Whip_DismissStorageMock();
