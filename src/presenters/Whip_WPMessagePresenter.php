@@ -5,6 +5,10 @@
  */
 class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
+	/** @var string The string to show to dismiss the message. */
+	private $dismissMessage;
+
+	/** @var Whip_Message The message to be displayed */
 	private $message;
 
 	/** @var Whip_MessageDismisser */
@@ -13,12 +17,14 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	/**
 	 * Whip_WPMessagePresenter constructor.
 	 *
-	 * @param Whip_Message          $message The message to use in the presenter.
-	 * @param Whip_MessageDismisser $dismisser Dismisser object.
+	 * @param Whip_Message          $message        The message to use in the presenter.
+	 * @param Whip_MessageDismisser $dismisser      Dismisser object.
+	 * @param string                $dismissMessage The copy to show to dismiss the message.
 	 */
-	public function __construct( Whip_Message $message, Whip_MessageDismisser $dismisser ) {
-	    $this->message   = $message;
-		$this->dismisser = $dismisser;
+	public function __construct( Whip_Message $message, Whip_MessageDismisser $dismisser, $dismissMessage ) {
+		$this->message        = $message;
+		$this->dismisser      = $dismisser;
+		$this->dismissMessage = $dismissMessage;
 	}
 
 	/**
@@ -46,11 +52,10 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 			return;
 		}
 
-		/* translators: 1: is a link to dismiss url 2: closing link tag */
 		$dismissButton = sprintf(
-			__( '%1$sRemind me again in 4 weeks.%2$s', 'wordpress' ),
-			'<a href="' . $dismissListener->getDismissURL() . '">',
-			'</a>'
+			'<a href="%2$s">%1$s</a>',
+			$this->dismissMessage,
+			$dismissListener->getDismissURL()
 		);
 
 		printf( '<div class="error"><p>%1$s</p><p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismissButton );
@@ -66,7 +71,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	public function kses( $message ) {
 		return wp_kses( $message, array(
 			'a'      => array(
-				'href' => true,
+				'href'   => true,
 				'target' => true,
 			),
 			'strong' => true,

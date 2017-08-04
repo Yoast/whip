@@ -25,9 +25,12 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 			return;
 		}
 
-		$dismisser = new Whip_MessageDismisser( time(), WEEK_IN_SECONDS * 4, new Whip_WPDismissOption() );
+		$dismissThreshold = WEEK_IN_SECONDS * 4;
+		$dismissMessage = __( 'Remind me again in 4 weeks.', 'wordpress' );
 
-		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage(), $dismisser );
+		$dismisser = new Whip_MessageDismisser( time(), $dismissThreshold, new Whip_WPDismissOption() );
+
+		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage(), $dismisser, $dismissMessage );
 		$presenter->register_hooks();
 	}
 }
