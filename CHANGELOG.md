@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.1.0]
 ### Added
-* Allow WordPress messages to be dismissed for 4 weeks.
+* Allow WordPress messages to be dismissed for a period of 4 weeks.
 
 ## [1.0.1]
 ### Fixed
