@@ -31,6 +31,18 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		$dismisser = new Whip_MessageDismisser( time(), $dismissThreshold, new Whip_WPDismissOption() );
 
 		$presenter = new Whip_WPMessagePresenter( $checker->getMostRecentMessage(), $dismisser, $dismissMessage );
-		$presenter->register_hooks();
+		
+		// Prevent duplicate notices across multiple implementing plugins.
+		if ( ! has_action( 'whip_register_hooks' ) ) {
+			add_action( 'whip_register_hooks', array( $presenter, 'register_hooks' ) );
+		}
+
+		/**
+		 * Fires during hooks registration for the message presenter.
+		 *
+		 * @param \Whip_WPMessagePresenter $presenter Message presenter instance.
+		 */
+		do_action( 'whip_register_hooks', $presenter );
+
 	}
 }
