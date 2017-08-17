@@ -1,0 +1,10 @@
+#
+# Exclude these files from release archives.
+# This will also make them unavailable when using Composer with `--prefer-dist`.
+# If you develop for Yoast WHIP using Composer, use `--prefer-source`.
+# https://www.reddit.com/r/PHP/comments/2jzp6k/i_dont_need_your_tests_in_my_production
+# https://blog.madewithlove.be/post/gitattributes/
+#
+/.travis.yml export-ignore
+/phpunit.xml export-ignore
+/tests export-ignore
