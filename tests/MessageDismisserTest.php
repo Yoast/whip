@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
-	define( 'WEEK_IN_SECONDS', 60 * 60 * 24 * 7 );
+	define( 'WEEK_IN_SECONDS', ( 60 * 60 * 24 * 7 ) );
 }
 
 /**
@@ -54,7 +54,7 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	public function testDismiss() {
 		$currentTime = time();
 		$storage     = new Whip_DismissStorageMock();
-		$dismisser   = new Whip_MessageDismisser( $currentTime, WEEK_IN_SECONDS * 4, $storage );
+		$dismisser   = new Whip_MessageDismisser( $currentTime, ( WEEK_IN_SECONDS * 4 ), $storage );
 
 		$this->assertEquals( 0, $storage->get() );
 
@@ -76,7 +76,7 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	public function testIsDismissibleWithVersions( $savedTime, $currentTime, $expected ) {
 		$storage = new Whip_DismissStorageMock();
 		$storage->set( $savedTime );
-		$dismisser = new Whip_MessageDismisser( $currentTime, WEEK_IN_SECONDS * 4, $storage );
+		$dismisser = new Whip_MessageDismisser( $currentTime, ( WEEK_IN_SECONDS * 4 ), $storage );
 
 		$this->assertEquals( $expected, $dismisser->isDismissed() );
 	}
