@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class EmptyProperty
+ * Class EmptyProperty.
  */
 class Whip_EmptyProperty extends Exception {
 	public function __construct( $property ) {

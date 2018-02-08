@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Represents a host
+ * Represents a host.
  */
 class Whip_Host {
 	const HOST_NAME_KEY = 'WHIP_NAME_OF_HOST';
@@ -62,7 +62,7 @@ class Whip_Host {
 	}
 
 	/**
-	 * Returns the URL for the hosting page
+	 * Returns the URL for the hosting page.
 	 *
 	 * @returns string The URL to the hosting overview page.
 	 */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Whip_InvalidVersionMessage
+ * Class Whip_InvalidVersionMessage.
  */
 class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class InvalidOperatorType
+ * Class InvalidOperatorType.
  */
 class Whip_InvalidOperatorType extends Exception {
 

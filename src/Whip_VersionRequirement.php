@@ -62,7 +62,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Creates a new version requirement from a comparison string
+	 * Creates a new version requirement from a comparison string.
 	 *
 	 * @throws Whip_InvalidVersionComparisonString When an invalid version comparison string is passed.
 	 *

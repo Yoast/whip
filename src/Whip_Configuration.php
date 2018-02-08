@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Whip_Configuration
+ * Class Whip_Configuration.
  */
 class Whip_Configuration {
 

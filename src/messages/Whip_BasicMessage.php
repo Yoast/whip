@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Whip_Message
+ * Class Whip_Message.
  */
 class Whip_BasicMessage implements Whip_Message {
 	/**

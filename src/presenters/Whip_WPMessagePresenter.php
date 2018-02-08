@@ -8,7 +8,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	/** @var string The string to show to dismiss the message. */
 	private $dismissMessage;
 
-	/** @var Whip_Message The message to be displayed */
+	/** @var Whip_Message The message to be displayed. */
 	private $message;
 
 	/** @var Whip_MessageDismisser */

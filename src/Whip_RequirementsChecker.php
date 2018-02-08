@@ -34,7 +34,7 @@ class Whip_RequirementsChecker {
 	 * @param Whip_Requirement $requirement The requirement to add.
 	 */
 	public function addRequirement( Whip_Requirement $requirement ) {
-		// Only allow unique entries to ensure we're not checking specific combinations multiple times
+		// Only allow unique entries to ensure we're not checking specific combinations multiple times.
 		if ( $this->requirementExistsForComponent( $requirement->component() ) ) {
 			return;
 		}
@@ -100,7 +100,7 @@ class Whip_RequirementsChecker {
 	 */
 	public function check() {
 		foreach ( $this->requirements as $requirement ) {
-			// Match against config
+			// Match against config.
 			$requirementFulfilled = $this->requirementIsFulfilled( $requirement );
 
 			if ( $requirementFulfilled ) {
