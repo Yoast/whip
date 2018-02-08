@@ -81,9 +81,9 @@ class Whip_VersionRequirement implements Whip_Requirement {
 
 		$matcher = '`
 			(
-				(>=?)   # Matches >= and >.
+				>=?     # Matches >= and >.
 				|
-				(<=?)   # Matches <= and <.
+				<=?     # Matches <= and <.
 			)
 			([^>=<\s]+) # Matches anything except >, <, =, and whitespace.
 		`x';
@@ -92,7 +92,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_InvalidVersionComparisonString( $comparisonString );
 		}
 
-		$version  = $match[4];
+		$version  = $match[2];
 		$operator = $match[1];
 
 		return new Whip_VersionRequirement( $component, $version, $operator );
