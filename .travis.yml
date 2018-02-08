@@ -1,5 +1,14 @@
 language: php
 dist: trusty
+
+## Cache composer downloads.
+cache:
+  directories:
+    # Cache directory for older Composer versions.
+    - $HOME/.composer/cache/files
+    # Cache directory for more recent Composer versions.
+    - $HOME/.cache/composer/files
+
 php:
 - '7.1'
 - '7.0'
@@ -21,8 +30,8 @@ before_install:
 
 install:
 - if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local 5.3.29; fi
-- composer selfupdate 1.0.0 --no-interaction
-- composer install --no-interaction
+- composer selfupdate --no-interaction
+- composer install --prefer-dist --no-interaction
 - if [[ "$TRAVIS_PHP_VERSION" == "5.2" ]]; then composer remove --dev phpunit/phpunit; fi
 - if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local --unset; fi
 
