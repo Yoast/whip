@@ -32,7 +32,16 @@
 	#############################################################################
 	-->
 
-	<rule ref="Yoast"/>
+	<rule ref="Yoast">
+		<!-- Historically, this library has used camelCaps not snakecase for variable names. -->
+		<exclude name="WordPress.NamingConventions.ValidVariableName"/>
+	</rule>
+
+	<!-- Check that variable names are in camelCaps. -->
+	<rule ref="Squiz.NamingConventions.ValidVariableName">
+		<!-- Private properties should, however, *not* start with an underscore. -->
+		<exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+	</rule>
 
 
 </ruleset>
