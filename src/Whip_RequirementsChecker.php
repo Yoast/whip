@@ -85,14 +85,14 @@ class Whip_RequirementsChecker {
 	 * @return bool Whether or not the requirement is fulfilled.
 	 */
 	private function requirementIsFulfilled( Whip_Requirement $requirement ) {
-		$available_version = $this->configuration->configuredVersion( $requirement );
-		$required_version = $requirement->version();
+		$availableVersion = $this->configuration->configuredVersion( $requirement );
+		$requiredVersion  = $requirement->version();
 
 		if ( in_array( $requirement->operator(), array( '=', '==', '===' ), true ) ) {
-			return -1 !== version_compare( $available_version, $required_version );
+			return -1 !== version_compare( $availableVersion, $requiredVersion );
 		}
 
-		return version_compare( $available_version, $required_version, $requirement->operator() );
+		return version_compare( $availableVersion, $requiredVersion, $requirement->operator() );
 	}
 
 	/**
@@ -101,9 +101,9 @@ class Whip_RequirementsChecker {
 	public function check() {
 		foreach ( $this->requirements as $requirement ) {
 			// Match against config
-			$requirement_fulfilled = $this->requirementIsFulfilled( $requirement );
+			$requirementFulfilled = $this->requirementIsFulfilled( $requirement );
 
-			if ( $requirement_fulfilled ) {
+			if ( $requirementFulfilled ) {
 				continue;
 			}
 
