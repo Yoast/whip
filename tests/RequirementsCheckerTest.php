@@ -32,7 +32,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 		try {
 			$checker->addRequirement( new stdClass() );
-		} catch( Error $e ) {
+		} catch ( Error $e ) {
 			$exceptionCaught = true;
 		}
 
@@ -50,7 +50,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 		try {
 			$checker->addRequirement( new stdClass() );
-		} catch( Exception $e ) {
+		} catch ( Exception $e ) {
 			$exceptionCaught = true;
 		}
 
@@ -82,7 +82,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testCheckIfRequirementIsFulfilled() {
-		$checker = new Whip_RequirementsChecker( array( 'php' => phpversion() )	);
+		$checker = new Whip_RequirementsChecker( array( 'php' => phpversion() ) );
 
 		$checker->addRequirement( new Whip_VersionRequirement( 'php', '5.2' ) );
 		$checker->check();
@@ -91,7 +91,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testCheckIfPHPRequirementIsNotFulfilled() {
-		$checker = new Whip_RequirementsChecker( array( 'php' => 4 )	);
+		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );
 
 		$checker->addRequirement( new Whip_VersionRequirement( 'php', '5.6' ) );
 		$checker->check();
@@ -101,14 +101,14 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		// Get the message. This will unset the global.
 		$recentMessage = $checker->getMostRecentMessage();
 
-		$this->assertNotEmpty( $recentMessage  );
+		$this->assertNotEmpty( $recentMessage );
 		$this->assertInternalType( 'string', $recentMessage->body() );
 		$this->assertFalse( $checker->hasMessages() );
 		$this->assertInstanceOf( 'Whip_UpgradePhpMessage', $recentMessage );
 	}
 
 	public function testCheckIfRequirementIsNotFulfilled() {
-		$checker = new Whip_RequirementsChecker( array( 'mysql' => 4 )	);
+		$checker = new Whip_RequirementsChecker( array( 'mysql' => 4 ) );
 
 		$checker->addRequirement( new Whip_VersionRequirement( 'mysql', '5.6' ) );
 		$checker->check();
@@ -118,14 +118,14 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		// Get the message. This will unset the global.
 		$recentMessage = $checker->getMostRecentMessage();
 
-		$this->assertNotEmpty( $recentMessage  );
+		$this->assertNotEmpty( $recentMessage );
 		$this->assertFalse( $checker->hasMessages() );
 		$this->assertInstanceOf( 'Whip_InvalidVersionRequirementMessage', $recentMessage );
 		$this->assertStringStartsWith( 'Invalid version detected', $recentMessage->body() );
 	}
 
 	public function testCheckIfRequirementIsFulfilledWithSpecificComparison() {
-		$checker = new Whip_RequirementsChecker( array( 'php' => 4 )	);
+		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );
 
 		$checker->addRequirement( new Whip_VersionRequirement( 'php', '5.2', '<' ) );
 		$checker->check();

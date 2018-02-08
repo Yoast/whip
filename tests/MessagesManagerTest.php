@@ -1,6 +1,7 @@
 <?php
 
 class MessagesManagerTest extends PHPUnit_Framework_TestCase {
+
 	public function testHasMessages() {
 		$manager = new Whip_MessagesManager();
 

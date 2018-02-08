@@ -8,8 +8,7 @@ class Whip_MessagesManager {
 	/**
 	 * Whip_MessagesManager constructor.
 	 */
-	public function __construct()
-	{
+	public function __construct() {
 		if ( ! array_key_exists( 'whip_messages', $GLOBALS ) ) {
 			$GLOBALS['whip_messages'] = array();
 		}
@@ -23,7 +22,7 @@ class Whip_MessagesManager {
 	public function addMessage( Whip_Message $message ) {
 		$whipVersion = require dirname( __FILE__ ) . '/configs/version.php';
 
-		$GLOBALS[ 'whip_messages' ][$whipVersion] = $message;
+		$GLOBALS['whip_messages'][ $whipVersion ] = $message;
 	}
 
 	/**
@@ -41,14 +40,14 @@ class Whip_MessagesManager {
 	 * @return array The messages that are currently set.
 	 */
 	public function listMessages() {
-		return $GLOBALS[ 'whip_messages' ];
+		return $GLOBALS['whip_messages'];
 	}
 
 	/**
 	 * Deletes all messages.
 	 */
 	public function deleteMessages() {
-		unset( $GLOBALS[ 'whip_messages' ] );
+		unset( $GLOBALS['whip_messages'] );
 	}
 
 	/**

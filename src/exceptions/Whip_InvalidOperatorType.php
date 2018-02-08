@@ -14,9 +14,11 @@ class Whip_InvalidOperatorType extends Exception {
 	 */
 	public function __construct( $value ) {
 		parent::__construct(
-			sprintf( 'Invalid operator of %s used. Please use one of the following operators: %s',
+			sprintf(
+				'Invalid operator of %s used. Please use one of the following operators: %s',
 				$value,
 				implode( ', ', $this->validOperators )
-			) );
+			)
+		);
 	}
 }

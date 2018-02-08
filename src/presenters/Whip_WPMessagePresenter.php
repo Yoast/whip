@@ -64,15 +64,18 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @return string The cleaned message.
 	 */
 	public function kses( $message ) {
-		return wp_kses( $message, array(
-			'a'      => array(
-				'href'   => true,
-				'target' => true,
-			),
-			'strong' => true,
-			'p'      => true,
-			'ul'     => true,
-			'li'     => true,
-		) );
+		return wp_kses(
+			$message,
+			array(
+				'a'      => array(
+					'href'   => true,
+					'target' => true,
+				),
+				'strong' => true,
+				'p'      => true,
+				'ul'     => true,
+				'li'     => true,
+			)
+		);
 	}
 }
