@@ -16,6 +16,9 @@ matrix:
       dist: precise
 
 
+before_install:
+  - phpenv config-rm xdebug.ini || echo 'No xdebug config.'
+
 install:
 - if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local 5.3.29; fi
 - composer selfupdate 1.0.0 --no-interaction
