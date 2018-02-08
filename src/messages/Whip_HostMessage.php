@@ -56,6 +56,7 @@ class Whip_HostMessage implements Whip_Message {
 	 * @return string The message title.
 	 */
 	public function title() {
+		/* translators: 1: name. */
 		return sprintf( __( 'A message from %1$s', $this->textdomain ), Whip_Host::name() );
 	}
 }
