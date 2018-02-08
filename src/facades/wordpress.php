@@ -31,7 +31,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		}
 
 		$dismissThreshold = ( WEEK_IN_SECONDS * 4 );
-		$dismissMessage   = __( 'Remind me again in 4 weeks.', 'wordpress' );
+		$dismissMessage   = __( 'Remind me again in 4 weeks.', 'default' );
 
 		$dismisser = new Whip_MessageDismisser( time(), $dismissThreshold, new Whip_WPDismissOption() );
 
