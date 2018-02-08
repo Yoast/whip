@@ -49,7 +49,7 @@ class Whip_Host {
 	 * Filters the message if we are in a WordPress context. In a non-WordPress content this function just returns the passed message.
 	 *
 	 * @param string $messageKey The key used for the environment variable.
-	 * @param string $message The current message from the host.
+	 * @param string $message    The current message from the host.
 	 *
 	 * @return string
 	 */

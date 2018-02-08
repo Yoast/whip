@@ -27,11 +27,11 @@ class Whip_Configuration {
 
 	/**
 	 * Retrieves the configured version of a particular requirement.
-	 * If the requirement does not exist, this returns -1.
 	 *
 	 * @param Whip_Requirement $requirement The requirement to check.
 	 *
 	 * @return int The version of the passed requirement that was detected.
+	 *             If the requirement does not exist, this returns -1.
 	 */
 	public function configuredVersion( Whip_Requirement $requirement ) {
 		if ( ! $this->hasRequirementConfigured( $requirement ) ) {

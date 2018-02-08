@@ -54,9 +54,9 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider versionNumbersProvider
 	 *
-	 * @param int $savedTime   The saved time.
-	 * @param int $currentTime The current time.
-	 * @param bool   $expected The expected value.
+	 * @param int  $savedTime   The saved time.
+	 * @param int  $currentTime The current time.
+	 * @param bool $expected    The expected value.
 	 *
 	 * @covers Whip_MessageDismisser::__construct()
 	 * @covers Whip_MessageDismisser::isDismissed()

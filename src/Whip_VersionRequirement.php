@@ -66,10 +66,10 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 *
 	 * @throws Whip_InvalidVersionComparisonString When an invalid version comparison string is passed.
 	 *
-*@param string $component        The component for this version requirement.
+	 * @param string $component        The component for this version requirement.
 	 * @param string $comparisonString The comparison string for this version requirement.
 	 *
-*@returns Whip_VersionRequirement The parsed version requirement.
+	 * @returns Whip_VersionRequirement The parsed version requirement.
 	 */
 	public static function fromCompareString( $component, $comparisonString ) {
 

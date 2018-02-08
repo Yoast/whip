@@ -19,7 +19,7 @@ class Whip_RequirementsChecker {
 	 * Whip_RequirementsChecker constructor.
 	 *
 	 * @param array  $configuration The configuration to check.
-	 * @param string $textdomain The text domain to use for translations.
+	 * @param string $textdomain    The text domain to use for translations.
 	 */
 	public function __construct( $configuration = array(), $textdomain = 'wordpress' ) {
 		$this->requirements     = array();

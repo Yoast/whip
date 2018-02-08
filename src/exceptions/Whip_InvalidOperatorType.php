@@ -10,7 +10,7 @@ class Whip_InvalidOperatorType extends Exception {
 	/**
 	 * InvalidOperatorType constructor.
 	 *
-	 * @param string       $value
+	 * @param string $value Invalid operator.
 	 */
 	public function __construct( $value ) {
 		parent::__construct(
