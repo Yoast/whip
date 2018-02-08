@@ -49,11 +49,17 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
 		$dismissButton = sprintf(
 			'<a href="%2$s">%1$s</a>',
-			$this->dismissMessage,
-			$dismissListener->getDismissURL()
+			esc_html( $this->dismissMessage ),
+			esc_url( $dismissListener->getDismissURL() )
 		);
 
-		printf( '<div class="error"><p>%1$s</p><p>%2$s</p></div>', $this->kses( $this->message->body() ), $dismissButton );
+		// phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped -- output correctly escaped directly above and in the `kses()` method.
+		printf(
+			'<div class="error"><p>%1$s</p><p>%2$s</p></div>',
+			$this->kses( $this->message->body() ),
+			$dismissButton
+		);
+		// phpcs:enable
 	}
 
 	/**
