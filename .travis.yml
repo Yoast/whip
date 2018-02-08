@@ -10,20 +10,25 @@ cache:
     - $HOME/.cache/composer/files
 
 php:
-- '7.1'
-- '7.0'
-- '5.6'
-- '5.5'
-- '5.4'
+- 7.1
+- 7.0
+- 5.6
+- 5.5
+- 5.4
+- nightly
 
 matrix:
-    fast_finish: true
-    include:
+  fast_finish: true
+  include:
+    - php: 7.2
     - php: 5.2
       dist: precise
     - php: 5.3
       dist: precise
 
+  allow_failures:
+    # Allow failures for unstable builds.
+    - php: nightly
 
 before_install:
   - phpenv config-rm xdebug.ini || echo 'No xdebug config.'

@@ -3,7 +3,7 @@
     "description": "A WordPress package to nudge users to upgrade their software versions (starting with PHP)",
     "type": "library",
     "require-dev": {
-        "phpunit/phpunit": "^3.6.12"
+        "phpunit/phpunit": "^3.6.12 | ^4.5 | ^5.7"
     },
     "license": "GPL-3.0+",
     "authors": [
