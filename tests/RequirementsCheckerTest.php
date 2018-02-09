@@ -13,6 +13,9 @@ function esc_url( $url ) {
 	return $url;
 }
 
+/**
+ * Requirements checker unit tests.
+ */
 class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 	public function testItReceivesAUsableRequirementObject() {

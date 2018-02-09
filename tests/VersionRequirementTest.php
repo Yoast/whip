@@ -5,6 +5,9 @@
  * @package Yoast\WHIP
  */
 
+/**
+ * Version requirements unit tests.
+ */
 class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	public function testNameAndVersionAreNotEmpty() {
 		$requirement = new Whip_VersionRequirement( 'php', '5.2' );

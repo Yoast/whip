@@ -9,7 +9,9 @@ if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
 	define( 'WEEK_IN_SECONDS', 60 * 60 * 24 * 7 );
 }
 
-
+/**
+ * Test helper.
+ */
 class Whip_DismissStorageMock implements Whip_DismissStorage {
 
 	/** @var int */
@@ -38,6 +40,9 @@ class Whip_DismissStorageMock implements Whip_DismissStorage {
 	}
 }
 
+/**
+ * Message Dismisser unit tests.
+ */
 class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 
 	/**

@@ -5,6 +5,9 @@
  * @package Yoast\WHIP
  */
 
+/**
+ * Configuration unit tests.
+ */
 class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException Whip_InvalidType
