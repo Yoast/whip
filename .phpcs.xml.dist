@@ -33,14 +33,29 @@
 	-->
 
 	<rule ref="Yoast">
-		<!-- Historically, this library has used camelCaps not snakecase for variable names. -->
+		<!-- Historically, this library has used camelCaps not snakecase for variable and function names. -->
 		<exclude name="WordPress.NamingConventions.ValidVariableName"/>
+		<exclude name="WordPress.NamingConventions.ValidFunctionName"/>
 	</rule>
 
 	<!-- Check that variable names are in camelCaps. -->
 	<rule ref="Squiz.NamingConventions.ValidVariableName">
 		<!-- Private properties should, however, *not* start with an underscore. -->
 		<exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+	</rule>
+
+	<!-- Check that function and method names are in camelCaps. -->
+	<rule ref="Generic.NamingConventions.CamelCapsFunctionName">
+		<properties>
+			<!-- Allow for two adjacent capital letters for acronyms. -->
+			<property name="strict" value="false"/>
+		</properties>
+		
+		<!-- Exclude WordPress example function. -->
+		<exclude-pattern>/src/facades/wordpress\.php$</exclude-pattern>
+
+		<!-- Exclude mocks of WP Core functions which comply with the WP function name rules instead. -->
+		<exclude-pattern>/tests/doubles/WpCoreFunctionsMock\.php$</exclude-pattern>
 	</rule>
 
 
