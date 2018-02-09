@@ -5,47 +5,17 @@
  * @package Yoast\WHIP
  */
 
-if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
-	define( 'WEEK_IN_SECONDS', ( 60 * 60 * 24 * 7 ) );
-}
-
-/**
- * Test helper.
- */
-class Whip_DismissStorageMock implements Whip_DismissStorage {
-
-	/**
-	 * @var int
-	 */
-	protected $dismissed = 0;
-
-	/**
-	 * Saves the value.
-	 *
-	 * @param int $dismissedValue The value to save.
-	 *
-	 * @return boolean
-	 */
-	public function set( $dismissedValue ) {
-		$this->dismissed = $dismissedValue;
-
-		return true;
-	}
-
-	/**
-	 * Returns the value.
-	 *
-	 * @return int
-	 */
-	public function get() {
-		return $this->dismissed;
-	}
-}
-
 /**
  * Message Dismisser unit tests.
  */
 class MessageDismisserTest extends PHPUnit_Framework_TestCase {
+
+	public static function setUpBeforeClass() {
+		parent::setUpBeforeClass();
+
+		require_once dirname( __FILE__ ) . '/doubles/Whip_DismissStorageMock.php';
+		require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
+	}
 
 	/**
 	 * @covers Whip_MessageDismisser::__construct()
