@@ -1,4 +1,9 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
  * A value object containing a version requirement for a component version.
