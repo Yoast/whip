@@ -34,7 +34,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		
 		// Prevent duplicate notices across multiple implementing plugins.
 		if ( ! has_action( 'whip_register_hooks' ) ) {
-			add_action( 'whip_register_hooks', array( $presenter, 'register_hooks' ) );
+			add_action( 'whip_register_hooks', array( $presenter, 'registerHooks' ) );
 		}
 
 		/**
