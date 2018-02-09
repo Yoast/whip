@@ -1,4 +1,9 @@
 <?php
+/**
+ * WHIP libary test file.
+ *
+ * @package Yoast\WHIP
+ */
 
 function __( $message ) {
 	return $message;

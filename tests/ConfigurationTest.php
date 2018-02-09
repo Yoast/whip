@@ -1,4 +1,9 @@
 <?php
+/**
+ * WHIP libary test file.
+ *
+ * @package Yoast\WHIP
+ */
 
 class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	/**
