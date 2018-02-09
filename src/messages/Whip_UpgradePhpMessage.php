@@ -35,7 +35,7 @@ class Whip_UpgradePhpMessage implements Whip_Message {
 		$message = array();
 
 		$message[] = Whip_MessageFormatter::strongParagraph( __( 'Your site could be faster and more secure with a newer PHP version.', $textdomain ) ) . '<br />';
-		$message[] = Whip_MessageFormatter::paragraph( __( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP. PHP is the programming language that WordPress and Yoast SEO are built on. The version that is currently used for your site is no longer supported. Newer versions of PHP are both faster and more secure. In fact, your version of PHP no longer receives security updates, which is why we\'re sending you to this notice.', $textdomain ) );
+		$message[] = Whip_MessageFormatter::paragraph( __( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP. PHP is the programming language that WordPress and all it\'s plugins and themes are built on. The version that is currently used for your site is no longer supported. Newer versions of PHP are both faster and more secure. In fact, your version of PHP no longer receives security updates, which is why we\'re sending you to this notice.', $textdomain ) );
 		$message[] = Whip_MessageFormatter::paragraph( __( 'Hosts have the ability to update your PHP version, but sometimes they don\'t dare to do that because they\'re afraid they\'ll break your site.', $textdomain ) );
 		$message[] = Whip_MessageFormatter::strongParagraph( __( 'To which version should I update?', $textdomain ) ) . '<br />';
 		$message[] = Whip_MessageFormatter::paragraph(
@@ -71,7 +71,7 @@ class Whip_UpgradePhpMessage implements Whip_Message {
 			$message[] = Whip_MessageFormatter::paragraph(
 				sprintf(
 					/* translators: 1: link open tag; 2: link close tag; 3: link open tag. */
-					__( 'If you cannot upgrade your PHP version yourself, you can send an email to your host. We have %1$sexamples here%2$s. If they don\'t want to upgrade your PHP version, we would suggest you switch hosts. Have a look at one of our recommended %3$sWordPress hosting partners%2$s, they\'ve all been vetted by our Yoast support team and provide all the features a modern host should provide.', $textdomain ),
+					__( 'If you cannot upgrade your PHP version yourself, you can send an email to your host. We have %1$sexamples here%2$s. If they don\'t want to upgrade your PHP version, we would suggest you switch hosts. Have a look at one of our recommended %3$sWordPress hosting partners%2$s, they\'ve all been vetted by the Yoast support team and provide all the features a modern host should provide.', $textdomain ),
 					'<a href="https://yoa.st/wh" target="_blank">',
 					'</a>',
 					sprintf( '<a href="%1$s" target="_blank">', esc_url( $hostingPageUrl ) )
