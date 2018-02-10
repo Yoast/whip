@@ -14,7 +14,9 @@ if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
  */
 class Whip_DismissStorageMock implements Whip_DismissStorage {
 
-	/** @var int */
+	/**
+	 * @var int
+	 */
 	protected $dismissed = 0;
 
 	/**

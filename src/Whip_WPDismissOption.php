@@ -10,7 +10,9 @@
  */
 class Whip_WPDismissOption implements Whip_DismissStorage {
 
-	/** @var string */
+	/**
+	 * @var string
+	 */
 	protected $optionName = 'whip_dismiss_timestamp';
 
 	/**
