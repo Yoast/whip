@@ -1,7 +1,12 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
- * Class Whip_HostMessage
+ * Class Whip_HostMessage.
  */
 class Whip_HostMessage implements Whip_Message {
 

@@ -1,15 +1,20 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
- * Class InvalidType
+ * Class InvalidType.
  */
 class Whip_InvalidType extends Exception {
 
 	/**
 	 * InvalidType constructor.
 	 *
-	 * @param string    $property
-	 * @param string       $value
+	 * @param string $property
+	 * @param string $value
 	 * @param string $expectedType
 	 */
 	public function __construct( $property, $value, $expectedType ) {

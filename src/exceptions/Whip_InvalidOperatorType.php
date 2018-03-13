@@ -1,7 +1,12 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
- * Class InvalidOperatorType
+ * Class InvalidOperatorType.
  */
 class Whip_InvalidOperatorType extends Exception {
 
@@ -10,7 +15,7 @@ class Whip_InvalidOperatorType extends Exception {
 	/**
 	 * InvalidOperatorType constructor.
 	 *
-	 * @param string       $value
+	 * @param string $value Invalid operator.
 	 */
 	public function __construct( $value ) {
 		parent::__construct(

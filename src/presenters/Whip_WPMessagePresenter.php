@@ -1,17 +1,32 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
  * A message presenter to show a WordPress notice.
  */
 class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 
-	/** @var string The string to show to dismiss the message. */
+	/**
+	 * The string to show to dismiss the message.
+	 *
+	 * @var string
+	 */
 	private $dismissMessage;
 
-	/** @var Whip_Message The message to be displayed */
+	/**
+	 * The message to be displayed.
+	 *
+	 * @var Whip_Message
+	 */
 	private $message;
 
-	/** @var Whip_MessageDismisser */
+	/**
+	 * @var Whip_MessageDismisser
+	 */
 	private $dismisser;
 
 	/**

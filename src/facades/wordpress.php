@@ -1,4 +1,9 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 	/**

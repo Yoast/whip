@@ -1,10 +1,18 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
- * Class Whip_InvalidVersionMessage
+ * Class Whip_InvalidVersionMessage.
  */
 class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 
+	/**
+	 * @var Whip_VersionRequirement
+	 */
 	private $requirement;
 	/**
 	 * @var
@@ -14,8 +22,8 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	/**
 	 * Whip_InvalidVersionRequirementMessage constructor.
 	 *
-	 * @param Whip_Requirement $requirement
-	 * @param                  $detected
+	 * @param Whip_VersionRequirement $requirement
+	 * @param                         $detected
 	 */
 	public function __construct( Whip_VersionRequirement $requirement, $detected )
 	{

@@ -1,4 +1,9 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
  * An interface that represents a version detector and message.
@@ -6,7 +11,7 @@
 interface Whip_VersionDetector {
 
 	/**
-	 * Detects the version of the installed software
+	 * Detects the version of the installed software.
 	 *
 	 * @return string
 	 */

@@ -1,4 +1,9 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
  * A value object containing a version requirement for a component version.
@@ -62,14 +67,14 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Creates a new version requirement from a comparison string
+	 * Creates a new version requirement from a comparison string.
 	 *
 	 * @throws Whip_InvalidVersionComparisonString When an invalid version comparison string is passed.
 	 *
-*@param string $component        The component for this version requirement.
+	 * @param string $component        The component for this version requirement.
 	 * @param string $comparisonString The comparison string for this version requirement.
 	 *
-*@returns Whip_VersionRequirement The parsed version requirement.
+	 * @returns Whip_VersionRequirement The parsed version requirement.
 	 */
 	public static function fromCompareString( $component, $comparisonString ) {
 

@@ -1,7 +1,12 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
- * Class EmptyProperty
+ * Class EmptyProperty.
  */
 class Whip_EmptyProperty extends Exception {
 	public function __construct( $property ) {

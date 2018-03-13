@@ -1,17 +1,28 @@
 <?php
+/**
+ * WHIP libary file.
+ *
+ * @package Yoast\WHIP
+ */
 
 /**
  * A class to dismiss messages.
  */
 class Whip_MessageDismisser {
 
-	/** @var Whip_DismissStorage */
+	/**
+	 * @var Whip_DismissStorage
+	 */
 	protected $storage;
 
-	/** @var string */
+	/**
+	 * @var string
+	 */
 	protected $currentTime;
 
-	/** @var int */
+	/** 
+	 * @var int
+	 */
 	protected $threshold;
 
 	/**

@@ -1,4 +1,9 @@
 <?php
+/**
+ * WHIP libary test file.
+ *
+ * @package Yoast\WHIP
+ */
 
 function __( $message ) {
 	return $message;
@@ -8,6 +13,9 @@ function esc_url( $url ) {
 	return $url;
 }
 
+/**
+ * Requirements checker unit tests.
+ */
 class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 	public function testItReceivesAUsableRequirementObject() {

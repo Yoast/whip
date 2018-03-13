@@ -1,5 +1,13 @@
 <?php
+/**
+ * WHIP libary test file.
+ *
+ * @package Yoast\WHIP
+ */
 
+/**
+ * Message Manager unit tests.
+ */
 class MessagesManagerTest extends PHPUnit_Framework_TestCase {
 	public function testHasMessages() {
 		$manager = new Whip_MessagesManager();

@@ -1,13 +1,22 @@
 <?php
+/**
+ * WHIP libary test file.
+ *
+ * @package Yoast\WHIP
+ */
 
 if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
 	define( 'WEEK_IN_SECONDS', 60 * 60 * 24 * 7 );
 }
 
-
+/**
+ * Test helper.
+ */
 class Whip_DismissStorageMock implements Whip_DismissStorage {
 
-	/** @var int */
+	/**
+	 * @var int
+	 */
 	protected $dismissed = 0;
 
 	/**
@@ -33,6 +42,9 @@ class Whip_DismissStorageMock implements Whip_DismissStorage {
 	}
 }
 
+/**
+ * Message Dismisser unit tests.
+ */
 class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 
 	/**
@@ -54,9 +66,9 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider versionNumbersProvider
 	 *
-	 * @param int $savedTime   The saved time.
-	 * @param int $currentTime The current time.
-	 * @param bool   $expected The expected value.
+	 * @param int  $savedTime   The saved time.
+	 * @param int  $currentTime The current time.
+	 * @param bool $expected    The expected value.
 	 *
 	 * @covers Whip_MessageDismisser::__construct()
 	 * @covers Whip_MessageDismisser::isDismissed()
