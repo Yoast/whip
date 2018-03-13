@@ -10,6 +10,11 @@
  */
 class Whip_InvalidOperatorType extends Exception {
 
+	/**
+	 * Valid comparison operators as strings.
+	 *
+	 * @var array
+	 */
 	private $validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' );
 
 	/**
