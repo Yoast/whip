@@ -20,7 +20,7 @@ class Whip_MessageDismisser {
 	 */
 	protected $currentTime;
 
-	/** 
+	/**
 	 * @var int
 	 */
 	protected $threshold;
