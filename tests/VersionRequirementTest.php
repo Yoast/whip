@@ -9,11 +9,12 @@
  * Version requirements unit tests.
  */
 class VersionRequirementTest extends PHPUnit_Framework_TestCase {
+
 	public function testNameAndVersionAreNotEmpty() {
 		$requirement = new Whip_VersionRequirement( 'php', '5.2' );
 
-		$this->assertNotEmpty($requirement->component());
-		$this->assertNotEmpty($requirement->version());
+		$this->assertNotEmpty( $requirement->component() );
+		$this->assertNotEmpty( $requirement->version() );
 	}
 
 	/**
@@ -70,7 +71,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals( 'php', $requirement->component() );
 		$this->assertEquals( '5.6', $requirement->version() );
-		$this->assertEquals( '=',   $requirement->operator() );
+		$this->assertEquals( '=', $requirement->operator() );
 	}
 
 	/**

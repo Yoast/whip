@@ -9,6 +9,7 @@
  * A value object containing a version requirement for a component version.
  */
 class Whip_VersionRequirement implements Whip_Requirement {
+
 	/**
 	 * @var string
 	 */
@@ -89,7 +90,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_InvalidVersionComparisonString( $comparisonString );
 		}
 
-		$version = $match[4];
+		$version  = $match[4];
 		$operator = $match[1];
 
 		return new Whip_VersionRequirement( $component, $version, $operator );
@@ -111,7 +112,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_EmptyProperty( 'Component' );
 		}
 
-		if ( !is_string( $component ) ) {
+		if ( ! is_string( $component ) ) {
 			throw new Whip_InvalidType( 'Component', 'string', $component );
 		}
 
@@ -119,7 +120,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_EmptyProperty( 'Version' );
 		}
 
-		if ( !is_string( $version ) ) {
+		if ( ! is_string( $version ) ) {
 			throw new Whip_InvalidType( 'Version', 'string', $version );
 		}
 
@@ -127,7 +128,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_EmptyProperty( 'Operator' );
 		}
 
-		if ( !is_string( $operator ) ) {
+		if ( ! is_string( $operator ) ) {
 			throw new Whip_InvalidType( 'Operator', 'string', $operator );
 		}
 

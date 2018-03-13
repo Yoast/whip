@@ -14,6 +14,7 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	 * @var Whip_VersionRequirement
 	 */
 	private $requirement;
+
 	/**
 	 * @var
 	 */
@@ -25,10 +26,9 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	 * @param Whip_VersionRequirement $requirement
 	 * @param                         $detected
 	 */
-	public function __construct( Whip_VersionRequirement $requirement, $detected )
-	{
-	    $this->requirement = $requirement;
-		$this->detected = $detected;
+	public function __construct( Whip_VersionRequirement $requirement, $detected ) {
+		$this->requirement = $requirement;
+		$this->detected    = $detected;
 	}
 
 	/**

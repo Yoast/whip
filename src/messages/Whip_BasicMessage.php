@@ -9,6 +9,7 @@
  * Class Whip_Message.
  */
 class Whip_BasicMessage implements Whip_Message {
+
 	/**
 	 * @var string
 	 */
@@ -22,7 +23,7 @@ class Whip_BasicMessage implements Whip_Message {
 	 * @throws Whip_EmptyProperty
 	 * @throws Whip_InvalidType
 	 */
-	public function __construct($body) {
+	public function __construct( $body ) {
 		$this->validateParameters( $body );
 
 		$this->body = $body;

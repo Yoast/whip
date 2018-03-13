@@ -27,10 +27,10 @@ class Whip_RequirementsChecker {
 	 * @param string $textdomain    The text domain to use for translations.
 	 */
 	public function __construct( $configuration = array(), $textdomain = 'wordpress' ) {
-		$this->requirements     = array();
-		$this->configuration    = new Whip_Configuration( $configuration );
-		$this->messageMananger  = new Whip_MessagesManager();
-		$this->textdomain       = $textdomain;
+		$this->requirements    = array();
+		$this->configuration   = new Whip_Configuration( $configuration );
+		$this->messageMananger = new Whip_MessagesManager();
+		$this->textdomain      = $textdomain;
 	}
 
 	/**
@@ -124,10 +124,10 @@ class Whip_RequirementsChecker {
 	private function addMissingRequirementMessage( Whip_Requirement $requirement ) {
 		switch ( $requirement->component() ) {
 			case 'php':
-				$this->messageMananger->addMessage(	new Whip_UpgradePhpMessage( $this->textdomain ) );
+				$this->messageMananger->addMessage( new Whip_UpgradePhpMessage( $this->textdomain ) );
 				break;
 			default:
-				$this->messageMananger->addMessage(	new Whip_InvalidVersionRequirementMessage( $requirement, $this->configuration->configuredVersion( $requirement ) ) );
+				$this->messageMananger->addMessage( new Whip_InvalidVersionRequirementMessage( $requirement, $this->configuration->configuredVersion( $requirement ) ) );
 				break;
 		}
 	}
