@@ -47,7 +47,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 *
 	 * This is a separate function so you can control when the hooks are registered.
 	 */
-	public function register_hooks() {
+	public function registerHooks() {
 		add_action( 'admin_notices', array( $this, 'renderMessage' ) );
 	}
 
