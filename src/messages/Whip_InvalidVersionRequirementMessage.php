@@ -16,7 +16,9 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	private $requirement;
 
 	/**
-	 * @var int
+	 * Detected version requirement or -1 if not found.
+	 *
+	 * @var string|int
 	 */
 	private $detected;
 
@@ -24,7 +26,7 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	 * Whip_InvalidVersionRequirementMessage constructor.
 	 *
 	 * @param Whip_VersionRequirement $requirement
-	 * @param int                     $detected
+	 * @param string|int              $detected    Detected version requirement or -1 if found.
 	 */
 	public function __construct( Whip_VersionRequirement $requirement, $detected ) {
 		$this->requirement = $requirement;
