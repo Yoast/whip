@@ -5,18 +5,16 @@
  * @package Yoast\WHIP
  */
 
-function __( $message ) {
-	return $message;
-}
-
-function esc_url( $url ) {
-	return $url;
-}
-
 /**
  * Requirements checker unit tests.
  */
 class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
+
+	public static function setUpBeforeClass() {
+		parent::setUpBeforeClass();
+
+		require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
+	}
 
 	public function testItReceivesAUsableRequirementObject() {
 		$checker = new Whip_RequirementsChecker();
