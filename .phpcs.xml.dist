@@ -96,4 +96,13 @@
 		<type>warning</type>
 	</rule>
 
+	<rule ref="WordPress.WP.I18n.NonSingularStringLiteralText">
+		<!-- False positive. This has already been fixed in WPCS.
+			 The fix will be included in WPCS 1.0.0.
+			 Once this repo moves up to using WPCS 1.0.0, this exclusion can be removed.
+			 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/pull/1267
+		-->
+		<exclude-pattern>/tests/doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
+	</rule>
+
 </ruleset>
