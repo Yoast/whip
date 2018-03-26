@@ -25,6 +25,7 @@ class MessageTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_InvalidType
+	 * @expectedExceptionMessage Message body should be of type string. Found integer.
 	 */
 	public function testMessageMustBeString() {
 		new Whip_BasicMessage( 123 );
