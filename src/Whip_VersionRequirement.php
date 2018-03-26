@@ -79,18 +79,20 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 */
 	public static function fromCompareString( $component, $comparisonString ) {
 
-		$matcher = '(' .
-		               '(>=?)' . // Matches >= and >.
-		               '|' .
-		               '(<=?)' . // Matches <= and <.
-		           ')' .
-		           '([^>=<\s]+)'; // Matches anything except >, <, =, and whitespace.
+		$matcher = '`
+			(
+				>=?     # Matches >= and >.
+				|
+				<=?     # Matches <= and <.
+			)
+			([^>=<\s]+) # Matches anything except >, <, =, and whitespace.
+		`x';
 
-		if ( ! preg_match( '#' . $matcher . '#', $comparisonString, $match ) ) {
+		if ( ! preg_match( $matcher, $comparisonString, $match ) ) {
 			throw new Whip_InvalidVersionComparisonString( $comparisonString );
 		}
 
-		$version  = $match[4];
+		$version  = $match[2];
 		$operator = $match[1];
 
 		return new Whip_VersionRequirement( $component, $version, $operator );
