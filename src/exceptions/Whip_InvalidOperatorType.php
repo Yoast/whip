@@ -11,23 +11,17 @@
 class Whip_InvalidOperatorType extends Exception {
 
 	/**
-	 * Valid comparison operators as strings.
-	 *
-	 * @var array
-	 */
-	private $validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' );
-
-	/**
 	 * InvalidOperatorType constructor.
 	 *
-	 * @param string $value Invalid operator.
+	 * @param string $value          Invalid operator.
+	 * @param array  $validOperators Valid operators.
 	 */
-	public function __construct( $value ) {
+	public function __construct( $value, $validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' ) ) {
 		parent::__construct(
 			sprintf(
 				'Invalid operator of %s used. Please use one of the following operators: %s',
 				$value,
-				implode( ', ', $this->validOperators )
+				implode( ', ', $validOperators )
 			)
 		);
 	}
