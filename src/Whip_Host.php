@@ -9,7 +9,19 @@
  * Represents a host.
  */
 class Whip_Host {
+
+	/**
+	 * Key to an environment variable which should be set to the name of the host.
+	 *
+	 * @var string
+	 */
 	const HOST_NAME_KEY = 'WHIP_NAME_OF_HOST';
+
+	/**
+	 * Filter name for the filter which allows for pointing to the WP hosting page instead of the Yoast version.
+	 *
+	 * @var string
+	 */
 	const HOSTING_PAGE_FILTER_KEY = 'whip_hosting_page_url_wordpress';
 
 	/**
@@ -24,7 +36,8 @@ class Whip_Host {
 	}
 
 	/**
-	 * Filters the name if we are in a WordPress context. In a non-WordPress content this function just returns the passed name.
+	 * Filters the name if we are in a WordPress context.
+	 * In a non-WordPress content this function just returns the passed name.
 	 *
 	 * @param string $name The current name of the host.
 	 * @returns string The filtered name of the host.
@@ -51,7 +64,8 @@ class Whip_Host {
 	}
 
 	/**
-	 * Filters the message if we are in a WordPress context. In a non-WordPress content this function just returns the passed message.
+	 * Filters the message if we are in a WordPress context.
+	 * In a non-WordPress content this function just returns the passed message.
 	 *
 	 * @param string $messageKey The key used for the environment variable.
 	 * @param string $message    The current message from the host.
@@ -78,7 +92,8 @@ class Whip_Host {
 	}
 
 	/**
-	 * Filters the hosting page url if we are in a WordPress context. In a non-WordPress context this function just returns a link to the Yoast hosting page.
+	 * Filters the hosting page url if we are in a WordPress context.
+	 * In a non-WordPress context this function just returns a link to the Yoast hosting page.
 	 *
 	 * @param string $url The previous URL.
 	 * @returns string The new URL to the hosting overview page.

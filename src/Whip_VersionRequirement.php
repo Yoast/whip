@@ -11,16 +11,22 @@
 class Whip_VersionRequirement implements Whip_Requirement {
 
 	/**
+	 * The component name.
+	 *
 	 * @var string
 	 */
 	private $component;
 
 	/**
+	 * The component version.
+	 *
 	 * @var string
 	 */
 	private $version;
 
 	/**
+	 * The operator to use when comparing version.
+	 *
 	 * @var string
 	 */
 	private $operator;
@@ -28,9 +34,9 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	/**
 	 * Whip_Requirement constructor.
 	 *
-	 * @param string $component
-	 * @param string $version
-	 * @param string $operator
+	 * @param string $component The component name.
+	 * @param string $version   The component version.
+	 * @param string $operator  The operator to use when comparing version.
 	 */
 	public function __construct( $component, $version, $operator = '=' ) {
 		$this->validateParameters( $component, $version, $operator );
@@ -41,7 +47,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Gets the component name defined for the requirement.
+	 * Get the component name defined for the requirement.
 	 *
 	 * @return string The component name.
 	 */
@@ -50,7 +56,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Gets the components version defined for the requirement.
+	 * Get the components version defined for the requirement.
 	 *
 	 * @return string
 	 */
@@ -59,7 +65,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Returns the operator to use when comparing version numbers.
+	 * Get the operator to use when comparing version numbers.
 	 *
 	 * @return string The comparison operator.
 	 */
@@ -68,7 +74,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Creates a new version requirement from a comparison string.
+	 * Create a new version requirement from a comparison string.
 	 *
 	 * @throws Whip_InvalidVersionComparisonString When an invalid version comparison string is passed.
 	 *
@@ -99,15 +105,15 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Validates the parameters passed to the requirement.
+	 * Validate the parameters passed to the requirement.
 	 *
 	 * @param string $component The component name.
 	 * @param string $version   The component version.
 	 * @param string $operator  The operator to use when comparing version.
 	 *
-	 * @throws Whip_EmptyProperty
-	 * @throws Whip_InvalidOperatorType
-	 * @throws Whip_InvalidType
+	 * @throws Whip_EmptyProperty       When any of the parameters is empty.
+	 * @throws Whip_InvalidOperatorType When the $operator parameter is invalid.
+	 * @throws Whip_InvalidType         When any of the parameters is not of the expected type.
 	 */
 	private function validateParameters( $component, $version, $operator ) {
 		if ( empty( $component ) ) {

@@ -25,6 +25,8 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	private $message;
 
 	/**
+	 * Dismisser object.
+	 *
 	 * @var Whip_MessageDismisser
 	 */
 	private $dismisser;

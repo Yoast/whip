@@ -11,7 +11,9 @@
 class Whip_NullMessage implements Whip_Message {
 
 	/**
-	 * @return string
+	 * Retrieve the message body.
+	 *
+	 * @return string Message.
 	 */
 	public function body() {
 		return '';

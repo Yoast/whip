@@ -10,5 +10,10 @@
  */
 interface Whip_Requirement {
 
+	/**
+	 * Get the component name defined for the requirement.
+	 *
+	 * @return string The component name.
+	 */
 	public function component();
 }

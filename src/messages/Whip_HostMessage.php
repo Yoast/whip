@@ -11,11 +11,15 @@
 class Whip_HostMessage implements Whip_Message {
 
 	/**
+	 * Text domain to use for translations.
+	 *
 	 * @var string
 	 */
 	private $textdomain;
 
 	/**
+	 * The environment key to use to retrieve the message from.
+	 *
 	 * @var string
 	 */
 	private $messageKey;
