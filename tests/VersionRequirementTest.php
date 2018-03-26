@@ -19,6 +19,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_EmptyProperty
+	 * @expectedExceptionMessage Component cannot be empty.
 	 */
 	public function testComponentCannotBeEmpty() {
 		new Whip_VersionRequirement( '', '5.2' );
@@ -26,6 +27,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_EmptyProperty
+	 * @expectedExceptionMessage Version cannot be empty.
 	 */
 	public function testVersionCannotBeEmpty() {
 		new Whip_VersionRequirement( 'php', '' );
@@ -47,6 +49,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_EmptyProperty
+	 * @expectedExceptionMessage Operator cannot be empty.
 	 */
 	public function testOperatorCannotBeEmpty() {
 		new Whip_VersionRequirement( 'php', '5.6', '' );
