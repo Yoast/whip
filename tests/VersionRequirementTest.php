@@ -103,6 +103,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_InvalidVersionComparisonString
+	 * @expectedExceptionMessage Invalid version comparison string. Example of a valid version comparison string: >=5.3. Passed version comparison string: > 2.3
 	 */
 	public function testFromCompareStringException() {
 		Whip_VersionRequirement::fromCompareString( 'php', '> 2.3' );
