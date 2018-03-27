@@ -35,7 +35,7 @@ class Whip_UpgradePhpMessage implements Whip_Message {
 		$message = array();
 
 		$message[] = Whip_MessageFormatter::strongParagraph( __( 'Your site could be faster and more secure with a newer PHP version.', $textdomain ) ) . '<br />';
-		$message[] = Whip_MessageFormatter::paragraph( __( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP. PHP is the programming language that WordPress and all it\'s plugins and themes are built on. The version that is currently used for your site is no longer supported. Newer versions of PHP are both faster and more secure. In fact, your version of PHP no longer receives security updates, which is why we\'re sending you to this notice.', $textdomain ) );
+		$message[] = Whip_MessageFormatter::paragraph( __( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP. PHP is the programming language that WordPress and all its plugins and themes are built on. The version that is currently used for your site is no longer supported. Newer versions of PHP are both faster and more secure. In fact, your version of PHP no longer receives security updates, which is why we\'re sending you to this notice.', $textdomain ) );
 		$message[] = Whip_MessageFormatter::paragraph( __( 'Hosts have the ability to update your PHP version, but sometimes they don\'t dare to do that because they\'re afraid they\'ll break your site.', $textdomain ) );
 		$message[] = Whip_MessageFormatter::strongParagraph( __( 'To which version should I update?', $textdomain ) ) . '<br />';
 		$message[] = Whip_MessageFormatter::paragraph(
