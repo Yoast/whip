@@ -115,7 +115,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 		}
 
 		if ( ! is_string( $component ) ) {
-			throw new Whip_InvalidType( 'Component', 'string', $component );
+			throw new Whip_InvalidType( 'Component', $component, 'string' );
 		}
 
 		if ( empty( $version ) ) {
@@ -123,7 +123,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 		}
 
 		if ( ! is_string( $version ) ) {
-			throw new Whip_InvalidType( 'Version', 'string', $version );
+			throw new Whip_InvalidType( 'Version', $version, 'string' );
 		}
 
 		if ( empty( $operator ) ) {
@@ -131,7 +131,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 		}
 
 		if ( ! is_string( $operator ) ) {
-			throw new Whip_InvalidType( 'Operator', 'string', $operator );
+			throw new Whip_InvalidType( 'Operator', $operator, 'string' );
 		}
 
 		if ( ! in_array( $operator, array( '=', '==', '===', '<', '>', '<=', '>=' ), true ) ) {

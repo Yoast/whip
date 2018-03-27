@@ -33,6 +33,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_InvalidType
+	 * @expectedExceptionMessage Component should be of type string. Found integer.
 	 */
 	public function testComponentMustBeString() {
 		new Whip_VersionRequirement( 123, '5.2' );
@@ -40,6 +41,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_InvalidType
+	 * @expectedExceptionMessage Version should be of type string. Found integer.
 	 */
 	public function testVersionMustBeString() {
 		new Whip_VersionRequirement( 'php', 123 );
@@ -54,6 +56,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_InvalidType
+	 * @expectedExceptionMessage Operator should be of type string. Found integer.
 	 */
 	public function testOperatorMustBeString() {
 		new Whip_VersionRequirement( 'php', '5.2', 6 );

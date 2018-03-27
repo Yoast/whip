@@ -42,7 +42,7 @@ class Whip_BasicMessage implements Whip_Message {
 		}
 
 		if ( ! is_string( $body ) ) {
-			throw new Whip_InvalidType( 'Message body', 'string', $body );
+			throw new Whip_InvalidType( 'Message body', $body, 'string' );
 		}
 	}
 }
