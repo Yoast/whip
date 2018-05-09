@@ -11,6 +11,8 @@
 class Whip_WPDismissOption implements Whip_DismissStorage {
 
 	/**
+	 * WordPress option name.
+	 *
 	 * @var string
 	 */
 	protected $optionName = 'whip_dismiss_timestamp';

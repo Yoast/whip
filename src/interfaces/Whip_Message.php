@@ -10,5 +10,10 @@
  */
 interface Whip_Message {
 
+	/**
+	 * Retrieves the message body.
+	 *
+	 * @return string Message.
+	 */
 	public function body();
 }

@@ -11,6 +11,8 @@
 class Whip_UpgradePhpMessage implements Whip_Message {
 
 	/**
+	 * The text domain to use for the translations.
+	 *
 	 * @var string
 	 */
 	private $textdomain;
@@ -25,7 +27,7 @@ class Whip_UpgradePhpMessage implements Whip_Message {
 	}
 
 	/**
-	 * Composes the body of the message to display.
+	 * Retrieves the message body to display.
 	 *
 	 * @return string The message to display.
 	 */

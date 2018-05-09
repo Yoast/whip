@@ -11,6 +11,8 @@
 class Whip_Configuration {
 
 	/**
+	 * The configuration to use.
+	 *
 	 * @var array
 	 */
 	private $configuration;
@@ -20,7 +22,7 @@ class Whip_Configuration {
 	 *
 	 * @param array $configuration The configuration to use.
 	 *
-	 * @throws Whip_InvalidType
+	 * @throws Whip_InvalidType When the $configuration parameter is not of the expected type.
 	 */
 	public function __construct( $configuration = array() ) {
 		if ( ! is_array( $configuration ) ) {

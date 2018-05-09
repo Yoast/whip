@@ -11,11 +11,15 @@
 class Whip_RequirementsChecker {
 
 	/**
+	 * Requirements the environment should comply with.
+	 *
 	 * @var array
 	 */
 	private $requirements;
 
 	/**
+	 * The text domain to use for translations.
+	 *
 	 * @var string
 	 */
 	private $textdomain;
