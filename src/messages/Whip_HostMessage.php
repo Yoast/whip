@@ -41,7 +41,7 @@ class Whip_HostMessage implements Whip_Message {
 	}
 
 	/**
-	 * Renders the message body.
+	 * Retrieves the message body.
 	 *
 	 * @return string The message body.
 	 */

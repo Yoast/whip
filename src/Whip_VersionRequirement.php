@@ -47,7 +47,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Get the component name defined for the requirement.
+	 * Retrieves the component name defined for the requirement.
 	 *
 	 * @return string The component name.
 	 */
@@ -56,7 +56,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Get the components version defined for the requirement.
+	 * Gets the components version defined for the requirement.
 	 *
 	 * @return string
 	 */
@@ -65,7 +65,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Get the operator to use when comparing version numbers.
+	 * Gets the operator to use when comparing version numbers.
 	 *
 	 * @return string The comparison operator.
 	 */
@@ -74,7 +74,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Create a new version requirement from a comparison string.
+	 * Creates a new version requirement from a comparison string.
 	 *
 	 * @throws Whip_InvalidVersionComparisonString When an invalid version comparison string is passed.
 	 *
@@ -105,7 +105,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	}
 
 	/**
-	 * Validate the parameters passed to the requirement.
+	 * Validates the parameters passed to the requirement.
 	 *
 	 * @param string $component The component name.
 	 * @param string $version   The component version.

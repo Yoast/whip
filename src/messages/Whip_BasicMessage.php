@@ -29,7 +29,7 @@ class Whip_BasicMessage implements Whip_Message {
 	}
 
 	/**
-	 * Retrieve the message body.
+	 * Retrieves the message body.
 	 *
 	 * @return string Message.
 	 */
@@ -38,7 +38,7 @@ class Whip_BasicMessage implements Whip_Message {
 	}
 
 	/**
-	 * Validate the parameters passed to the constructor of this class.
+	 * Validates the parameters passed to the constructor of this class.
 	 *
 	 * @param string $body Message body.
 	 *

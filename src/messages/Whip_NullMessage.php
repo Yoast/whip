@@ -11,7 +11,7 @@
 class Whip_NullMessage implements Whip_Message {
 
 	/**
-	 * Retrieve the message body.
+	 * Retrieves the message body.
 	 *
 	 * @return string Message.
 	 */
