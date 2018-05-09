@@ -18,6 +18,7 @@ class MessageTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_EmptyProperty
+	 * @expectedExceptionMessage Message body cannot be empty.
 	 */
 	public function testMessageCannotBeEmpty() {
 		new Whip_BasicMessage( '' );

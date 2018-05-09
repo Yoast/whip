@@ -19,6 +19,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_EmptyProperty
+	 * @expectedExceptionMessage Component cannot be empty.
 	 */
 	public function testComponentCannotBeEmpty() {
 		new Whip_VersionRequirement( '', '5.2' );
@@ -26,6 +27,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_EmptyProperty
+	 * @expectedExceptionMessage Version cannot be empty.
 	 */
 	public function testVersionCannotBeEmpty() {
 		new Whip_VersionRequirement( 'php', '' );
@@ -49,6 +51,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_EmptyProperty
+	 * @expectedExceptionMessage Operator cannot be empty.
 	 */
 	public function testOperatorCannotBeEmpty() {
 		new Whip_VersionRequirement( 'php', '5.6', '' );
@@ -103,6 +106,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_InvalidVersionComparisonString
+	 * @expectedExceptionMessage Invalid version comparison string. Example of a valid version comparison string: >=5.3. Passed version comparison string: > 2.3
 	 */
 	public function testFromCompareStringException() {
 		Whip_VersionRequirement::fromCompareString( 'php', '> 2.3' );
