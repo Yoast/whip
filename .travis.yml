@@ -21,6 +21,7 @@ matrix:
   fast_finish: true
   include:
     - php: 7.2
+      env: PHPCS=1
     - php: 5.2
       dist: precise
     - php: 5.3
@@ -44,3 +45,4 @@ script:
 - find -L . -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 - if [[ "$TRAVIS_PHP_VERSION" == "5.2" ]]; then phpunit; else ./vendor/bin/phpunit; fi
 - if [[ "$TRAVIS_PHP_VERSION" != "5.2" ]]; then composer validate --no-check-all; fi
+- if [[ $PHPCS == "1" ]]; then vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi

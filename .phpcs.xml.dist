@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ruleset name="Yoast WHIP">
+	<description>Yoast WHIP rules for PHP_CodeSniffer</description>
+
+	<!--
+	#############################################################################
+	COMMAND LINE ARGUMENTS
+	https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml
+	#############################################################################
+	-->
+
+	<file>.</file>
+
+	<exclude-pattern>vendor/*</exclude-pattern>
+
+	<!-- Only check PHP files. -->
+	<arg name="extensions" value="php"/>
+
+	<!-- Show progress, show the error codes for each message (source). -->
+	<arg value="ps"/>
+
+	<!-- Strip the filepaths down to the relevant bit. -->
+	<arg name="basepath" value="./"/>
+
+	<!-- Check up to 8 files simultanously. -->
+	<arg name="parallel" value="8"/>
+
+
+	<!--
+	#############################################################################
+	USE THE YoastCS RULESET
+	#############################################################################
+	-->
+
+	<rule ref="Yoast"/>
+
+
+</ruleset>
