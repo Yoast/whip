@@ -67,6 +67,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @expectedException Whip_InvalidOperatorType
+	 * @expectedExceptionMessage Invalid operator of -> used. Please use one of the following operators: =, ==, ===, <, >, <=, >=
 	 */
 	public function testOperatorMustBeValid() {
 		new Whip_VersionRequirement( 'php', '5.2', '->' );
