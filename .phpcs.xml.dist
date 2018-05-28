@@ -105,4 +105,10 @@
 		<exclude-pattern>/tests/doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
 	</rule>
 
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound">
+		<!-- These hook setups should be reviewed.
+			 Ticket: https://github.com/Yoast/whip/issues/67 -->
+		<exclude-pattern>/src/Whip_Host\.php$</exclude-pattern>
+	</rule>
+
 </ruleset>
