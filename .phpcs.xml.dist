@@ -71,4 +71,16 @@
 	<!-- Set the minimum supported WP version. This is used by several sniffs. -->
 	<config name="minimum_supported_wp_version" value="3.0"/>
 
+	<!-- Verify that everything in the global namespace is prefixed with a plugin specific prefix. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<!-- Provide the prefixes to look for. -->
+			<property name="prefixes" type="array" value="whip"/>
+		</properties>
+
+		<!-- Valid usage: For testing purposes, allow non-prefixed globals. -->
+		<exclude-pattern>/tests/doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
+	</rule>
+
+
 </ruleset>
