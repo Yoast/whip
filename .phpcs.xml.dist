@@ -36,6 +36,9 @@
 		<!-- Historically, this library has used camelCaps not snakecase for variable and function names. -->
 		<exclude name="WordPress.NamingConventions.ValidVariableName"/>
 		<exclude name="WordPress.NamingConventions.ValidFunctionName"/>
+
+		<!-- Historically, this library uses camelCaps file names. -->
+		<exclude name="Yoast.Files.FileName"/>
 	</rule>
 
 	<!-- Check that variable names are in camelCaps. -->
