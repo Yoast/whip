@@ -83,4 +83,17 @@
 	</rule>
 
 
+	<!--
+	#############################################################################
+	TEMPORARY ADJUSTMENTS
+	Adjustments which should be removed once the associated issue has been resolved.
+	#############################################################################
+	-->
+
+	<!-- Textdomain is passed in dynamically which will not work correctly with gettext().
+		 Ticket: https://github.com/Yoast/whip/issues/2 -->
+	<rule ref="WordPress.WP.I18n.NonSingularStringLiteralDomain">
+		<type>warning</type>
+	</rule>
+
 </ruleset>
