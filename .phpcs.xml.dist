@@ -111,4 +111,19 @@
 		<exclude-pattern>/src/Whip_Host\.php$</exclude-pattern>
 	</rule>
 
+	<!-- Tests should be documented too.
+		 Ticket: https://github.com/Yoast/whip/issues/66 -->
+	<rule ref="Generic.Commenting.DocComment.MissingShort">
+		<exclude-pattern>/tests/*\.php$</exclude-pattern>
+	</rule>
+	<rule ref="Generic.Commenting.DocComment.SpacingBeforeTags">
+		<exclude-pattern>/tests/*\.php$</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>/tests/*\.php$</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment.MissingParamTag">
+		<exclude-pattern>/tests/*\.php$</exclude-pattern>
+	</rule>
+
 </ruleset>
