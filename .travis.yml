@@ -35,9 +35,8 @@ before_install:
 
 install:
 - if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local 5.3.29; fi
-- composer selfupdate --no-interaction
-- composer install --prefer-dist --no-interaction
 - if [[ "$TRAVIS_PHP_VERSION" == "5.2" ]]; then composer remove --dev phpunit/phpunit; fi
+- composer install --prefer-dist --no-interaction
 - if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local --unset; fi
 
 script:
