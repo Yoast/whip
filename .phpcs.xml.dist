@@ -75,7 +75,9 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<!-- Provide the prefixes to look for. -->
-			<property name="prefixes" type="array" value="whip"/>
+			<property name="prefixes" type="array">
+				<element value="whip"/>
+			</property>
 		</properties>
 
 		<!-- Valid usage: For testing purposes, allow non-prefixed globals. -->
