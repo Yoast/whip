@@ -70,7 +70,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 			esc_url( $dismissListener->getDismissURL() )
 		);
 
-		// phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped -- output correctly escaped directly above and in the `kses()` method.
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- output correctly escaped directly above and in the `kses()` method.
 		printf(
 			'<div class="error"><p>%1$s</p><p>%2$s</p></div>',
 			$this->kses( $this->message->body() ),

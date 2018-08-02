@@ -98,15 +98,6 @@
 		<type>warning</type>
 	</rule>
 
-	<rule ref="WordPress.WP.I18n.NonSingularStringLiteralText">
-		<!-- False positive. This has already been fixed in WPCS.
-			 The fix will be included in WPCS 1.0.0.
-			 Once this repo moves up to using WPCS 1.0.0, this exclusion can be removed.
-			 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/pull/1267
-		-->
-		<exclude-pattern>/tests/doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
-	</rule>
-
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound">
 		<!-- These hook setups should be reviewed.
 			 Ticket: https://github.com/Yoast/whip/issues/67 -->
@@ -116,9 +107,6 @@
 	<!-- Tests should be documented too.
 		 Ticket: https://github.com/Yoast/whip/issues/66 -->
 	<rule ref="Generic.Commenting.DocComment.MissingShort">
-		<exclude-pattern>/tests/*\.php$</exclude-pattern>
-	</rule>
-	<rule ref="Generic.Commenting.DocComment.SpacingBeforeTags">
 		<exclude-pattern>/tests/*\.php$</exclude-pattern>
 	</rule>
 	<rule ref="Squiz.Commenting.FunctionComment.Missing">
