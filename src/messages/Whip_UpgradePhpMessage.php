@@ -83,5 +83,4 @@ class Whip_UpgradePhpMessage implements Whip_Message {
 
 		return implode( $message, "\n" );
 	}
-
 }
