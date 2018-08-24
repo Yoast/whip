@@ -18,6 +18,5 @@ class MessagesManagerTest extends PHPUnit_Framework_TestCase {
 		$GLOBALS['whip_messages'][] = 'I am a test message';
 
 		$this->assertTrue( $manager->hasMessages() );
-
 	}
 }

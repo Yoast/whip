@@ -153,5 +153,4 @@ class Whip_RequirementsChecker {
 	public function getMostRecentMessage() {
 		return $this->messageMananger->getLatestMessage();
 	}
-
 }

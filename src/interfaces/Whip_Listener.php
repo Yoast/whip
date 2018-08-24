@@ -16,5 +16,4 @@ interface Whip_Listener {
 	 * @return void
 	 */
 	public function listen();
-
 }

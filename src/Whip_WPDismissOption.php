@@ -41,5 +41,4 @@ class Whip_WPDismissOption implements Whip_DismissStorage {
 
 		return (int) $dismissedOption;
 	}
-
 }

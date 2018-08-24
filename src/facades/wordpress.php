@@ -48,6 +48,5 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 		 * @param \Whip_WPMessagePresenter $presenter Message presenter instance.
 		 */
 		do_action( 'whip_register_hooks', $presenter );
-
 	}
 }

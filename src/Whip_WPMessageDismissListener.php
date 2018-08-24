@@ -59,5 +59,4 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 			wp_create_nonce( self::ACTION_NAME )
 		);
 	}
-
 }

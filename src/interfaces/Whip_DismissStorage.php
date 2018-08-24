@@ -25,5 +25,4 @@ interface Whip_DismissStorage {
 	 * @return int The stored value.
 	 */
 	public function get();
-
 }
