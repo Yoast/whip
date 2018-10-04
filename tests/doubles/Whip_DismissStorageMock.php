@@ -11,6 +11,8 @@
 class Whip_DismissStorageMock implements Whip_DismissStorage {
 
 	/**
+	 * Creates $dismissed and sets it to 0.
+	 *
 	 * @var int
 	 */
 	protected $dismissed = 0;
