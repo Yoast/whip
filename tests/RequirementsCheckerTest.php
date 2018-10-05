@@ -10,12 +10,18 @@
  */
 class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
+	/**
+	 * Instantiate our test class
+	 */
 	public static function setUpBeforeClass() {
 		parent::setUpBeforeClass();
 
 		require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
 	}
 
+	/**
+	 * Tests if Whip_RequirementsChecker is successfully created when given valid arguments.
+	 */
 	public function testItReceivesAUsableRequirementObject() {
 		$checker = new Whip_RequirementsChecker();
 		$checker->addRequirement( new Whip_VersionRequirement( 'php', '5.2' ) );
@@ -25,6 +31,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * Tests if Whip_RequirementsChecker throws an error when passed an invalid requirement.
+	 *
 	 * @requires PHP 7
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassed() {
@@ -45,6 +53,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( $exceptionCaught );
 	}
 
+	/**
+	 * Tests if Whip_RequirementsChecker throws an error when passed an invalid requirement.
+	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassedInPHP5() {
 		if ( version_compare( phpversion(), 7.0, '>=' ) ) {
 			$this->markTestSkipped();
@@ -63,6 +74,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( $exceptionCaught );
 	}
 
+	/**
+	 * Tests if Whip_RequirementsChecker only saves unique components.
+	 */
 	public function testItOnlyContainsUniqueComponents() {
 		$checker = new Whip_RequirementsChecker();
 
@@ -77,6 +91,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( 2, $checker->totalRequirements() );
 	}
 
+	/**
+	 * Tests if Whip_RequirementsChecker::requirementExistsForComponent correctly returns true for existing components.
+	 */
 	public function testIfRequirementExists() {
 		$checker = new Whip_RequirementsChecker();
 
@@ -87,6 +104,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertFalse( $checker->requirementExistsForComponent( 'mongodb' ) );
 	}
 
+	/**
+	 * If the requirement is fulfilled, there should be no message.
+	 */
 	public function testCheckIfRequirementIsFulfilled() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => phpversion() ) );
 
@@ -96,6 +116,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertEmpty( $checker->getMostRecentMessage()->body() );
 	}
 
+	/**
+	 * Creates a situation in which the php requirement is not met; a php upgrade message is created and successfully transferred to a variable.
+	 */
 	public function testCheckIfPHPRequirementIsNotFulfilled() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );
 
@@ -113,6 +136,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertInstanceOf( 'Whip_UpgradePhpMessage', $recentMessage );
 	}
 
+	/**
+	 * Creates a situation in which the mysql requirement is not met; a invalid version message is created and successfully transferred to a variable.
+	 */
 	public function testCheckIfRequirementIsNotFulfilled() {
 		$checker = new Whip_RequirementsChecker( array( 'mysql' => 4 ) );
 
@@ -130,6 +156,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertStringStartsWith( 'Invalid version detected', $recentMessage->body() );
 	}
 
+	/**
+	 * Tests if a specific comparison with a non-default operator is correctly handled.
+	 */
 	public function testCheckIfRequirementIsFulfilledWithSpecificComparison() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );
 
@@ -139,6 +168,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$this->assertFalse( $checker->hasMessages() );
 	}
 
+	/**
+	 * Tests if a specific comparison with a non-default operator is correctly handled.
+	 */
 	public function testCheckIfRequirementIsNotFulfilledWithSpecificComparison() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );
 
