@@ -14,7 +14,7 @@ if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
  *
  * @param string $message The message to return.
  *
- * @return string
+ * @return string The message that is returned.
  */
 function __( $message ) {
 	return $message;
@@ -25,7 +25,7 @@ function __( $message ) {
  *
  * @param string $url The url to return.
  *
- * @return string
+ * @return string The url that is returned.
  */
 function esc_url( $url ) {
 	return $url;

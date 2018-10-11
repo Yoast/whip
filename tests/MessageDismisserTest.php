@@ -11,7 +11,7 @@
 class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * Instantiate our test class
+	 * Instantiates our test class
 	 */
 	public static function setUpBeforeClass() {
 		parent::setUpBeforeClass();
