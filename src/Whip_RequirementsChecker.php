@@ -29,12 +29,14 @@ class Whip_RequirementsChecker {
 	 *
 	 * @param array  $configuration The configuration to check.
 	 * @param string $textdomain    The text domain to use for translations.
+	 *
+	 * @throws Whip_InvalidType When the $configuration parameter is not of the expected type.
 	 */
 	public function __construct( $configuration = array(), $textdomain = 'default' ) {
-		$this->requirements    = array();
-		$this->configuration   = new Whip_Configuration( $configuration );
-		$this->messageMananger = new Whip_MessagesManager();
-		$this->textdomain      = $textdomain;
+		$this->requirements   = array();
+		$this->configuration  = new Whip_Configuration( $configuration );
+		$this->messageManager = new Whip_MessagesManager();
+		$this->textdomain     = $textdomain;
 	}
 
 	/**
@@ -128,10 +130,10 @@ class Whip_RequirementsChecker {
 	private function addMissingRequirementMessage( Whip_Requirement $requirement ) {
 		switch ( $requirement->component() ) {
 			case 'php':
-				$this->messageMananger->addMessage( new Whip_UpgradePhpMessage( $this->textdomain ) );
+				$this->messageManager->addMessage( new Whip_UpgradePhpMessage( $this->textdomain ) );
 				break;
 			default:
-				$this->messageMananger->addMessage( new Whip_InvalidVersionRequirementMessage( $requirement, $this->configuration->configuredVersion( $requirement ) ) );
+				$this->messageManager->addMessage( new Whip_InvalidVersionRequirementMessage( $requirement, $this->configuration->configuredVersion( $requirement ) ) );
 				break;
 		}
 	}
@@ -142,7 +144,7 @@ class Whip_RequirementsChecker {
 	 * @return bool Whether or not there are messages to display.
 	 */
 	public function hasMessages() {
-		return $this->messageMananger->hasMessages();
+		return $this->messageManager->hasMessages();
 	}
 
 	/**
@@ -151,6 +153,6 @@ class Whip_RequirementsChecker {
 	 * @return Whip_Message The latest message.
 	 */
 	public function getMostRecentMessage() {
-		return $this->messageMananger->getLatestMessage();
+		return $this->messageManager->getLatestMessage();
 	}
 }

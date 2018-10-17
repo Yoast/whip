@@ -10,6 +10,9 @@
  */
 class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 
+	/**
+	 * Instantiates our test class.
+	 */
 	public static function setUpBeforeClass() {
 		parent::setUpBeforeClass();
 
@@ -18,6 +21,8 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * Tests if Whip_MessageDismisser correctly updates Whip_DismissStorage.
+	 *
 	 * @covers Whip_MessageDismisser::__construct()
 	 * @covers Whip_MessageDismisser::dismiss()
 	 */
@@ -34,6 +39,8 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * Tests if isDismissed correctly sets the version.
+	 *
 	 * @dataProvider versionNumbersProvider
 	 *
 	 * @param int  $savedTime   The saved time.
