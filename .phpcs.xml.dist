@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<ruleset name="Yoast WHIP">
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="Yoast WHIP"
+	xsi:noNamespaceSchemaLocation="./vendor/squizlabs/php_codesniffer/phpcs.xsd">
+
 	<description>Yoast WHIP rules for PHP_CodeSniffer</description>
 
 	<!--

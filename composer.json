@@ -23,8 +23,7 @@
     "require-dev": {
         "phpunit/phpunit": "^3.6.12 | ^4.5 | ^5.7",
         "roave/security-advisories": "dev-master",
-        "yoast/yoastcs": "^1.0.0",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+        "yoast/yoastcs": "^1.1.0"
     },
     "scripts": {
         "post-install-cmd": [
