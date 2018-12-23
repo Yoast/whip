@@ -101,7 +101,7 @@
 		<type>warning</type>
 	</rule>
 
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound">
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound">
 		<!-- These hook setups should be reviewed.
 			 Ticket: https://github.com/Yoast/whip/issues/67 -->
 		<exclude-pattern>/src/Whip_Host\.php$</exclude-pattern>
