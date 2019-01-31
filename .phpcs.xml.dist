@@ -80,6 +80,7 @@
 			<!-- Provide the prefixes to look for. -->
 			<property name="prefixes" type="array">
 				<element value="whip"/>
+				<element value="Yoast\WHIP"/>
 			</property>
 		</properties>
 
