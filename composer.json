@@ -2,6 +2,7 @@
     "name": "yoast/whip",
     "description": "A WordPress package to nudge users to upgrade their software versions (starting with PHP)",
     "type": "library",
+    "homepage": "https://github.com/Yoast/whip",
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -9,6 +10,10 @@
             "email": "support@yoast.com"
         }
     ],
+    "support"    : {
+        "issues": "https://github.com/Yoast/whip/issues",
+        "source": "https://github.com/Yoast/whip"
+    },
     "autoload": {
         "files": [
             "src/facades/wordpress.php"
@@ -18,6 +23,7 @@
         ]
     },
     "require": {
+        "php": ">=5.2",
         "xrstf/composer-php52": "^1.0"
     },
     "require-dev": {
@@ -25,6 +31,8 @@
         "roave/security-advisories": "dev-master",
         "yoast/yoastcs": "^1.2.2"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "xrstf\\Composer52\\Generator::onPostInstallCmd"
@@ -35,8 +43,18 @@
         "post-autoload-dump": [
             "xrstf\\Composer52\\Generator::onPostInstallCmd"
         ],
+        "config-yoastcs" : [
+            "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+            "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --config-set default_standard Yoast"
+        ],
+        "check-cs": [
+            "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs"
+        ],
+        "fix-cs": [
+            "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+        ],
         "test": [
-            "vendor/bin/phpunit"
+            "@php ./vendor/phpunit/phpunit/phpunit"
         ]
     }
 }
