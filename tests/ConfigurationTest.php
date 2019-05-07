@@ -36,7 +36,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 			->method( 'component' )
 			->will( $this->returnValue( 'mysql' ) );
 
-		$this->assertEquals( -1, $configuration->configuredVersion( $requirement ) );
+		$this->assertSame( -1, $configuration->configuredVersion( $requirement ) );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 			->method( 'component' )
 			->will( $this->returnValue( 'php' ) );
 
-		$this->assertEquals( '5.6', $configuration->configuredVersion( $requirement ) );
+		$this->assertSame( '5.6', $configuration->configuredVersion( $requirement ) );
 	}
 
 	/**

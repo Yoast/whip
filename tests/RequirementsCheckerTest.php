@@ -30,7 +30,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$checker->addRequirement( new Whip_VersionRequirement( 'php', '5.2' ) );
 
 		$this->assertTrue( $checker->hasRequirements() );
-		$this->assertEquals( 1, $checker->totalRequirements() );
+		$this->assertSame( 1, $checker->totalRequirements() );
 	}
 
 	/**
@@ -93,11 +93,11 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$checker->addRequirement( new Whip_VersionRequirement( 'mysql', '5.6' ) );
 
 		$this->assertTrue( $checker->hasRequirements() );
-		$this->assertEquals( 2, $checker->totalRequirements() );
+		$this->assertSame( 2, $checker->totalRequirements() );
 
 		$checker->addRequirement( new Whip_VersionRequirement( 'php', '6' ) );
 
-		$this->assertEquals( 2, $checker->totalRequirements() );
+		$this->assertSame( 2, $checker->totalRequirements() );
 	}
 
 	/**
