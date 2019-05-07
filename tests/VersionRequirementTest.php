@@ -28,7 +28,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
-	 * @expectedException Whip_EmptyProperty
+	 * @expectedException        Whip_EmptyProperty
 	 * @expectedExceptionMessage Component cannot be empty.
 	 */
 	public function testComponentCannotBeEmpty() {
@@ -40,7 +40,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
-	 * @expectedException Whip_EmptyProperty
+	 * @expectedException        Whip_EmptyProperty
 	 * @expectedExceptionMessage Version cannot be empty.
 	 */
 	public function testVersionCannotBeEmpty() {
@@ -52,7 +52,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
-	 * @expectedException Whip_InvalidType
+	 * @expectedException        Whip_InvalidType
 	 * @expectedExceptionMessage Component should be of type string. Found integer.
 	 */
 	public function testComponentMustBeString() {
@@ -64,7 +64,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
-	 * @expectedException Whip_InvalidType
+	 * @expectedException        Whip_InvalidType
 	 * @expectedExceptionMessage Version should be of type string. Found integer.
 	 */
 	public function testVersionMustBeString() {
@@ -76,7 +76,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
-	 * @expectedException Whip_EmptyProperty
+	 * @expectedException        Whip_EmptyProperty
 	 * @expectedExceptionMessage Operator cannot be empty.
 	 */
 	public function testOperatorCannotBeEmpty() {
@@ -88,7 +88,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
-	 * @expectedException Whip_InvalidType
+	 * @expectedException        Whip_InvalidType
 	 * @expectedExceptionMessage Operator should be of type string. Found integer.
 	 */
 	public function testOperatorMustBeString() {
@@ -100,7 +100,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
-	 * @expectedException Whip_InvalidOperatorType
+	 * @expectedException        Whip_InvalidOperatorType
 	 * @expectedExceptionMessage Invalid operator of -> used. Please use one of the following operators: =, ==, ===, <, >, <=, >=
 	 */
 	public function testOperatorMustBeValid() {
@@ -166,7 +166,7 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::fromCompareString()
 	 *
-	 * @expectedException Whip_InvalidVersionComparisonString
+	 * @expectedException        Whip_InvalidVersionComparisonString
 	 * @expectedExceptionMessage Invalid version comparison string. Example of a valid version comparison string: >=5.3. Passed version comparison string: > 2.3
 	 */
 	public function testFromCompareStringException() {
