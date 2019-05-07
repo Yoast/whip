@@ -40,8 +40,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	 * @requires PHP 7
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassed() {
-		if ( version_compare( phpversion(), 7.0, '<' ) ) {
-			$this->markTestSkipped( 'Skipped due to incompatible PHP version.' );
+		if ( version_compare( phpversion(), '7.0', '<' ) ) {
+			$this->markTestSkipped( 'Skipped due to incompatible PHP version: this test only runs on PHP 7+.' );
 		}
 
 		$exceptionCaught = false;
@@ -63,8 +63,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	 * @covers Whip_RequirementsChecker::addRequirement()
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassedInPHP5() {
-		if ( version_compare( phpversion(), 7.0, '>=' ) ) {
-			$this->markTestSkipped();
+		if ( version_compare( phpversion(), '7.0', '>=' ) ) {
+			$this->markTestSkipped( 'Skipped due to incompatible PHP version: this test only runs on PHP 5.x.' );
 		}
 
 		$exceptionCaught = false;
