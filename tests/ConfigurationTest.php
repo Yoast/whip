@@ -13,7 +13,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests the creation of a Whip_Configuration with invalid input.
 	 *
-	 * @expectedException Whip_InvalidType
+	 * @expectedException        Whip_InvalidType
 	 * @expectedExceptionMessage Configuration should be of type array. Found string.
 	 */
 	public function testItThrowsAnErrorIfAFaultyConfigurationIsPassed() {

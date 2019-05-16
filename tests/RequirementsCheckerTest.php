@@ -36,7 +36,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker throws an error when passed an invalid requirement.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
+	 * @covers   Whip_RequirementsChecker::addRequirement()
 	 * @requires PHP 7
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassed() {
