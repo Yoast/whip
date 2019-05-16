@@ -11,7 +11,8 @@
 class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * Creates a new Whip_VersionRequirement with component php and version 5.2 and tests if this is correctly created.
+	 * Creates a new Whip_VersionRequirement with component php and version 5.2 and
+	 * tests if this is correctly created.
 	 *
 	 * @covers Whip_VersionRequirement::component()
 	 * @covers Whip_VersionRequirement::version()
@@ -24,7 +25,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement is created with an empty component.
+	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
+	 * is created with an empty component.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
@@ -36,7 +38,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement is created with an empty version.
+	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
+	 * is created with an empty version.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
@@ -48,7 +51,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement is created with a false type for a component.
+	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
+	 * is created with a false type for a component.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
@@ -60,7 +64,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement is created with a false type for a version.
+	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
+	 * is created with a false type for a version.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
@@ -72,7 +77,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement is created with a an empty operator.
+	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
+	 * is created with an empty operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
@@ -84,7 +90,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement is created with a false type for an operator.
+	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
+	 * is created with a false type for an operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
@@ -96,7 +103,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement is created with an invalid operator.
+	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
+	 * is created with an invalid operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters()
 	 *
@@ -162,7 +170,8 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests whether fromCompareString() correctly throws an exception when provided with an invalid comparison string.
+	 * Tests whether fromCompareString() correctly throws an exception when provided
+	 * with an invalid comparison string.
 	 *
 	 * @covers Whip_VersionRequirement::fromCompareString()
 	 *

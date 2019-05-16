@@ -101,7 +101,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests if Whip_RequirementsChecker::requirementExistsForComponent correctly returns true for existing components.
+	 * Tests if Whip_RequirementsChecker::requirementExistsForComponent correctly
+	 * returns true for existing components.
 	 *
 	 * @covers Whip_RequirementsChecker::addRequirement()
 	 * @covers Whip_RequirementsChecker::requirementExistsForComponent()
@@ -117,7 +118,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests a situation in which the php requirement is not met; a php upgrade message is created and successfully transferred to a variable.
+	 * Tests a situation in which the php requirement is not met.
+	 *
+	 * Verifies that a php upgrade message is created and successfully transferred to a variable.
 	 *
 	 * @covers Whip_RequirementsChecker::addRequirement()
 	 * @covers Whip_RequirementsChecker::check()
@@ -158,7 +161,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Tests a situation in which the mysql requirement is not met; an invalid version message is created and successfully transferred to a variable.
+	 * Tests a situation in which the mysql requirement is not met.
+	 *
+	 * Verifies that an invalid version message is created and successfully transferred to a variable.
 	 *
 	 * @covers Whip_RequirementsChecker::addRequirement()
 	 * @covers Whip_RequirementsChecker::check()
