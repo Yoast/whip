@@ -31,11 +31,11 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 		$storage     = new Whip_DismissStorageMock();
 		$dismisser   = new Whip_MessageDismisser( $currentTime, ( WEEK_IN_SECONDS * 4 ), $storage );
 
-		$this->assertEquals( 0, $storage->get() );
+		$this->assertSame( 0, $storage->get() );
 
 		$dismisser->dismiss();
 
-		$this->assertEquals( $currentTime, $storage->get() );
+		$this->assertSame( $currentTime, $storage->get() );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 		$storage->set( $savedTime );
 		$dismisser = new Whip_MessageDismisser( $currentTime, ( WEEK_IN_SECONDS * 4 ), $storage );
 
-		$this->assertEquals( $expected, $dismisser->isDismissed() );
+		$this->assertSame( $expected, $dismisser->isDismissed() );
 	}
 
 	/**

@@ -125,9 +125,9 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	public function testGettingComponentProperties() {
 		$requirement = new Whip_VersionRequirement( 'php', '5.6' );
 
-		$this->assertEquals( 'php', $requirement->component() );
-		$this->assertEquals( '5.6', $requirement->version() );
-		$this->assertEquals( '=', $requirement->operator() );
+		$this->assertSame( 'php', $requirement->component() );
+		$this->assertSame( '5.6', $requirement->version() );
+		$this->assertSame( '=', $requirement->operator() );
 	}
 
 	/**
@@ -148,9 +148,9 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	public function testFromCompareString( $expectation, $component, $compareString ) {
 		$requirement = Whip_VersionRequirement::fromCompareString( $component, $compareString );
 
-		$this->assertEquals( $expectation[0], $requirement->component() );
-		$this->assertEquals( $expectation[1], $requirement->version() );
-		$this->assertEquals( $expectation[2], $requirement->operator() );
+		$this->assertSame( $expectation[0], $requirement->component() );
+		$this->assertSame( $expectation[1], $requirement->version() );
+		$this->assertSame( $expectation[2], $requirement->operator() );
 	}
 
 	/**
