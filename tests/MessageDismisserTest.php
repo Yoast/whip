@@ -23,8 +23,8 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_MessageDismisser correctly updates Whip_DismissStorage.
 	 *
-	 * @covers Whip_MessageDismisser::__construct()
-	 * @covers Whip_MessageDismisser::dismiss()
+	 * @covers Whip_MessageDismisser::__construct
+	 * @covers Whip_MessageDismisser::dismiss
 	 */
 	public function testDismiss() {
 		$currentTime = time();
@@ -47,8 +47,8 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	 * @param int  $currentTime The current time.
 	 * @param bool $expected    The expected value.
 	 *
-	 * @covers Whip_MessageDismisser::__construct()
-	 * @covers Whip_MessageDismisser::isDismissed()
+	 * @covers Whip_MessageDismisser::__construct
+	 * @covers Whip_MessageDismisser::isDismissed
 	 */
 	public function testIsDismissibleWithVersions( $savedTime, $currentTime, $expected ) {
 		$storage = new Whip_DismissStorageMock();

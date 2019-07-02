@@ -22,8 +22,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker is successfully created when given valid arguments.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::totalRequirements()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::totalRequirements
 	 */
 	public function testItReceivesAUsableRequirementObject() {
 		$checker = new Whip_RequirementsChecker();
@@ -36,7 +36,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker throws an error when passed an invalid requirement.
 	 *
-	 * @covers   Whip_RequirementsChecker::addRequirement()
+	 * @covers   Whip_RequirementsChecker::addRequirement
 	 * @requires PHP 7
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassed() {
@@ -60,7 +60,7 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker throws an error when passed an invalid requirement.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
+	 * @covers Whip_RequirementsChecker::addRequirement
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassedInPHP5() {
 		if ( version_compare( phpversion(), '7.0', '>=' ) ) {
@@ -83,8 +83,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker only saves unique components.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::totalRequirements()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::totalRequirements
 	 */
 	public function testItOnlyContainsUniqueComponents() {
 		$checker = new Whip_RequirementsChecker();
@@ -104,8 +104,8 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	 * Tests if Whip_RequirementsChecker::requirementExistsForComponent correctly
 	 * returns true for existing components.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::requirementExistsForComponent()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::requirementExistsForComponent
 	 */
 	public function testIfRequirementExists() {
 		$checker = new Whip_RequirementsChecker();
@@ -122,10 +122,10 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * Verifies that a php upgrade message is created and successfully transferred to a variable.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::check()
-	 * @covers Whip_RequirementsChecker::hasMessages()
-	 * @covers Whip_RequirementsChecker::getMostRecentMessage()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::check
+	 * @covers Whip_RequirementsChecker::hasMessages
+	 * @covers Whip_RequirementsChecker::getMostRecentMessage
 	 */
 	public function testCheckIfPHPRequirementIsNotFulfilled() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );
@@ -147,9 +147,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if there no message when the requirement is fulfilled.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::check()
-	 * @covers Whip_RequirementsChecker::getMostRecentMessage()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::check
+	 * @covers Whip_RequirementsChecker::getMostRecentMessage
 	 */
 	public function testCheckIfRequirementIsFulfilled() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => phpversion() ) );
@@ -165,10 +165,10 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * Verifies that an invalid version message is created and successfully transferred to a variable.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::check()
-	 * @covers Whip_RequirementsChecker::getMostRecentMessage()
-	 * @covers Whip_RequirementsChecker::hasMessages()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::check
+	 * @covers Whip_RequirementsChecker::getMostRecentMessage
+	 * @covers Whip_RequirementsChecker::hasMessages
 	 */
 	public function testCheckIfRequirementIsNotFulfilled() {
 		$checker = new Whip_RequirementsChecker( array( 'mysql' => 4 ) );
@@ -190,9 +190,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if a specific comparison with a non-default operator is correctly handled.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::check()
-	 * @covers Whip_RequirementsChecker::hasMessages()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::check
+	 * @covers Whip_RequirementsChecker::hasMessages
 	 */
 	public function testCheckIfRequirementIsFulfilledWithSpecificComparison() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );
@@ -206,9 +206,9 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if a specific comparison with a non-default operator is correctly handled.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement()
-	 * @covers Whip_RequirementsChecker::check()
-	 * @covers Whip_RequirementsChecker::hasMessages()
+	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers Whip_RequirementsChecker::check
+	 * @covers Whip_RequirementsChecker::hasMessages
 	 */
 	public function testCheckIfRequirementIsNotFulfilledWithSpecificComparison() {
 		$checker = new Whip_RequirementsChecker( array( 'php' => 4 ) );

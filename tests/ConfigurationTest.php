@@ -25,7 +25,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_Configuration correctly returns -1 when passed an unknown requirement.
 	 *
-	 * @covers Whip_Configuration::configuredVersion()
+	 * @covers Whip_Configuration::configuredVersion
 	 */
 	public function testItReturnsANegativeNumberIfRequirementCannotBeFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
@@ -44,7 +44,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if Whip_Configuration correctly returns the version number when passed a valid requirement.
 	 *
-	 * @covers Whip_Configuration::configuredVersion()
+	 * @covers Whip_Configuration::configuredVersion
 	 */
 	public function testItReturnsAnEntryIfRequirementIsFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
@@ -63,7 +63,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests if hasRequirementConfigures correctly returns true/false when called with valid/invalid values.
 	 *
-	 * @covers Whip_Configuration::hasRequirementConfigured()
+	 * @covers Whip_Configuration::hasRequirementConfigured
 	 */
 	public function testIfRequirementIsConfigured() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
