@@ -15,6 +15,8 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @expectedException        Whip_InvalidType
 	 * @expectedExceptionMessage Configuration should be of type array. Found string.
+	 *
+	 * @covers Whip_Configuration::__construct
 	 */
 	public function testItThrowsAnErrorIfAFaultyConfigurationIsPassed() {
 		$configuration = new Whip_Configuration( 'Invalid configuration' );
