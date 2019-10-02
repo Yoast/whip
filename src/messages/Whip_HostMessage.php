@@ -46,7 +46,7 @@ class Whip_HostMessage implements Whip_Message {
 		$message[] = Whip_MessageFormatter::strong( $this->title() ) . '<br />';
 		$message[] = Whip_MessageFormatter::paragraph( Whip_Host::message( $this->messageKey ) );
 
-		return implode( $message, "\n" );
+		return implode( "\n", $message );
 	}
 
 	/**
