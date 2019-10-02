@@ -14,8 +14,6 @@
 
 	<file>.</file>
 
-	<exclude-pattern>vendor/*</exclude-pattern>
-
 	<!-- Only check PHP files. -->
 	<arg name="extensions" value="php"/>
 
@@ -25,7 +23,7 @@
 	<!-- Strip the filepaths down to the relevant bit. -->
 	<arg name="basepath" value="./"/>
 
-	<!-- Check up to 8 files simultanously. -->
+	<!-- Check up to 8 files simultaneously. -->
 	<arg name="parallel" value="8"/>
 
 
@@ -36,6 +34,11 @@
 	-->
 
 	<rule ref="Yoast">
+		<!-- Set the minimum supported WP version for all sniff which use it in one go. -->
+		<properties>
+			<property name="minimum_supported_version" type="3.0"/>
+		</properties>
+
 		<!-- Historically, this library has used camelCaps not snakecase for variable and function names. -->
 		<exclude name="WordPress.NamingConventions.ValidVariableName"/>
 		<exclude name="WordPress.NamingConventions.ValidFunctionName"/>
@@ -56,7 +59,7 @@
 			<!-- Allow for two adjacent capital letters for acronyms. -->
 			<property name="strict" value="false"/>
 		</properties>
-		
+
 		<!-- Exclude WordPress example function. -->
 		<exclude-pattern>/src/facades/wordpress\.php$</exclude-pattern>
 
@@ -70,9 +73,6 @@
 	SNIFF SPECIFIC CONFIGURATION
 	#############################################################################
 	-->
-
-	<!-- Set the minimum supported WP version. This is used by several sniffs. -->
-	<config name="minimum_supported_wp_version" value="3.0"/>
 
 	<!-- Verify that everything in the global namespace is prefixed with a plugin specific prefix. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
@@ -99,7 +99,8 @@
 	<!-- Textdomain is passed in dynamically which will not work correctly with gettext().
 		 Ticket: https://github.com/Yoast/whip/issues/2 -->
 	<rule ref="WordPress.WP.I18n.NonSingularStringLiteralDomain">
-		<type>warning</type>
+		<exclude-pattern>/src/messages/Whip_HostMessage\.php$</exclude-pattern>
+		<exclude-pattern>/src/messages/Whip_UpgradePhpMessage\.php$</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound">
