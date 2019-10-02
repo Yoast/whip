@@ -37,8 +37,8 @@ before_install:
 
 install:
 - if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local 5.3.29; fi
-- if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then composer remove --dev yoast/yoastcs dealerdirect/phpcodesniffer-composer-installer; fi
-- if [[ $TRAVIS_PHP_VERSION == "5.2" ]]; then composer remove --dev phpunit/phpunit; fi
+- if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then composer remove --dev --no-update --no-scripts yoast/yoastcs; fi
+- if [[ $TRAVIS_PHP_VERSION == "5.2" ]]; then composer remove --dev --no-update --no-scripts phpunit/phpunit; fi
 - composer install --prefer-dist --no-interaction
 - if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local --unset; fi
 
