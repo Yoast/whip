@@ -34,9 +34,15 @@
 	-->
 
 	<rule ref="Yoast">
-		<!-- Set the minimum supported WP version for all sniff which use it in one go. -->
 		<properties>
+			<!-- Set the minimum supported WP version for all sniff which use it in one go. -->
 			<property name="minimum_supported_version" type="3.0"/>
+
+			<!-- Provide the plugin specific prefixes for all naming related sniffs. -->
+			<property name="prefixes" type="array">
+				<element value="Yoast\WHIP"/>
+				<element value="whip"/>
+			</property>
 		</properties>
 
 		<!-- Historically, this library has used camelCaps not snakecase for variable and function names. -->
@@ -74,18 +80,46 @@
 	#############################################################################
 	-->
 
-	<!-- Verify that everything in the global namespace is prefixed with a plugin specific prefix. -->
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+	<rule ref="Yoast.NamingConventions.NamespaceName">
 		<properties>
-			<!-- Provide the prefixes to look for. -->
-			<property name="prefixes" type="array">
-				<element value="whip"/>
-				<element value="Yoast\WHIP"/>
+			<!-- Treat the "src" directory as the project root for path to namespace translations. -->
+			<property name="src_directory" type="array">
+				<element value="src"/>
 			</property>
 		</properties>
+	</rule>
 
+
+	<!--
+	#############################################################################
+	SELECTIVE EXCLUSIONS
+	Exclude specific files for specific sniffs and/or exclude sub-groups in sniffs.
+	#############################################################################
+	-->
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<!-- Valid usage: For testing purposes, allow non-prefixed globals. -->
 		<exclude-pattern>/tests/doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
+	</rule>
+
+	<rule ref="Yoast.NamingConventions.ValidHookName.WrongPrefix">
+		<!-- Valid usage: Example code for external users of the module. -->
+		<exclude-pattern>/src/facades/wordpress\.php$</exclude-pattern>
+	</rule>
+
+
+	<!--
+	#############################################################################
+	TEMPORARY TWEAK
+	YoastCS demands short arrays, but the WHIP module still supports PHP 5.2.
+	#############################################################################
+	-->
+
+	<rule ref="Generic.Arrays.DisallowShortArraySyntax">
+		<severity>5</severity>
+	</rule>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax">
+		<severity>0</severity>
 	</rule>
 
 
