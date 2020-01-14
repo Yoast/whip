@@ -133,17 +133,15 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Tests whether fromCompareString() correctly returns the expected variables from a passed string.
 	 *
-	 * @param string $expectation   The expected output string.
-	 * @param string $component     The component for this version requirement.
-	 * @param string $compareString The comparison string for this version requirement.
+	 * @dataProvider dataFromCompareString
 	 *
 	 * @covers Whip_VersionRequirement::component
 	 * @covers Whip_VersionRequirement::version
 	 * @covers Whip_VersionRequirement::operator
 	 *
-	 * @throws Whip_InvalidVersionComparisonString When the $compareString parameter is invalid.
-	 *
-	 * @dataProvider dataFromCompareString
+	 * @param string $expectation   The expected output string.
+	 * @param string $component     The component for this version requirement.
+	 * @param string $compareString The comparison string for this version requirement.
 	 */
 	public function testFromCompareString( $expectation, $component, $compareString ) {
 		$requirement = Whip_VersionRequirement::fromCompareString( $component, $compareString );
