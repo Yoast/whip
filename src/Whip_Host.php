@@ -40,7 +40,7 @@ class Whip_Host {
 	 * In a non-WordPress content this function just returns the passed name.
 	 *
 	 * @param string $name The current name of the host.
-	 * @returns string The filtered name of the host.
+	 * @return string The filtered name of the host.
 	 */
 	private static function filterName( $name ) {
 		if ( function_exists( 'apply_filters' ) ) {
@@ -83,7 +83,7 @@ class Whip_Host {
 	/**
 	 * Returns the URL for the hosting page.
 	 *
-	 * @returns string The URL to the hosting overview page.
+	 * @return string The URL to the hosting overview page.
 	 */
 	public static function hostingPageUrl() {
 		$url = 'https://yoa.st/w3';
@@ -96,7 +96,7 @@ class Whip_Host {
 	 * In a non-WordPress context this function just returns a link to the Yoast hosting page.
 	 *
 	 * @param string $url The previous URL.
-	 * @returns string The new URL to the hosting overview page.
+	 * @return string The new URL to the hosting overview page.
 	 */
 	private static function filterHostingPageUrl( $url ) {
 		if ( function_exists( 'apply_filters' ) && apply_filters( self::HOSTING_PAGE_FILTER_KEY, false ) ) {

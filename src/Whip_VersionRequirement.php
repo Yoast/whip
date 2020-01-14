@@ -81,7 +81,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 * @param string $component        The component for this version requirement.
 	 * @param string $comparisonString The comparison string for this version requirement.
 	 *
-	 * @returns Whip_VersionRequirement The parsed version requirement.
+	 * @return Whip_VersionRequirement The parsed version requirement.
 	 */
 	public static function fromCompareString( $component, $comparisonString ) {
 
