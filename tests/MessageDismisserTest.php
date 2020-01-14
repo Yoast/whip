@@ -61,7 +61,7 @@ class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Provides array with test values.
 	 *
-	 * @return array
+	 * @return array[]
 	 */
 	public function versionNumbersProvider() {
 		return array(
