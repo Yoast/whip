@@ -2,4 +2,5 @@
 /composer.lock
 .phpcs.xml
 phpcs.xml
+.cache/phpcs.cache
 phpunit.xml
