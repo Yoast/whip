@@ -24,8 +24,6 @@ matrix:
   include:
     - php: 7.4
       env: PHPCS=1
-    - php: 5.2
-      dist: precise
     - php: 5.3
       dist: precise
 
@@ -37,19 +35,16 @@ before_install:
   - phpenv config-rm xdebug.ini || echo 'No xdebug config.'
 
 install:
-- if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local 5.3.29; fi
-- if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then composer remove --dev --no-update --no-scripts yoast/yoastcs; fi
-- if [[ $TRAVIS_PHP_VERSION == "5.2" ]]; then composer remove --dev --no-update --no-scripts phpunit/phpunit; fi
+- if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local 5.3.29; fi
+- if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then composer remove --dev --no-update --no-scripts yoast/yoastcs; fi
 - if [[ $TRAVIS_PHP_VERSION != "nightly" ]]; then composer install --prefer-dist --no-interaction; fi
-- if [[ $TRAVIS_PHP_VERSION == "5.2" || $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local --unset; fi
+- if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local --unset; fi
 
 script:
 - echo $TRAVIS_PHP_VERSION
 - find -L . -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 - |
-  if [[ "$TRAVIS_PHP_VERSION" == "5.2" ]]; then
-    phpunit
-  elif [[ "$TRAVIS_PHP_VERSION" != "nightly" ]]; then
+  if [[ "$TRAVIS_PHP_VERSION" != "nightly" ]]; then
     ./vendor/bin/phpunit
   fi
 - if [[ "$TRAVIS_PHP_VERSION" == "5.3" || "$TRAVIS_PHP_VERSION" == "7.4" ]]; then composer validate --no-check-all; fi

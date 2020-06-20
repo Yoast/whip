@@ -7,13 +7,15 @@ A WordPress package to nudge users to upgrade their software versions (starting 
 
 The following versions of PHP are supported:
 
-* PHP 5.2
 * PHP 5.3
 * PHP 5.4
 * PHP 5.5
 * PHP 5.6
 * PHP 7.0
 * PHP 7.1
+* PHP 7.2
+* PHP 7.3
+* PHP 7.4
 
 WordPress is also required for certain functionality:
 
@@ -35,7 +37,7 @@ whip_wp_check_versions( array(
 ) );
 ```
 
-This will show a message to all users of your plugin on PHP5.2 to PHP 5.5. By default the message will be shown on every page of the admin and to every user. It is up to the implementing plugin to restrict this to certain users and/or pages.
+This will show a message to all users of your plugin on PHP 5.3 to PHP 5.5. By default the message will be shown on every page of the admin and to every user. It is up to the implementing plugin to restrict this to certain users and/or pages.
 
 ### Adding a message as a host
 
