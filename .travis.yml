@@ -4,6 +4,7 @@ dist: trusty
 ## Cache composer downloads.
 cache:
   directories:
+    - .cache
     # Cache directory for older Composer versions.
     - $HOME/.composer/cache/files
     # Cache directory for more recent Composer versions.
