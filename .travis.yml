@@ -48,4 +48,4 @@ script:
     ./vendor/bin/phpunit
   fi
 - if [[ "$TRAVIS_PHP_VERSION" == "5.3" || "$TRAVIS_PHP_VERSION" == "7.4" ]]; then composer validate --no-check-all; fi
-- if [[ $PHPCS == "1" ]]; then vendor/bin/phpcs; fi
+- if [[ $PHPCS == "1" ]]; then composer check-cs; fi
