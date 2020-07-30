@@ -37,13 +37,28 @@ before_install:
 
 install:
 - if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local 5.3.29; fi
-- if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then composer remove --dev --no-update --no-scripts yoast/yoastcs; fi
-- if [[ $TRAVIS_PHP_VERSION != "nightly" ]]; then composer install --prefer-dist --no-interaction; fi
+# Remove "dev" packages which will not install on PHP 5.3.
+- |
+  if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then
+    composer remove --dev --no-update --no-scripts php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter yoast/yoastcs
+  fi
+# Remove "dev" packages which will not install/are not needed on PHP 8.0/nightly.
+- |
+  if [[ $TRAVIS_PHP_VERSION == "nightly" ]]; then
+    composer remove --dev --no-update --no-scripts yoast/yoastcs phpunit/phpunit
+  fi
+- composer install --prefer-dist --no-interaction
 - if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local --unset; fi
 
 script:
 - echo $TRAVIS_PHP_VERSION
-- find -L . -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
+- |
+  if [[ $TRAVIS_PHP_VERSION != "5.3" ]]; then
+    composer lint
+  else
+    # PHP Parallel Lint does not support PHP < 5.4...
+    find -L . -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
+  fi
 - |
   if [[ "$TRAVIS_PHP_VERSION" != "nightly" ]]; then
     ./vendor/bin/phpunit
