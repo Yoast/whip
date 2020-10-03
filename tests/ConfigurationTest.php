@@ -13,12 +13,11 @@ class ConfigurationTest extends Whip_TestCase {
 	/**
 	 * Tests the creation of a Whip_Configuration with invalid input.
 	 *
-	 * @expectedException        Whip_InvalidType
-	 * @expectedExceptionMessage Configuration should be of type array. Found string.
-	 *
 	 * @covers Whip_Configuration::__construct
 	 */
 	public function testItThrowsAnErrorIfAFaultyConfigurationIsPassed() {
+		$this->expectExceptionHelper( 'Whip_InvalidType', 'Configuration should be of type array. Found string.' );
+
 		$configuration = new Whip_Configuration( 'Invalid configuration' );
 	}
 
