@@ -11,16 +11,6 @@
 class MessageDismisserTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * Instantiates our test class.
-	 */
-	public static function setUpBeforeClass() {
-		parent::setUpBeforeClass();
-
-		require_once dirname( __FILE__ ) . '/doubles/Whip_DismissStorageMock.php';
-		require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
-	}
-
-	/**
 	 * Tests if Whip_MessageDismisser correctly updates Whip_DismissStorage.
 	 *
 	 * @covers Whip_MessageDismisser::__construct

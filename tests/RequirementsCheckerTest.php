@@ -11,15 +11,6 @@
 class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * Set up the class by requiring the WP Core functions mock.
-	 */
-	public static function setUpBeforeClass() {
-		parent::setUpBeforeClass();
-
-		require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
-	}
-
-	/**
 	 * Tests if Whip_RequirementsChecker is successfully created when given valid arguments.
 	 *
 	 * @covers Whip_RequirementsChecker::addRequirement
