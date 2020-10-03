@@ -130,7 +130,15 @@ class RequirementsCheckerTest extends Whip_TestCase {
 		$recentMessage = $checker->getMostRecentMessage();
 
 		$this->assertNotEmpty( $recentMessage );
-		$this->assertInternalType( 'string', $recentMessage->body() );
+
+		if ( method_exists( $this, 'assertIsString' ) ) {
+			// PHPUnit 8+.
+			$this->assertIsString( $recentMessage->body() );
+		}
+		else {
+			$this->assertInternalType( 'string', $recentMessage->body() );
+		}
+
 		$this->assertFalse( $checker->hasMessages() );
 		$this->assertInstanceOf( 'Whip_UpgradePhpMessage', $recentMessage );
 	}
