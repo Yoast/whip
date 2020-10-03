@@ -8,7 +8,7 @@
 /**
  * Requirements checker unit tests.
  */
-class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
+class RequirementsCheckerTest extends Whip_TestCase {
 
 	/**
 	 * Tests if Whip_RequirementsChecker is successfully created when given valid arguments.

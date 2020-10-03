@@ -8,7 +8,7 @@
 /**
  * Message Dismisser unit tests.
  */
-class MessageDismisserTest extends PHPUnit_Framework_TestCase {
+class MessageDismisserTest extends Whip_TestCase {
 
 	/**
 	 * Tests if Whip_MessageDismisser correctly updates Whip_DismissStorage.

@@ -8,7 +8,7 @@
 /**
  * Message Manager unit tests.
  */
-class MessagesManagerTest extends PHPUnit_Framework_TestCase {
+class MessagesManagerTest extends Whip_TestCase {
 
 	/**
 	 * Creates a MessagesManager, calls hasMessages and tests if it returns false
