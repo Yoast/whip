@@ -31,7 +31,7 @@
         "php": ">=5.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.5 || ^5.7 || ^6.0 || ^7.0",
+        "phpunit/phpunit": "^4.5 || ^5.7 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
         "roave/security-advisories": "dev-master",
         "yoast/yoastcs": "^2.0.0",
         "php-parallel-lint/php-parallel-lint": "^1.2",
