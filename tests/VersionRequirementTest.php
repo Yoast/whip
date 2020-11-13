@@ -8,7 +8,7 @@
 /**
  * Version requirements unit tests.
  */
-class VersionRequirementTest extends PHPUnit_Framework_TestCase {
+class VersionRequirementTest extends Whip_TestCase {
 
 	/**
 	 * Creates a new Whip_VersionRequirement with component php and version 5.2 and
@@ -29,11 +29,10 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * is created with an empty component.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
-	 *
-	 * @expectedException        Whip_EmptyProperty
-	 * @expectedExceptionMessage Component cannot be empty.
 	 */
 	public function testComponentCannotBeEmpty() {
+		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Component cannot be empty.' );
+
 		new Whip_VersionRequirement( '', '5.2' );
 	}
 
@@ -42,11 +41,10 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * is created with an empty version.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
-	 *
-	 * @expectedException        Whip_EmptyProperty
-	 * @expectedExceptionMessage Version cannot be empty.
 	 */
 	public function testVersionCannotBeEmpty() {
+		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Version cannot be empty.' );
+
 		new Whip_VersionRequirement( 'php', '' );
 	}
 
@@ -55,11 +53,10 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * is created with a false type for a component.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
-	 *
-	 * @expectedException        Whip_InvalidType
-	 * @expectedExceptionMessage Component should be of type string. Found integer.
 	 */
 	public function testComponentMustBeString() {
+		$this->expectExceptionHelper( 'Whip_InvalidType', 'Component should be of type string. Found integer.' );
+
 		new Whip_VersionRequirement( 123, '5.2' );
 	}
 
@@ -68,11 +65,10 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * is created with a false type for a version.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
-	 *
-	 * @expectedException        Whip_InvalidType
-	 * @expectedExceptionMessage Version should be of type string. Found integer.
 	 */
 	public function testVersionMustBeString() {
+		$this->expectExceptionHelper( 'Whip_InvalidType', 'Version should be of type string. Found integer.' );
+
 		new Whip_VersionRequirement( 'php', 123 );
 	}
 
@@ -81,11 +77,10 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * is created with an empty operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
-	 *
-	 * @expectedException        Whip_EmptyProperty
-	 * @expectedExceptionMessage Operator cannot be empty.
 	 */
 	public function testOperatorCannotBeEmpty() {
+		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Operator cannot be empty.' );
+
 		new Whip_VersionRequirement( 'php', '5.6', '' );
 	}
 
@@ -94,11 +89,10 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * is created with a false type for an operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
-	 *
-	 * @expectedException        Whip_InvalidType
-	 * @expectedExceptionMessage Operator should be of type string. Found integer.
 	 */
 	public function testOperatorMustBeString() {
+		$this->expectExceptionHelper( 'Whip_InvalidType', 'Operator should be of type string. Found integer.' );
+
 		new Whip_VersionRequirement( 'php', '5.2', 6 );
 	}
 
@@ -107,11 +101,13 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * is created with an invalid operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
-	 *
-	 * @expectedException        Whip_InvalidOperatorType
-	 * @expectedExceptionMessage Invalid operator of -> used. Please use one of the following operators: =, ==, ===, <, >, <=, >=
 	 */
 	public function testOperatorMustBeValid() {
+		$this->expectExceptionHelper(
+			'Whip_InvalidOperatorType',
+			'Invalid operator of -> used. Please use one of the following operators: =, ==, ===, <, >, <=, >='
+		);
+
 		new Whip_VersionRequirement( 'php', '5.2', '->' );
 	}
 
@@ -172,11 +168,13 @@ class VersionRequirementTest extends PHPUnit_Framework_TestCase {
 	 * with an invalid comparison string.
 	 *
 	 * @covers Whip_VersionRequirement::fromCompareString
-	 *
-	 * @expectedException        Whip_InvalidVersionComparisonString
-	 * @expectedExceptionMessage Invalid version comparison string. Example of a valid version comparison string: >=5.3. Passed version comparison string: > 2.3
 	 */
 	public function testFromCompareStringException() {
+		$this->expectExceptionHelper(
+			'Whip_InvalidVersionComparisonString',
+			'Invalid version comparison string. Example of a valid version comparison string: >=5.3. Passed version comparison string: > 2.3'
+		);
+
 		Whip_VersionRequirement::fromCompareString( 'php', '> 2.3' );
 	}
 }

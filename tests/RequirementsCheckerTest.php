@@ -8,16 +8,7 @@
 /**
  * Requirements checker unit tests.
  */
-class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
-
-	/**
-	 * Set up the class by requiring the WP Core functions mock.
-	 */
-	public static function setUpBeforeClass() {
-		parent::setUpBeforeClass();
-
-		require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
-	}
+class RequirementsCheckerTest extends Whip_TestCase {
 
 	/**
 	 * Tests if Whip_RequirementsChecker is successfully created when given valid arguments.
@@ -139,7 +130,15 @@ class RequirementsCheckerTest extends PHPUnit_Framework_TestCase {
 		$recentMessage = $checker->getMostRecentMessage();
 
 		$this->assertNotEmpty( $recentMessage );
-		$this->assertInternalType( 'string', $recentMessage->body() );
+
+		if ( method_exists( $this, 'assertIsString' ) ) {
+			// PHPUnit 8+.
+			$this->assertIsString( $recentMessage->body() );
+		}
+		else {
+			$this->assertInternalType( 'string', $recentMessage->body() );
+		}
+
 		$this->assertFalse( $checker->hasMessages() );
 		$this->assertInstanceOf( 'Whip_UpgradePhpMessage', $recentMessage );
 	}

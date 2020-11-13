@@ -28,3 +28,5 @@ else {
 	echo 'ERROR: Run `composer install` to generate the autoload files before running the unit tests.' . PHP_EOL;
 	exit( 1 );
 }
+
+require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
