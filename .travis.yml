@@ -11,6 +11,7 @@ cache:
     - $HOME/.cache/composer/files
 
 php:
+- 8.0
 - 7.3
 - 7.2
 - 7.1
