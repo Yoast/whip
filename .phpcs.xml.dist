@@ -39,7 +39,7 @@
 	<rule ref="Yoast">
 		<properties>
 			<!-- Set the minimum supported WP version for all sniff which use it in one go. -->
-			<property name="minimum_supported_version" type="3.0"/>
+			<property name="minimum_supported_version" value="3.0"/>
 
 			<!-- Provide the plugin specific prefixes for all naming related sniffs. -->
 			<property name="prefixes" type="array">
