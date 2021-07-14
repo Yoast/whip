@@ -26,5 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.0-beta.1 - 2017-02-21
 * Initial pre-release of whip. A package to nudge users to upgrade their software versions.
 
-[Unreleased]: https://github.com/yoast/whip/compare/1.0.0-beta.2...HEAD
+[Unreleased]: https://github.com/yoast/whip/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/yoast/whip/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/yoast/whip/compare/1.0.0-beta.2...1.0.0
 [1.0.0-beta.2]: https://github.com/yoast/whip/compare/1.0.0-beta.1...1.0.0-beta.2
