@@ -16,6 +16,7 @@ The following versions of PHP are supported:
 * PHP 7.2
 * PHP 7.3
 * PHP 7.4
+* PHP 8.0
 
 WordPress is also required for certain functionality:
 
@@ -30,7 +31,7 @@ $ composer require yoast/whip
 
 ## Usage
 
-The easiest way to use Whip in WordPress is just by using the included function to check the versions. In this case checking if PHP 5.6 or greater is installed: 
+The easiest way to use Whip in WordPress is by using the included function to check the versions. In this case checking if PHP 5.6 or greater is installed: 
 ```php
 whip_wp_check_versions( array(
 	'php' => '>=5.6',
