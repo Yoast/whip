@@ -54,6 +54,18 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	}
 
 	/**
+	 * Registers hooks to WordPress.
+	 *
+	 * @deprecated 1.2.0 Use the Whip_WPMessagePresenter::registerHooks() method instead.
+	 * @codeCoverageIgnore
+	 * @phpcs:disable Generic.NamingConventions.CamelCapsFunctionName
+	 */
+	public function register_hooks() {
+		// phpcs:enable
+		self::registerHooks();
+	}
+
+	/**
 	 * Renders the messages present in the global to notices.
 	 */
 	public function renderMessage() {
