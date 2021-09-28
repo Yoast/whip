@@ -45,7 +45,8 @@ install:
 # Remove "dev" packages which will not install on PHP 5.3.
 - |
   if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then
-    travis_retry composer remove --dev --no-update --no-scripts php-parallel-lint/php-console-highlighter yoast/yoastcs
+    travis_retry composer remove --dev --no-update --no-scripts yoast/yoastcs
+    travis_retry composer require --dev --no-update --no-scripts php-parallel-lint/php-parallel-lint
   fi
 # Remove "dev" packages which will not install/are not needed on PHP 8.0/nightly.
 - travis_retry composer install --no-interaction
