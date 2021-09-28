@@ -15,7 +15,6 @@ php:
 - 7.3
 - 7.2
 - 7.1
-- "nightly"
 
 jobs:
   fast_finish: true
@@ -33,10 +32,6 @@ jobs:
     - php: 5.3
       dist: precise
 
-  allow_failures:
-    # Allow failures for unstable builds.
-    - php: "nightly"
-
 before_install:
   - phpenv config-rm xdebug.ini || echo 'No xdebug config.'
 
@@ -48,7 +43,6 @@ install:
     travis_retry composer remove --dev --no-update --no-scripts yoast/yoastcs
     travis_retry composer require --dev --no-update --no-scripts php-parallel-lint/php-parallel-lint
   fi
-# Remove "dev" packages which will not install/are not needed on PHP 8.0/nightly.
 - travis_retry composer install --no-interaction
 - if [[ $TRAVIS_PHP_VERSION == "5.3" ]]; then phpenv local --unset; fi
 
