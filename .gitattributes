@@ -15,6 +15,7 @@
 /phpunit.xml export-ignore
 /phpunit.xml.dist export-ignore
 /.cache export-ignore
+/.github export-ignore
 /images export-ignore
 /tests export-ignore
 
