@@ -1,3 +1,6 @@
+[![CS](https://github.com/Yoast/whip/actions/workflows/cs.yml/badge.svg)](https://github.com/Yoast/whip/actions/workflows/cs.yml)
+[![Test](https://github.com/Yoast/whip/actions/workflows/test.yml/badge.svg)](https://github.com/Yoast/whip/actions/workflows/test.yml)
+
 # whip
 A WordPress package to nudge users to upgrade their software versions (starting with PHP)
 
