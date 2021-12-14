@@ -17,11 +17,22 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 			return;
 		}
 
-		$config  = include dirname( __FILE__ ) . '/../configs/default.php';
-		$checker = new Whip_RequirementsChecker( $config );
+		$config = include __DIR__ . '/../configs/default.php';
 
-		foreach ( $requirements as $component => $versionComparison ) {
-			$checker->addRequirement( Whip_VersionRequirement::fromCompareString( $component, $versionComparison ) );
+		$messageProvider    = new Whip_MessageProvider();
+		$requirementObjects = array();
+		foreach ( $requirements as $component => $requirement ) {
+			$requirementObject    = Whip_VersionRequirement::fromCompareString( $component, $requirement['version'] );
+			$requirementObjects[] = $requirementObject;
+			if ( isset( $requirement['message'] ) ) {
+				$messageProvider->addMessage( $requirement['message'], $requirementObject );
+			}
+		}
+
+		$checker = new Whip_RequirementsChecker( new Whip_Configuration( $config ), $messageProvider );
+
+		foreach ( $requirementObjects as $requirement ) {
+			$checker->addRequirement( $requirement );
 		}
 
 		$checker->check();

@@ -13,30 +13,42 @@ class Whip_RequirementsChecker {
 	/**
 	 * Requirements the environment should comply with.
 	 *
-	 * @var array
+	 * @var Whip_Requirement[]
 	 */
 	private $requirements;
 
 	/**
-	 * The text domain to use for translations.
+	 * The current configuration.
 	 *
-	 * @var string
+	 * @var Whip_Configuration
 	 */
-	private $textdomain;
+	private $configuration;
+
+	/**
+	 * Keeps track of messages that should be shown.
+	 *
+	 * @var Whip_MessagesManager
+	 */
+	private $messageManager;
+
+	/**
+	 * Provides messages for display given a requirement.
+	 *
+	 * @var Whip_MessageProvider
+	 */
+	private $messageProvider;
 
 	/**
 	 * Whip_RequirementsChecker constructor.
 	 *
-	 * @param array  $configuration The configuration to check.
-	 * @param string $textdomain    The text domain to use for translations.
-	 *
-	 * @throws Whip_InvalidType When the $configuration parameter is not of the expected type.
+	 * @param Whip_Configuration   $configuration   The configuration to check.
+	 * @param Whip_MessageProvider $messageProvider A class that provides messages for unmet requirements.
 	 */
-	public function __construct( $configuration = array(), $textdomain = 'default' ) {
-		$this->requirements   = array();
-		$this->configuration  = new Whip_Configuration( $configuration );
-		$this->messageManager = new Whip_MessagesManager();
-		$this->textdomain     = $textdomain;
+	public function __construct( Whip_Configuration $configuration, Whip_MessageProvider $messageProvider ) {
+		$this->requirements    = array();
+		$this->configuration   = $configuration;
+		$this->messageProvider = $messageProvider;
+		$this->messageManager  = new Whip_MessagesManager();
 	}
 
 	/**
@@ -54,9 +66,9 @@ class Whip_RequirementsChecker {
 	}
 
 	/**
-	 * Determines whether or not there are requirements available.
+	 * Determines whether there are requirements available.
 	 *
-	 * @return bool Whether or not there are requirements.
+	 * @return bool Whether there are requirements.
 	 */
 	public function hasRequirements() {
 		return $this->totalRequirements() > 0;
@@ -72,11 +84,11 @@ class Whip_RequirementsChecker {
 	}
 
 	/**
-	 * Determines whether or not a requirement exists for a particular component.
+	 * Determines whether a requirement exists for a particular component.
 	 *
 	 * @param string $component The component to check for.
 	 *
-	 * @return bool Whether or not the component has a requirement defined.
+	 * @return bool Whether the component has a requirement defined.
 	 */
 	public function requirementExistsForComponent( $component ) {
 		foreach ( $this->requirements as $requirement ) {
@@ -93,7 +105,7 @@ class Whip_RequirementsChecker {
 	 *
 	 * @param Whip_Requirement $requirement The requirement to check.
 	 *
-	 * @return bool Whether or not the requirement is fulfilled.
+	 * @return bool Whether the requirement is fulfilled.
 	 */
 	private function requirementIsFulfilled( Whip_Requirement $requirement ) {
 		$availableVersion = $this->configuration->configuredVersion( $requirement );
@@ -128,20 +140,14 @@ class Whip_RequirementsChecker {
 	 * @param Whip_Requirement $requirement The requirement that cannot be fulfilled.
 	 */
 	private function addMissingRequirementMessage( Whip_Requirement $requirement ) {
-		switch ( $requirement->component() ) {
-			case 'php':
-				$this->messageManager->addMessage( new Whip_UpgradePhpMessage( $this->textdomain ) );
-				break;
-			default:
-				$this->messageManager->addMessage( new Whip_InvalidVersionRequirementMessage( $requirement, $this->configuration->configuredVersion( $requirement ) ) );
-				break;
-		}
+		$message = $this->messageProvider->getMessage( $requirement, $this->configuration );
+		$this->messageManager->addMessage( $message );
 	}
 
 	/**
-	 * Determines whether or not there are messages available.
+	 * Determines whether there are messages available.
 	 *
-	 * @return bool Whether or not there are messages to display.
+	 * @return bool Whether there are messages to display.
 	 */
 	public function hasMessages() {
 		return $this->messageManager->hasMessages();

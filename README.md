@@ -37,11 +37,22 @@ $ composer require yoast/whip
 The easiest way to use Whip in WordPress is by using the included function to check the versions. In this case checking if PHP 5.6 or greater is installed: 
 ```php
 whip_wp_check_versions( array(
-	'php' => '>=5.6',
+	'php' => [ 'version' => '>=5.6' ],
 ) );
 ```
 
 This will show a message to all users of your plugin on PHP 5.3 to PHP 5.5. By default the message will be shown on every page of the admin and to every user. It is up to the implementing plugin to restrict this to certain users and/or pages.
+
+### Using custom messages
+To overwrite the default message, you can pass your own:
+```php
+whip_wp_check_versions( array(
+	'php' => [
+	    'version' => '>=5.6',
+	    'message' => new Whip_NullMessage(), // Or any object implementing the Whip_Message interface. 
+	 ],
+) );
+```
 
 ### Adding a message as a host
 
