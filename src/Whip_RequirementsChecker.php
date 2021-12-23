@@ -18,6 +18,20 @@ class Whip_RequirementsChecker {
 	private $requirements;
 
 	/**
+	 * The configuration to check.
+	 *
+	 * @var Whip_Configuration
+	 */
+	private $configuration;
+
+	/**
+	 * Message Manager.
+	 *
+	 * @var Whip_MessagesManager
+	 */
+	private $messageManager;
+
+	/**
 	 * The text domain to use for translations.
 	 *
 	 * @var string
