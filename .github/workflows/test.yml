@@ -42,18 +42,18 @@ jobs:
       - name: Adjust Composer dependencies (PHP 5.3)
         if: matrix.php_version == '5.3'
         run: |
-          composer remove --dev --no-update --no-scripts yoast/yoastcs
-          composer require --dev --no-update --no-scripts php-parallel-lint/php-parallel-lint
+          composer remove --dev --no-update --no-scripts yoast/yoastcs --no-interaction
+          composer require --dev --no-update --no-scripts php-parallel-lint/php-parallel-lint --no-interaction
 
       # Install dependencies and handle caching in one go.
       # @link https://github.com/marketplace/actions/install-composer-dependencies
       - name: Install Composer dependencies (PHP < 8.2)
         if: matrix.php_version != '8.2'
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
 
       - name: Install Composer dependencies (PHP 8.2)
         if: matrix.php_version == '8.2'
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           composer-options: "--ignore-platform-req=php"
 
