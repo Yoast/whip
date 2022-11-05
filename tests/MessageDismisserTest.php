@@ -55,10 +55,10 @@ class MessageDismisserTest extends Whip_TestCase {
 	 */
 	public function versionNumbersProvider() {
 		return array(
-			array( strtotime( '-2weeks' ), time(), true ),
-			array( strtotime( '-4weeks' ), time(), true ),
-			array( strtotime( '-6weeks' ), time(), false ),
-			array( time(), time(), true ),
+			'-2weeks' => array( strtotime( '-2weeks' ), time(), true ),
+			'-4weeks' => array( strtotime( '-4weeks' ), time(), true ),
+			'-6weeks' => array( strtotime( '-6weeks' ), time(), false ),
+			'time()'  => array( time(), time(), true ),
 		);
 	}
 }
