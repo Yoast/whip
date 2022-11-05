@@ -152,14 +152,14 @@ class VersionRequirementTest extends Whip_TestCase {
 	 */
 	public function dataFromCompareString() {
 		return array(
-			array( array( 'php', '5.5', '>' ), 'php', '>5.5' ),
-			array( array( 'php', '5.5', '>=' ), 'php', '>=5.5' ),
-			array( array( 'php', '5.5', '<' ), 'php', '<5.5' ),
-			array( array( 'php', '5.5', '<=' ), 'php', '<=5.5' ),
-			array( array( 'php', '7.3', '>' ), 'php', '>7.3' ),
-			array( array( 'php', '7.3', '>=' ), 'php', '>=7.3' ),
-			array( array( 'php', '7.3', '<' ), 'php', '<7.3' ),
-			array( array( 'php', '7.3', '<=' ), 'php', '<=7.3' ),
+			'php > 5.5'  => array( array( 'php', '5.5', '>' ), 'php', '>5.5' ),
+			'php >= 5.5' => array( array( 'php', '5.5', '>=' ), 'php', '>=5.5' ),
+			'php < 5.5'  => array( array( 'php', '5.5', '<' ), 'php', '<5.5' ),
+			'php <= 5.5' => array( array( 'php', '5.5', '<=' ), 'php', '<=5.5' ),
+			'php > 7.3'  => array( array( 'php', '7.3', '>' ), 'php', '>7.3' ),
+			'php >= 7.3' => array( array( 'php', '7.3', '>=' ), 'php', '>=7.3' ),
+			'php < 7.3'  => array( array( 'php', '7.3', '<' ), 'php', '<7.3' ),
+			'php <= 7.3' => array( array( 'php', '7.3', '<=' ), 'php', '<=7.3' ),
 		);
 	}
 
