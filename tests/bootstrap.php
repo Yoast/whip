@@ -21,12 +21,12 @@ if ( class_exists( 'PHPUnit\Framework\TestCase' ) === true
 	class_alias( 'PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase' );
 }
 
-if ( file_exists( dirname( __FILE__ ) . '/../vendor/autoload.php' ) ) {
-	require_once dirname( __FILE__ ) . '/../vendor/autoload.php';
+if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/../vendor/autoload.php';
 }
 else {
 	echo 'ERROR: Run `composer install` to generate the autoload files before running the unit tests.' . PHP_EOL;
 	exit( 1 );
 }
 
-require_once dirname( __FILE__ ) . '/doubles/WPCoreFunctionsMock.php';
+require_once __DIR__ . '/doubles/WPCoreFunctionsMock.php';
