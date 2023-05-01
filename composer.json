@@ -57,6 +57,9 @@
             "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
         ],
         "test": [
+            "@php ./vendor/phpunit/phpunit/phpunit --no-coverage"
+        ],
+        "coverage": [
             "@php ./vendor/phpunit/phpunit/phpunit"
         ]
     }
