@@ -17,7 +17,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 			return;
 		}
 
-		$config  = include dirname( __FILE__ ) . '/../configs/default.php';
+		$config  = include __DIR__ . '/../configs/default.php';
 		$checker = new Whip_RequirementsChecker( $config );
 
 		foreach ( $requirements as $component => $versionComparison ) {
