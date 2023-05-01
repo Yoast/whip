@@ -1,8 +1,12 @@
 name: Test
 
 on:
-  # Run on all pushes and on all pull requests.
+  # Run on pushes to `main` and on all pull requests.
   push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
   pull_request:
   # Allow manually triggering the workflow.
   workflow_dispatch:
