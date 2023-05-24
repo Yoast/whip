@@ -1,9 +1,27 @@
 name: CS
 
 on:
-  # Run on all pushes and on all pull requests.
+  # Run on all relevant pushes and on all relevant pull requests.
   push:
+    paths-ignore:
+      - '**.md'
+      - '.gitattributes'
+      - '.gitignore'
+      - 'LICENSE'
+      - 'phpunit.xml.dist'
+      - '.github/dependabot.yml'
+      - '.github/workflows/test.yml'
+      - 'images/**'
   pull_request:
+    paths-ignore:
+      - '**.md'
+      - '.gitattributes'
+      - '.gitignore'
+      - 'LICENSE'
+      - 'phpunit.xml.dist'
+      - '.github/dependabot.yml'
+      - '.github/workflows/test.yml'
+      - 'images/**'
   # Allow manually triggering the workflow.
   workflow_dispatch:
 
