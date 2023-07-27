@@ -43,7 +43,7 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 		$action = ( isset( $_GET['action'] ) && is_string( $_GET['action'] ) ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : null;
 		$nonce  = ( isset( $_GET['nonce'] ) && is_string( $_GET['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_GET['nonce'] ) ) : null;
 
-		if ( $action === self::ACTION_NAME && $this->dismisser->verify_nonce( $nonce, self::ACTION_NAME ) ) {
+		if ( $action === self::ACTION_NAME && $this->dismisser->verifyNonce( $nonce, self::ACTION_NAME ) ) {
 			$this->dismisser->dismiss();
 		}
 	}
