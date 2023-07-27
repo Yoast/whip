@@ -36,7 +36,7 @@ class WPMessageDismissListener extends Whip_TestCase {
 		$_GET['nonce']  = $nonce;
 
 		$dismisser->expects( $this->exactly( $verifyNonceTimes ) )
-				->method( 'verify_nonce' )
+				->method( 'verifyNonce' )
 				->with( $nonce, $action )
 				->willReturn( $isCorrectNonce );
 
