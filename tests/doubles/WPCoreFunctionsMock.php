@@ -30,3 +30,25 @@ function __( $message ) {
 function esc_url( $url ) {
 	return $url;
 }
+
+/**
+ * Mock for sanitize_text_field.
+ *
+ * @param string $text The text to be sanitize.
+ *
+ * @return string The text that was sanitized.
+ */
+function sanitize_text_field( $text ) {
+	return $text;
+}
+
+/**
+ * Mock for wp_unslash.
+ *
+ * @param string $string The string to be wp_unslash.
+ *
+ * @return string The string that was unslashed.
+ */
+function wp_unslash( $string ) {
+	return $string;
+}
