@@ -59,4 +59,16 @@ class Whip_MessageDismisser {
 	public function isDismissed() {
 		return ( $this->currentTime <= ( $this->storage->get() + $this->threshold ) );
 	}
+
+	/**
+	 * Checks the nonce.
+	 *
+	 * @param string $nonce  The nonce to check.
+	 * @param string $action The action to check.
+	 *
+	 * @return bool True when the nonce is valid.
+	 */
+	public function verifyNonce( $nonce, $action ) {
+		return wp_verify_nonce( $nonce, $action );
+	}
 }
