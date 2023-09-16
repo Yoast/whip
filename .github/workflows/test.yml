@@ -93,27 +93,14 @@ jobs:
         if: ${{ matrix.coverage == true }}
         run: composer coverage
 
-      # PHP Coveralls doesn't fully support PHP 8.x yet, so switch the PHP version.
-      # Additionally Coveralls 1.x (which would be needed for PHP < 5.5) doesn't play nice with GH Actions.
-      - name: Switch to PHP 7.4
-        if: ${{ success() && matrix.coverage == true }}
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 7.4
-          coverage: none
-
-      # Global install is used to prevent a conflict with the local composer.lock in PHP 8.0+.
-      - name: Install Coveralls
-        if: ${{ success() && matrix.coverage == true }}
-        run: composer global require php-coveralls/php-coveralls:"^2.5.3" --no-interaction
-
       - name: Upload coverage results to Coveralls
         if: ${{ success() && matrix.coverage == true }}
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
-          COVERALLS_PARALLEL: true
-          COVERALLS_FLAG_NAME: php-${{ matrix.php_version }}
-        run: php-coveralls -v -x build/logs/clover.xml
+        uses: coverallsapp/github-action@v2
+        with:
+          format: clover
+          file: build/logs/clover.xml
+          flag-name: php-${{ matrix.php_version }}
+          parallel: true
 
   coveralls-finish:
     needs: test
@@ -123,5 +110,4 @@ jobs:
       - name: Coveralls Finished
         uses: coverallsapp/github-action@v2
         with:
-          github-token: ${{ secrets.COVERALLS_TOKEN }}
           parallel-finished: true
