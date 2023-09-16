@@ -12,12 +12,12 @@ if ( ! defined( 'WEEK_IN_SECONDS' ) ) {
 /**
  * Returns the message.
  *
- * @param string $message The message to return.
+ * @param string $text The message to return.
  *
  * @return string The message that is returned.
  */
-function __( $message ) {
-	return $message;
+function __( $text ) {
+	return $text;
 }
 
 /**
@@ -34,21 +34,21 @@ function esc_url( $url ) {
 /**
  * Mock for sanitize_text_field.
  *
- * @param string $text The text to be sanitize.
+ * @param string $str The text to be sanitize.
  *
  * @return string The text that was sanitized.
  */
-function sanitize_text_field( $text ) {
-	return $text;
+function sanitize_text_field( $str ) {
+	return $str;
 }
 
 /**
  * Mock for wp_unslash.
  *
- * @param string $string The string to be wp_unslash.
+ * @param string $value The string to be wp_unslash.
  *
  * @return string The string that was unslashed.
  */
-function wp_unslash( $string ) {
-	return $string;
+function wp_unslash( $value ) {
+	return $value;
 }
