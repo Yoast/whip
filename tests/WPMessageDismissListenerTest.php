@@ -10,7 +10,7 @@
  *
  * @coversDefaultClass Whip_WPMessageDismissListener
  */
-final class WPMessageDismissListenerTest extends Whip_TestCase {
+final class WPMessageDismissListenerTest extends TestCase {
 
 	/**
 	 * Tests the listen method.

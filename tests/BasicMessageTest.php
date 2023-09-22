@@ -8,7 +8,7 @@
 /**
  * Message Unit tests.
  */
-final class BasicMessageTest extends Whip_TestCase {
+final class BasicMessageTest extends TestCase {
 
 	/**
 	 * Tests if Whip_BasicMessage correctly handles a string for its body argument.

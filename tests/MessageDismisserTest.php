@@ -8,7 +8,7 @@
 /**
  * Message Dismisser unit tests.
  */
-final class MessageDismisserTest extends Whip_TestCase {
+final class MessageDismisserTest extends TestCase {
 
 	/**
 	 * Tests if Whip_MessageDismisser correctly updates Whip_DismissStorage.

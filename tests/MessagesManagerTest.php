@@ -8,7 +8,7 @@
 /**
  * Message Manager unit tests.
  */
-final class MessagesManagerTest extends Whip_TestCase {
+final class MessagesManagerTest extends TestCase {
 
 	/**
 	 * Creates a MessagesManager, calls hasMessages and tests if it returns false

@@ -8,7 +8,7 @@
 /**
  * Requirements checker unit tests.
  */
-final class RequirementsCheckerTest extends Whip_TestCase {
+final class RequirementsCheckerTest extends TestCase {
 
 	/**
 	 * Tests if Whip_RequirementsChecker is successfully created when given valid arguments.

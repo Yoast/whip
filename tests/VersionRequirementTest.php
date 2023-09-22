@@ -8,7 +8,7 @@
 /**
  * Version requirements unit tests.
  */
-final class VersionRequirementTest extends Whip_TestCase {
+final class VersionRequirementTest extends TestCase {
 
 	/**
 	 * Creates a new Whip_VersionRequirement with component php and version 5.2 and
