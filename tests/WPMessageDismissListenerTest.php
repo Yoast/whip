@@ -23,7 +23,7 @@ class WPMessageDismissListener extends Whip_TestCase {
 	 * @param string $nonce            The nonce to test.
 	 * @param int    $verifyNonceTimes The times to call wp_verify_nonce.
 	 * @param bool   $isCorrectNonce   Whether the nonce is correct.
-	 * @param bool   $dismissTimes     The times to call dismiss.
+	 * @param int    $dismissTimes     The times to call dismiss.
 	 */
 	public function testDismiss( $action, $nonce, $verifyNonceTimes, $isCorrectNonce, $dismissTimes ) {
 		$dismisser = $this->getMockBuilder( 'Whip_MessageDismisser' )
