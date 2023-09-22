@@ -53,7 +53,7 @@ final class WPMessageDismissListener extends Whip_TestCase {
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
-	public function listenProvider() {
+	public static function listenProvider() {
 		return array(
 			'correct action and nonce' => array(
 				'action'                => Whip_WPMessageDismissListener::ACTION_NAME,

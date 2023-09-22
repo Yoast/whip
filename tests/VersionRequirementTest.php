@@ -172,7 +172,7 @@ final class VersionRequirementTest extends Whip_TestCase {
 	 *
 	 * @return array<string, array<string|array<string>>>
 	 */
-	public function dataFromCompareString() {
+	public static function dataFromCompareString() {
 		return array(
 			'php > 5.5'  => array( array( 'php', '5.5', '>' ), 'php', '>5.5' ),
 			'php >= 5.5' => array( array( 'php', '5.5', '>=' ), 'php', '>=5.5' ),
