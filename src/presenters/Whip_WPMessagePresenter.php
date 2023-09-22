@@ -58,6 +58,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 *
 	 * @deprecated 1.2.0 Use the Whip_WPMessagePresenter::registerHooks() method instead.
 	 * @codeCoverageIgnore
+	 *
 	 * @phpcs:disable Generic.NamingConventions.CamelCapsFunctionName
 	 */
 	public function register_hooks() {

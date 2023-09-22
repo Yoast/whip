@@ -40,6 +40,7 @@ class Whip_Host {
 	 * In a non-WordPress content this function just returns the passed name.
 	 *
 	 * @param string $name The current name of the host.
+	 *
 	 * @return string The filtered name of the host.
 	 */
 	private static function filterName( $name ) {
@@ -96,6 +97,7 @@ class Whip_Host {
 	 * In a non-WordPress context this function just returns a link to the Yoast hosting page.
 	 *
 	 * @param string $url The previous URL.
+	 *
 	 * @return string The new URL to the hosting overview page.
 	 */
 	private static function filterHostingPageUrl( $url ) {
