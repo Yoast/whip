@@ -71,6 +71,6 @@ class Whip_MessageDismisser {
 	 * @return bool True when the nonce is valid.
 	 */
 	public function verifyNonce( $nonce, $action ) {
-		return wp_verify_nonce( $nonce, $action );
+		return (bool) wp_verify_nonce( $nonce, $action );
 	}
 }
