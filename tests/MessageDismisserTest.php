@@ -51,7 +51,7 @@ class MessageDismisserTest extends Whip_TestCase {
 	/**
 	 * Provides array with test values.
 	 *
-	 * @return array[]
+	 * @return array<string, array<int|bool>>
 	 */
 	public function versionNumbersProvider() {
 		return array(

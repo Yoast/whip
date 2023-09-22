@@ -49,7 +49,7 @@ class WPMessageDismissListener extends Whip_TestCase {
 	/**
 	 * Data provider for testDismiss.
 	 *
-	 * @return array
+	 * @return array<string, array<string, mixed>>
 	 */
 	public function listenProvider() {
 		return array(

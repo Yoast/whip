@@ -149,6 +149,8 @@ class VersionRequirementTest extends Whip_TestCase {
 
 	/**
 	 * Provides data to test fromCompareString with.
+	 *
+	 * @return array<string, array<string|array<string>>>
 	 */
 	public function dataFromCompareString() {
 		return array(
