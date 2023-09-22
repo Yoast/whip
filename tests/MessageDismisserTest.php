@@ -15,6 +15,8 @@ class MessageDismisserTest extends Whip_TestCase {
 	 *
 	 * @covers Whip_MessageDismisser::__construct
 	 * @covers Whip_MessageDismisser::dismiss
+	 *
+	 * @return void
 	 */
 	public function testDismiss() {
 		$currentTime = time();
@@ -39,6 +41,8 @@ class MessageDismisserTest extends Whip_TestCase {
 	 * @param int  $savedTime   The saved time.
 	 * @param int  $currentTime The current time.
 	 * @param bool $expected    The expected value.
+	 *
+	 * @return void
 	 */
 	public function testIsDismissibleWithVersions( $savedTime, $currentTime, $expected ) {
 		$storage = new Whip_DismissStorageMock();

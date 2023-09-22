@@ -57,6 +57,8 @@ class Whip_RequirementsChecker {
 	 * Adds a requirement to the list of requirements if it doesn't already exist.
 	 *
 	 * @param Whip_Requirement $requirement The requirement to add.
+	 *
+	 * @return void
 	 */
 	public function addRequirement( Whip_Requirement $requirement ) {
 		// Only allow unique entries to ensure we're not checking specific combinations multiple times.
@@ -122,6 +124,8 @@ class Whip_RequirementsChecker {
 
 	/**
 	 * Checks if all requirements are fulfilled and adds a message to the message manager if necessary.
+	 *
+	 * @return void
 	 */
 	public function check() {
 		foreach ( $this->requirements as $requirement ) {
@@ -140,6 +144,8 @@ class Whip_RequirementsChecker {
 	 * Adds a message to the message manager for requirements that cannot be fulfilled.
 	 *
 	 * @param Whip_Requirement $requirement The requirement that cannot be fulfilled.
+	 *
+	 * @return void
 	 */
 	private function addMissingRequirementMessage( Whip_Requirement $requirement ) {
 		switch ( $requirement->component() ) {

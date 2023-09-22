@@ -14,6 +14,8 @@ class ConfigurationTest extends Whip_TestCase {
 	 * Tests the creation of a Whip_Configuration with invalid input.
 	 *
 	 * @covers Whip_Configuration::__construct
+	 *
+	 * @return void
 	 */
 	public function testItThrowsAnErrorIfAFaultyConfigurationIsPassed() {
 		$this->expectExceptionHelper( 'Whip_InvalidType', 'Configuration should be of type array. Found string.' );
@@ -25,6 +27,8 @@ class ConfigurationTest extends Whip_TestCase {
 	 * Tests if Whip_Configuration correctly returns -1 when passed an unknown requirement.
 	 *
 	 * @covers Whip_Configuration::configuredVersion
+	 *
+	 * @return void
 	 */
 	public function testItReturnsANegativeNumberIfRequirementCannotBeFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
@@ -44,6 +48,8 @@ class ConfigurationTest extends Whip_TestCase {
 	 * Tests if Whip_Configuration correctly returns the version number when passed a valid requirement.
 	 *
 	 * @covers Whip_Configuration::configuredVersion
+	 *
+	 * @return void
 	 */
 	public function testItReturnsAnEntryIfRequirementIsFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
@@ -63,6 +69,8 @@ class ConfigurationTest extends Whip_TestCase {
 	 * Tests if hasRequirementConfigures correctly returns true/false when called with valid/invalid values.
 	 *
 	 * @covers Whip_Configuration::hasRequirementConfigured
+	 *
+	 * @return void
 	 */
 	public function testIfRequirementIsConfigured() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );

@@ -46,6 +46,8 @@ class Whip_MessageDismisser {
 
 	/**
 	 * Saves the version number to the storage to indicate the message as being dismissed.
+	 *
+	 * @return void
 	 */
 	public function dismiss() {
 		$this->storage->set( $this->currentTime );
