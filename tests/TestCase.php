@@ -8,7 +8,7 @@
 /**
  * Base test case class from which all tests should extend.
  */
-class Whip_TestCase extends PHPUnit_Framework_TestCase {
+abstract class Whip_TestCase extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * Helper method to test exceptions.

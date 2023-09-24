@@ -8,7 +8,7 @@
 /**
  * Configuration unit tests.
  */
-class ConfigurationTest extends Whip_TestCase {
+final class ConfigurationTest extends Whip_TestCase {
 
 	/**
 	 * Tests the creation of a Whip_Configuration with invalid input.

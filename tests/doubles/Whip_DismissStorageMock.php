@@ -8,7 +8,7 @@
 /**
  * Test helper.
  */
-class Whip_DismissStorageMock implements Whip_DismissStorage {
+final class Whip_DismissStorageMock implements Whip_DismissStorage {
 
 	/**
 	 * Holds the dismissed state.
