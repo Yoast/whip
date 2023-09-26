@@ -42,6 +42,8 @@ class Whip_BasicMessage implements Whip_Message {
 	 *
 	 * @param string $body Message body.
 	 *
+	 * @return void
+	 *
 	 * @throws Whip_EmptyProperty When the $body parameter is empty.
 	 * @throws Whip_InvalidType   When the $body parameter is not of the expected type.
 	 */

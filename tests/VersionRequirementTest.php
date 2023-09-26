@@ -16,6 +16,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 *
 	 * @covers Whip_VersionRequirement::component
 	 * @covers Whip_VersionRequirement::version
+	 *
+	 * @return void
 	 */
 	public function testNameAndVersionAreNotEmpty() {
 		$requirement = new Whip_VersionRequirement( 'php', '5.2' );
@@ -29,6 +31,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * is created with an empty component.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
+	 *
+	 * @return void
 	 */
 	public function testComponentCannotBeEmpty() {
 		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Component cannot be empty.' );
@@ -41,6 +45,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * is created with an empty version.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
+	 *
+	 * @return void
 	 */
 	public function testVersionCannotBeEmpty() {
 		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Version cannot be empty.' );
@@ -53,6 +59,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * is created with a false type for a component.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
+	 *
+	 * @return void
 	 */
 	public function testComponentMustBeString() {
 		$this->expectExceptionHelper( 'Whip_InvalidType', 'Component should be of type string. Found integer.' );
@@ -65,6 +73,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * is created with a false type for a version.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
+	 *
+	 * @return void
 	 */
 	public function testVersionMustBeString() {
 		$this->expectExceptionHelper( 'Whip_InvalidType', 'Version should be of type string. Found integer.' );
@@ -77,6 +87,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * is created with an empty operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
+	 *
+	 * @return void
 	 */
 	public function testOperatorCannotBeEmpty() {
 		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Operator cannot be empty.' );
@@ -89,6 +101,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * is created with a false type for an operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
+	 *
+	 * @return void
 	 */
 	public function testOperatorMustBeString() {
 		$this->expectExceptionHelper( 'Whip_InvalidType', 'Operator should be of type string. Found integer.' );
@@ -101,6 +115,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * is created with an invalid operator.
 	 *
 	 * @covers Whip_VersionRequirement::validateParameters
+	 *
+	 * @return void
 	 */
 	public function testOperatorMustBeValid() {
 		$this->expectExceptionHelper(
@@ -117,6 +133,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * @covers Whip_VersionRequirement::component
 	 * @covers Whip_VersionRequirement::version
 	 * @covers Whip_VersionRequirement::operator
+	 *
+	 * @return void
 	 */
 	public function testGettingComponentProperties() {
 		$requirement = new Whip_VersionRequirement( 'php', '5.6' );
@@ -138,6 +156,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * @param string $expectation   The expected output string.
 	 * @param string $component     The component for this version requirement.
 	 * @param string $compareString The comparison string for this version requirement.
+	 *
+	 * @return void
 	 */
 	public function testFromCompareString( $expectation, $component, $compareString ) {
 		$requirement = Whip_VersionRequirement::fromCompareString( $component, $compareString );
@@ -149,6 +169,8 @@ class VersionRequirementTest extends Whip_TestCase {
 
 	/**
 	 * Provides data to test fromCompareString with.
+	 *
+	 * @return array<string, array<string|array<string>>>
 	 */
 	public function dataFromCompareString() {
 		return array(
@@ -168,6 +190,8 @@ class VersionRequirementTest extends Whip_TestCase {
 	 * with an invalid comparison string.
 	 *
 	 * @covers Whip_VersionRequirement::fromCompareString
+	 *
+	 * @return void
 	 */
 	public function testFromCompareStringException() {
 		$this->expectExceptionHelper(

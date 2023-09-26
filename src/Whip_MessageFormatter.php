@@ -14,6 +14,7 @@ final class Whip_MessageFormatter {
 	 * Wraps a piece of text in HTML strong tags.
 	 *
 	 * @param string $toWrap The text to wrap.
+	 *
 	 * @return string The wrapped text.
 	 */
 	public static function strong( $toWrap ) {
@@ -24,6 +25,7 @@ final class Whip_MessageFormatter {
 	 * Wraps a piece of text in HTML p tags.
 	 *
 	 * @param string $toWrap The text to wrap.
+	 *
 	 * @return string The wrapped text.
 	 */
 	public static function paragraph( $toWrap ) {
@@ -34,6 +36,7 @@ final class Whip_MessageFormatter {
 	 * Wraps a piece of text in HTML p and strong tags.
 	 *
 	 * @param string $toWrap The text to wrap.
+	 *
 	 * @return string The wrapped text.
 	 */
 	public static function strongParagraph( $toWrap ) {

@@ -111,6 +111,8 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 * @param string $version   The component version.
 	 * @param string $operator  The operator to use when comparing version.
 	 *
+	 * @return void
+	 *
 	 * @throws Whip_EmptyProperty       When any of the parameters is empty.
 	 * @throws Whip_InvalidOperatorType When the $operator parameter is invalid.
 	 * @throws Whip_InvalidType         When any of the parameters is not of the expected type.

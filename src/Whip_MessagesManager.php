@@ -23,6 +23,8 @@ class Whip_MessagesManager {
 	 * Adds a message to the Messages Manager.
 	 *
 	 * @param Whip_Message $message The message to add.
+	 *
+	 * @return void
 	 */
 	public function addMessage( Whip_Message $message ) {
 		$whipVersion = require __DIR__ . '/configs/version.php';
@@ -50,6 +52,8 @@ class Whip_MessagesManager {
 
 	/**
 	 * Deletes all messages.
+	 *
+	 * @return void
 	 */
 	public function deleteMessages() {
 		unset( $GLOBALS['whip_messages'] );

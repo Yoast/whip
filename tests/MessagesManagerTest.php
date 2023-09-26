@@ -15,6 +15,8 @@ class MessagesManagerTest extends Whip_TestCase {
 	 * without a message, true when given a message.
 	 *
 	 * @covers Whip_MessagesManager::hasMessages
+	 *
+	 * @return void
 	 */
 	public function testHasMessages() {
 		$manager = new Whip_MessagesManager();

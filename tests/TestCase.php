@@ -24,7 +24,7 @@ class Whip_TestCase extends PHPUnit_Framework_TestCase {
 	 * cross-version compatible manner.
 	 *
 	 * @param string          $exception The class name of the exception to expect.
-	 * @param string|null     $message   Optional. The exception message to expect.
+	 * @param string          $message   Optional. The exception message to expect.
 	 * @param int|string|null $code      Optional. The exception code to expect.
 	 *
 	 * @return void
