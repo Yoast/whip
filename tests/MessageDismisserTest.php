@@ -57,7 +57,7 @@ final class MessageDismisserTest extends Whip_TestCase {
 	 *
 	 * @return array<string, array<int|bool>>
 	 */
-	public function versionNumbersProvider() {
+	public static function versionNumbersProvider() {
 		return array(
 			'-2weeks' => array( strtotime( '-2weeks' ), time(), true ),
 			'-4weeks' => array( strtotime( '-4weeks' ), time(), true ),
