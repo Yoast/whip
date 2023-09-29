@@ -5,10 +5,12 @@
  * @package Yoast\WHIP
  */
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Base test case class from which all tests should extend.
  */
-abstract class Whip_TestCase extends PHPUnit_Framework_TestCase {
+abstract class Whip_TestCase extends TestCase {
 
 	/**
 	 * Helper method to test exceptions.
