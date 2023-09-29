@@ -87,7 +87,7 @@ jobs:
 
       - name: Run the unit tests
         if: ${{ matrix.coverage == false }}
-        run: vendor/bin/phpunit
+        run: composer test
 
       - name: Run the unit tests with code coverage
         if: ${{ matrix.coverage == true }}
