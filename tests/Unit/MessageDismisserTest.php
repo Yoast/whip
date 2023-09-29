@@ -1,9 +1,9 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit;
+
+use Whip_MessageDismisser;
+use Yoast\WHIP\Tests\Unit\Doubles\DismissStorageMock;
 
 /**
  * Message Dismisser unit tests.
@@ -19,9 +19,9 @@ final class MessageDismisserTest extends TestCase {
 	 * @return void
 	 */
 	public function testDismiss() {
-		$currentTime = time();
-		$storage     = new Whip_DismissStorageMock();
-		$dismisser   = new Whip_MessageDismisser( $currentTime, ( WEEK_IN_SECONDS * 4 ), $storage );
+		$currentTime = \time();
+		$storage     = new DismissStorageMock();
+		$dismisser   = new Whip_MessageDismisser( $currentTime, ( \WEEK_IN_SECONDS * 4 ), $storage );
 
 		$this->assertSame( 0, $storage->get() );
 
@@ -45,9 +45,9 @@ final class MessageDismisserTest extends TestCase {
 	 * @return void
 	 */
 	public function testIsDismissibleWithVersions( $savedTime, $currentTime, $expected ) {
-		$storage = new Whip_DismissStorageMock();
+		$storage = new DismissStorageMock();
 		$storage->set( $savedTime );
-		$dismisser = new Whip_MessageDismisser( $currentTime, ( WEEK_IN_SECONDS * 4 ), $storage );
+		$dismisser = new Whip_MessageDismisser( $currentTime, ( \WEEK_IN_SECONDS * 4 ), $storage );
 
 		$this->assertSame( $expected, $dismisser->isDismissed() );
 	}
@@ -59,10 +59,10 @@ final class MessageDismisserTest extends TestCase {
 	 */
 	public static function versionNumbersProvider() {
 		return array(
-			'-2weeks' => array( strtotime( '-2weeks' ), time(), true ),
-			'-4weeks' => array( strtotime( '-4weeks' ), time(), true ),
-			'-6weeks' => array( strtotime( '-6weeks' ), time(), false ),
-			'time()'  => array( time(), time(), true ),
+			'-2weeks' => array( \strtotime( '-2weeks' ), \time(), true ),
+			'-4weeks' => array( \strtotime( '-4weeks' ), \time(), true ),
+			'-6weeks' => array( \strtotime( '-6weeks' ), \time(), false ),
+			'time()'  => array( \time(), \time(), true ),
 		);
 	}
 }

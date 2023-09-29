@@ -73,7 +73,7 @@
 		<exclude-pattern>/src/facades/wordpress\.php$</exclude-pattern>
 
 		<!-- Exclude mocks of WP Core functions which comply with the WP function name rules instead. -->
-		<exclude-pattern>/tests/doubles/WpCoreFunctionsMock\.php$</exclude-pattern>
+		<exclude-pattern>/tests/Unit/Doubles/WpCoreFunctionsMock\.php$</exclude-pattern>
 	</rule>
 
 
@@ -92,6 +92,14 @@
 		</properties>
 	</rule>
 
+	<rule ref="Yoast.Files.TestDoubles">
+		<properties>
+			<property name="doubles_path" type="array">
+				<element value="/tests/Unit/Doubles"/>
+			</property>
+		</properties>
+	</rule>
+
 
 	<!--
 	#############################################################################
@@ -102,7 +110,7 @@
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<!-- Valid usage: For testing purposes, allow non-prefixed globals. -->
-		<exclude-pattern>/tests/doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
+		<exclude-pattern>/tests/Unit/Doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
 	</rule>
 
 	<rule ref="Yoast.NamingConventions.ValidHookName.WrongPrefix">
@@ -144,6 +152,14 @@
 		<!-- These hook setups should be reviewed.
 			 Ticket: https://github.com/Yoast/whip/issues/67 -->
 		<exclude-pattern>/src/Whip_Host\.php$</exclude-pattern>
+	</rule>
+
+	<!-- The below two issues will likely be fixed in YoastCS 3.0, after which these excludes can be removed. -->
+	<rule ref="Yoast.Commenting.FileComment.Unnecessary">
+		<exclude-pattern>/tests/Unit/bootstrap\.php$</exclude-pattern>
+	</rule>
+	<rule ref="Yoast.NamingConventions.ObjectNameDepth.MaxExceeded">
+		<exclude-pattern>/tests/Unit/WPMessageDismissListenerTest\.php$</exclude-pattern>
 	</rule>
 
 </ruleset>

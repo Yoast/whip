@@ -1,14 +1,13 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit\Doubles;
+
+use Whip_DismissStorage;
 
 /**
  * Test helper.
  */
-final class Whip_DismissStorageMock implements Whip_DismissStorage {
+final class DismissStorageMock implements Whip_DismissStorage {
 
 	/**
 	 * Holds the dismissed state.

@@ -1,9 +1,12 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit;
+
+use Error;
+use Exception;
+use stdClass;
+use Whip_RequirementsChecker;
+use Whip_VersionRequirement;
 
 /**
  * Requirements checker unit tests.
@@ -35,7 +38,7 @@ final class RequirementsCheckerTest extends TestCase {
 	 * @return void
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassed() {
-		if ( version_compare( phpversion(), '7.0', '<' ) ) {
+		if ( \version_compare( \phpversion(), '7.0', '<' ) ) {
 			$this->markTestSkipped( 'Skipped due to incompatible PHP version: this test only runs on PHP 7+.' );
 		}
 
@@ -60,7 +63,7 @@ final class RequirementsCheckerTest extends TestCase {
 	 * @return void
 	 */
 	public function testItThrowsAnTypeErrorWhenInvalidRequirementIsPassedInPHP5() {
-		if ( version_compare( phpversion(), '7.0', '>=' ) ) {
+		if ( \version_compare( \phpversion(), '7.0', '>=' ) ) {
 			$this->markTestSkipped( 'Skipped due to incompatible PHP version: this test only runs on PHP 5.x.' );
 		}
 
@@ -143,7 +146,7 @@ final class RequirementsCheckerTest extends TestCase {
 
 		$this->assertNotEmpty( $recentMessage );
 
-		if ( method_exists( $this, 'assertIsString' ) ) {
+		if ( \method_exists( $this, 'assertIsString' ) ) {
 			// PHPUnit 8+.
 			$this->assertIsString( $recentMessage->body() );
 		}
@@ -165,7 +168,7 @@ final class RequirementsCheckerTest extends TestCase {
 	 * @return void
 	 */
 	public function testCheckIfRequirementIsFulfilled() {
-		$checker = new Whip_RequirementsChecker( array( 'php' => phpversion() ) );
+		$checker = new Whip_RequirementsChecker( array( 'php' => \phpversion() ) );
 
 		$checker->addRequirement( new Whip_VersionRequirement( 'php', '5.2' ) );
 		$checker->check();

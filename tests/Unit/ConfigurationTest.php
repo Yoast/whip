@@ -1,9 +1,8 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit;
+
+use Whip_Configuration;
 
 /**
  * Configuration unit tests.

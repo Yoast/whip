@@ -33,9 +33,9 @@
 		]
 	},
 	"autoload-dev": {
-		"classmap": [
-			"tests/"
-		]
+		"psr-4": {
+			"Yoast\\WHIP\\Tests\\": "tests/"
+		}
 	},
 	"config": {
 		"allow-plugins": {

@@ -1,9 +1,8 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit;
+
+use Whip_MessagesManager;
 
 /**
  * Message Manager unit tests.
