@@ -1,16 +1,13 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
 
-use PHPUnit\Framework\TestCase;
+namespace Yoast\WHIP\Tests\Unit;
+
+use PHPUnit\Framework\TestCase as PHPUnit_TestCase;
 
 /**
  * Base test case class from which all tests should extend.
  */
-abstract class Whip_TestCase extends TestCase {
+abstract class TestCase extends PHPUnit_TestCase {
 
 	/**
 	 * Helper method to test exceptions.
@@ -32,7 +29,7 @@ abstract class Whip_TestCase extends TestCase {
 	 * @return void
 	 */
 	public function expectExceptionHelper( $exception, $message = '', $code = null ) {
-		if ( method_exists( $this, 'expectException' ) ) {
+		if ( \method_exists( $this, 'expectException' ) ) {
 			// PHPUnit 5+.
 			$this->expectException( $exception );
 

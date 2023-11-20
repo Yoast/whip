@@ -1,14 +1,13 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit;
+
+use Whip_MessagesManager;
 
 /**
  * Message Manager unit tests.
  */
-final class MessagesManagerTest extends Whip_TestCase {
+final class MessagesManagerTest extends TestCase {
 
 	/**
 	 * Creates a MessagesManager, calls hasMessages and tests if it returns false

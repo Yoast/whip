@@ -1,14 +1,13 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit;
+
+use Whip_BasicMessage;
 
 /**
  * Message Unit tests.
  */
-final class MessageTest extends Whip_TestCase {
+final class BasicMessageTest extends TestCase {
 
 	/**
 	 * Tests if Whip_BasicMessage correctly handles a string for its body argument.

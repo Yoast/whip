@@ -1,16 +1,15 @@
 <?php
-/**
- * WHIP libary test file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIP\Tests\Unit;
+
+use Whip_WPMessageDismissListener;
 
 /**
  * Message Dismiss Listener unit tests.
  *
  * @coversDefaultClass Whip_WPMessageDismissListener
  */
-final class WPMessageDismissListener extends Whip_TestCase {
+final class WPMessageDismissListenerTest extends TestCase {
 
 	/**
 	 * Tests the listen method.
