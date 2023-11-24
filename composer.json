@@ -12,7 +12,8 @@
 	"homepage": "https://github.com/Yoast/whip",
 	"support": {
 		"issues": "https://github.com/Yoast/whip/issues",
-		"source": "https://github.com/Yoast/whip"
+		"source": "https://github.com/Yoast/whip",
+		"security": "https://yoast.com/security-program/"
 	},
 	"require": {
 		"php": ">=5.3"
