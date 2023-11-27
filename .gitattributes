@@ -7,6 +7,7 @@
 #
 /.cache          export-ignore
 /.github         export-ignore
+/config          export-ignore
 /images          export-ignore
 /tests           export-ignore
 .gitattributes   export-ignore
