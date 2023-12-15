@@ -19,7 +19,7 @@ final class ConfigurationTest extends TestCase {
 	public function testItThrowsAnErrorIfAFaultyConfigurationIsPassed() {
 		$this->expectExceptionHelper( 'Whip_InvalidType', 'Configuration should be of type array. Found string.' );
 
-		$configuration = new Whip_Configuration( 'Invalid configuration' );
+		new Whip_Configuration( 'Invalid configuration' );
 	}
 
 	/**

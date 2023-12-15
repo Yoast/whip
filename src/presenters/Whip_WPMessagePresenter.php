@@ -62,6 +62,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @codeCoverageIgnore
 	 *
 	 * @return void
+	 *
 	 * @phpcs:disable Generic.NamingConventions.CamelCapsFunctionName
 	 */
 	public function register_hooks() {
