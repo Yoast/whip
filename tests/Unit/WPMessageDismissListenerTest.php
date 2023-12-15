@@ -8,6 +8,8 @@ use Whip_WPMessageDismissListener;
  * Message Dismiss Listener unit tests.
  *
  * @coversDefaultClass Whip_WPMessageDismissListener
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Acronym throws the count off.
  */
 final class WPMessageDismissListenerTest extends TestCase {
 

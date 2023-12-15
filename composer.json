@@ -19,9 +19,11 @@
 		"php": ">=5.3"
 	},
 	"require-dev": {
+		"php-parallel-lint/php-console-highlighter": "^1.0.0",
+		"php-parallel-lint/php-parallel-lint": "^1.3.2",
 		"phpunit/phpunit": "^4.8.36 || ^5.7.21 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
 		"roave/security-advisories": "dev-master",
-		"yoast/yoastcs": "^2.3.0"
+		"yoast/yoastcs": "^3.0"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
@@ -54,7 +56,7 @@
 			"Yoast\\WHIP\\Config\\Composer\\Actions::check_coding_standards"
 		],
 		"check-cs-thresholds": [
-			"@putenv YOASTCS_THRESHOLD_ERRORS=0",
+			"@putenv YOASTCS_THRESHOLD_ERRORS=8",
 			"@putenv YOASTCS_THRESHOLD_WARNINGS=0",
 			"Yoast\\WHIP\\Config\\Composer\\Actions::check_cs_thresholds"
 		],

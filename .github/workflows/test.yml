@@ -69,12 +69,9 @@ jobs:
           coverage: ${{ matrix.coverage == true && 'xdebug' || 'none' }}
           tools: cs2pr
 
-      # YoastCS has a minimum PHP requirement of 5.4, so remove it and hard require Parallel Lint.
-      - name: Adjust Composer dependencies (PHP 5.3)
-        if: matrix.php_version == '5.3'
-        run: |
-          composer remove --dev --no-update --no-scripts yoast/yoastcs --no-interaction
-          composer require --dev --no-update --no-scripts php-parallel-lint/php-parallel-lint --no-interaction
+      # YoastCS 3.0 has a PHP 7.2 minimum which conflicts with the requirements of this package.
+      - name: 'Composer: remove YoastCS'
+        run: composer remove --dev yoast/yoastcs --no-update --no-interaction
 
       # Install dependencies and handle caching in one go.
       # @link https://github.com/marketplace/actions/install-php-dependencies-with-composer
