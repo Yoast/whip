@@ -18,6 +18,8 @@ class Actions {
 	 * Provides a coding standards option choice.
 	 *
 	 * @param Event $event Composer event.
+	 *
+	 * @return void
 	 */
 	public static function check_coding_standards( Event $event ) {
 		$io = $event->getIO();
