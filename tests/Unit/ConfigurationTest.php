@@ -2,7 +2,7 @@
 
 namespace Yoast\WHIP\Tests\Unit;
 
-use Whip_Configuration;
+use Yoast\WHIPv2\Whip_Configuration;
 
 /**
  * Configuration unit tests.
@@ -12,12 +12,12 @@ final class ConfigurationTest extends TestCase {
 	/**
 	 * Tests the creation of a Whip_Configuration with invalid input.
 	 *
-	 * @covers Whip_Configuration::__construct
+	 * @covers \Yoast\WHIPv2\Whip_Configuration::__construct
 	 *
 	 * @return void
 	 */
 	public function testItThrowsAnErrorIfAFaultyConfigurationIsPassed() {
-		$this->expectExceptionHelper( 'Whip_InvalidType', 'Configuration should be of type array. Found string.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_InvalidType', 'Configuration should be of type array. Found string.' );
 
 		new Whip_Configuration( 'Invalid configuration' );
 	}
@@ -25,13 +25,13 @@ final class ConfigurationTest extends TestCase {
 	/**
 	 * Tests if Whip_Configuration correctly returns -1 when passed an unknown requirement.
 	 *
-	 * @covers Whip_Configuration::configuredVersion
+	 * @covers \Yoast\WHIPv2\Whip_Configuration::configuredVersion
 	 *
 	 * @return void
 	 */
 	public function testItReturnsANegativeNumberIfRequirementCannotBeFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
-		$requirement   = $this->getMockBuilder( 'Whip_Requirement' )
+		$requirement   = $this->getMockBuilder( '\Yoast\WHIPv2\Interfaces\Whip_Requirement' )
 			->setMethods( array( 'component', 'version', 'operator' ) )
 			->getMock();
 
@@ -46,13 +46,13 @@ final class ConfigurationTest extends TestCase {
 	/**
 	 * Tests if Whip_Configuration correctly returns the version number when passed a valid requirement.
 	 *
-	 * @covers Whip_Configuration::configuredVersion
+	 * @covers \Yoast\WHIPv2\Whip_Configuration::configuredVersion
 	 *
 	 * @return void
 	 */
 	public function testItReturnsAnEntryIfRequirementIsFound() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
-		$requirement   = $this->getMockBuilder( 'Whip_Requirement' )
+		$requirement   = $this->getMockBuilder( '\Yoast\WHIPv2\Interfaces\Whip_Requirement' )
 			->setMethods( array( 'component', 'version', 'operator' ) )
 			->getMock();
 
@@ -67,13 +67,13 @@ final class ConfigurationTest extends TestCase {
 	/**
 	 * Tests if hasRequirementConfigures correctly returns true/false when called with valid/invalid values.
 	 *
-	 * @covers Whip_Configuration::hasRequirementConfigured
+	 * @covers \Yoast\WHIPv2\Whip_Configuration::hasRequirementConfigured
 	 *
 	 * @return void
 	 */
 	public function testIfRequirementIsConfigured() {
 		$configuration = new Whip_Configuration( array( 'php' => '5.6' ) );
-		$requirement   = $this->getMockBuilder( 'Whip_Requirement' )
+		$requirement   = $this->getMockBuilder( '\Yoast\WHIPv2\Interfaces\Whip_Requirement' )
 			->setMethods( array( 'component', 'version', 'operator' ) )
 			->getMock();
 
@@ -82,7 +82,7 @@ final class ConfigurationTest extends TestCase {
 			->method( 'component' )
 			->will( $this->returnValue( 'php' ) );
 
-		$falseRequirement = $this->getMockBuilder( 'Whip_Requirement' )
+		$falseRequirement = $this->getMockBuilder( '\Yoast\WHIPv2\Interfaces\Whip_Requirement' )
 			->setMethods( array( 'component', 'version', 'operator' ) )
 			->getMock();
 

@@ -1,9 +1,8 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Exceptions;
+
+use Exception;
 
 /**
  * Class InvalidOperatorType.
@@ -18,10 +17,10 @@ class Whip_InvalidOperatorType extends Exception {
 	 */
 	public function __construct( $value, $validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' ) ) {
 		parent::__construct(
-			sprintf(
+			\sprintf(
 				'Invalid operator of %s used. Please use one of the following operators: %s',
 				$value,
-				implode( ', ', $validOperators )
+				\implode( ', ', $validOperators )
 			)
 		);
 	}

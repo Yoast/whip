@@ -2,7 +2,7 @@
 
 namespace Yoast\WHIP\Tests\Unit\Doubles;
 
-use Whip_DismissStorage;
+use Yoast\WHIPv2\Interfaces\Whip_DismissStorage;
 
 /**
  * Test helper.

@@ -1,9 +1,6 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
 
 /**
  * A helper class to format messages.

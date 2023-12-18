@@ -1,9 +1,9 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Messages;
+
+use Yoast\WHIPv2\Interfaces\Whip_Message;
+use Yoast\WHIPv2\Whip_VersionRequirement;
 
 /**
  * Class Whip_InvalidVersionMessage.
@@ -41,7 +41,7 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	 * @return string Message.
 	 */
 	public function body() {
-		return sprintf(
+		return \sprintf(
 			'Invalid version detected for %s. Found %s but expected %s.',
 			$this->requirement->component(),
 			$this->detected,

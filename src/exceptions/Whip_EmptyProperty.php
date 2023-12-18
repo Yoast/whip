@@ -1,9 +1,8 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Exceptions;
+
+use Exception;
 
 /**
  * Class EmptyProperty.
@@ -16,6 +15,6 @@ class Whip_EmptyProperty extends Exception {
 	 * @param string $property Property name.
 	 */
 	public function __construct( $property ) {
-		parent::__construct( sprintf( '%s cannot be empty.', (string) $property ) );
+		parent::__construct( \sprintf( '%s cannot be empty.', (string) $property ) );
 	}
 }

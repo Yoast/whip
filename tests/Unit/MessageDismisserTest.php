@@ -2,8 +2,8 @@
 
 namespace Yoast\WHIP\Tests\Unit;
 
-use Whip_MessageDismisser;
 use Yoast\WHIP\Tests\Unit\Doubles\DismissStorageMock;
+use Yoast\WHIPv2\Whip_MessageDismisser;
 
 /**
  * Message Dismisser unit tests.
@@ -13,8 +13,8 @@ final class MessageDismisserTest extends TestCase {
 	/**
 	 * Tests if Whip_MessageDismisser correctly updates Whip_DismissStorage.
 	 *
-	 * @covers Whip_MessageDismisser::__construct
-	 * @covers Whip_MessageDismisser::dismiss
+	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::__construct
+	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::dismiss
 	 *
 	 * @return void
 	 */
@@ -35,8 +35,8 @@ final class MessageDismisserTest extends TestCase {
 	 *
 	 * @dataProvider versionNumbersProvider
 	 *
-	 * @covers Whip_MessageDismisser::__construct
-	 * @covers Whip_MessageDismisser::isDismissed
+	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::__construct
+	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::isDismissed
 	 *
 	 * @param int  $savedTime   The saved time.
 	 * @param int  $currentTime The current time.

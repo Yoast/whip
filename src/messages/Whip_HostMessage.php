@@ -1,9 +1,10 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Messages;
+
+use Yoast\WHIPv2\Interfaces\Whip_Message;
+use Yoast\WHIPv2\Whip_Host;
+use Yoast\WHIPv2\Whip_MessageFormatter;
 
 /**
  * Class Whip_HostMessage.
@@ -46,7 +47,7 @@ class Whip_HostMessage implements Whip_Message {
 		$message[] = Whip_MessageFormatter::strong( $this->title() ) . '<br />';
 		$message[] = Whip_MessageFormatter::paragraph( Whip_Host::message( $this->messageKey ) );
 
-		return implode( "\n", $message );
+		return \implode( "\n", $message );
 	}
 
 	/**
@@ -56,6 +57,6 @@ class Whip_HostMessage implements Whip_Message {
 	 */
 	public function title() {
 		/* translators: 1: name. */
-		return sprintf( __( 'A message from %1$s', $this->textdomain ), Whip_Host::name() );
+		return \sprintf( \__( 'A message from %1$s', $this->textdomain ), Whip_Host::name() );
 	}
 }

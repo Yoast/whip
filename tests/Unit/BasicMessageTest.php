@@ -2,7 +2,7 @@
 
 namespace Yoast\WHIP\Tests\Unit;
 
-use Whip_BasicMessage;
+use Yoast\WHIPv2\Messages\Whip_BasicMessage;
 
 /**
  * Message Unit tests.
@@ -12,7 +12,7 @@ final class BasicMessageTest extends TestCase {
 	/**
 	 * Tests if Whip_BasicMessage correctly handles a string for its body argument.
 	 *
-	 * @covers Whip_BasicMessage::body
+	 * @covers \Yoast\WHIPv2\Messages\Whip_BasicMessage::body
 	 *
 	 * @return void
 	 */
@@ -25,12 +25,12 @@ final class BasicMessageTest extends TestCase {
 	/**
 	 * Tests if an Exception is correctly thrown when an empty string is passed as argument.
 	 *
-	 * @covers Whip_BasicMessage::validateParameters
+	 * @covers \Yoast\WHIPv2\Messages\Whip_BasicMessage::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testMessageCannotBeEmpty() {
-		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Message body cannot be empty.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_EmptyProperty', 'Message body cannot be empty.' );
 
 		new Whip_BasicMessage( '' );
 	}
@@ -38,12 +38,12 @@ final class BasicMessageTest extends TestCase {
 	/**
 	 * Tests if an Exception is correctly thrown when an invalid type is passed as argument.
 	 *
-	 * @covers Whip_BasicMessage::validateParameters
+	 * @covers \Yoast\WHIPv2\Messages\Whip_BasicMessage::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testMessageMustBeString() {
-		$this->expectExceptionHelper( 'Whip_InvalidType', 'Message body should be of type string. Found integer.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_InvalidType', 'Message body should be of type string. Found integer.' );
 
 		new Whip_BasicMessage( 123 );
 	}

@@ -1,9 +1,10 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Messages;
+
+use Yoast\WHIPv2\Exceptions\Whip_EmptyProperty;
+use Yoast\WHIPv2\Exceptions\Whip_InvalidType;
+use Yoast\WHIPv2\Interfaces\Whip_Message;
 
 /**
  * Class Whip_Message.
@@ -52,7 +53,7 @@ class Whip_BasicMessage implements Whip_Message {
 			throw new Whip_EmptyProperty( 'Message body' );
 		}
 
-		if ( ! is_string( $body ) ) {
+		if ( ! \is_string( $body ) ) {
 			throw new Whip_InvalidType( 'Message body', $body, 'string' );
 		}
 	}

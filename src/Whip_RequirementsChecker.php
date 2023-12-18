@@ -1,9 +1,12 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Exceptions\Whip_InvalidType;
+use Yoast\WHIPv2\Interfaces\Whip_Message;
+use Yoast\WHIPv2\Interfaces\Whip_Requirement;
+use Yoast\WHIPv2\Messages\Whip_InvalidVersionRequirementMessage;
+use Yoast\WHIPv2\Messages\Whip_UpgradePhpMessage;
 
 /**
  * Main controller class to require a certain version of software.
@@ -84,7 +87,7 @@ class Whip_RequirementsChecker {
 	 * @return int The total amount of requirements.
 	 */
 	public function totalRequirements() {
-		return count( $this->requirements );
+		return \count( $this->requirements );
 	}
 
 	/**
@@ -115,11 +118,11 @@ class Whip_RequirementsChecker {
 		$availableVersion = $this->configuration->configuredVersion( $requirement );
 		$requiredVersion  = $requirement->version();
 
-		if ( in_array( $requirement->operator(), array( '=', '==', '===' ), true ) ) {
-			return version_compare( $availableVersion, $requiredVersion, '>=' );
+		if ( \in_array( $requirement->operator(), array( '=', '==', '===' ), true ) ) {
+			return \version_compare( $availableVersion, $requiredVersion, '>=' );
 		}
 
-		return version_compare( $availableVersion, $requiredVersion, $requirement->operator() );
+		return \version_compare( $availableVersion, $requiredVersion, $requirement->operator() );
 	}
 
 	/**

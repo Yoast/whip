@@ -1,9 +1,8 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Interfaces\Whip_DismissStorage;
 
 /**
  * A class to dismiss messages.
@@ -71,6 +70,6 @@ class Whip_MessageDismisser {
 	 * @return bool True when the nonce is valid.
 	 */
 	public function verifyNonce( $nonce, $action ) {
-		return (bool) wp_verify_nonce( $nonce, $action );
+		return (bool) \wp_verify_nonce( $nonce, $action );
 	}
 }

@@ -5,8 +5,8 @@ namespace Yoast\WHIP\Tests\Unit;
 use Error;
 use Exception;
 use stdClass;
-use Whip_RequirementsChecker;
-use Whip_VersionRequirement;
+use Yoast\WHIPv2\Whip_RequirementsChecker;
+use Yoast\WHIPv2\Whip_VersionRequirement;
 
 /**
  * Requirements checker unit tests.
@@ -16,8 +16,8 @@ final class RequirementsCheckerTest extends TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker is successfully created when given valid arguments.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::totalRequirements
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::totalRequirements
 	 *
 	 * @return void
 	 */
@@ -58,7 +58,7 @@ final class RequirementsCheckerTest extends TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker throws an error when passed an invalid requirement.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
 	 *
 	 * @return void
 	 */
@@ -83,8 +83,8 @@ final class RequirementsCheckerTest extends TestCase {
 	/**
 	 * Tests if Whip_RequirementsChecker only saves unique components.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::totalRequirements
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::totalRequirements
 	 *
 	 * @return void
 	 */
@@ -106,8 +106,8 @@ final class RequirementsCheckerTest extends TestCase {
 	 * Tests if Whip_RequirementsChecker::requirementExistsForComponent correctly
 	 * returns true for existing components.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::requirementExistsForComponent
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::requirementExistsForComponent
 	 *
 	 * @return void
 	 */
@@ -126,10 +126,10 @@ final class RequirementsCheckerTest extends TestCase {
 	 *
 	 * Verifies that a php upgrade message is created and successfully transferred to a variable.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::check
-	 * @covers Whip_RequirementsChecker::hasMessages
-	 * @covers Whip_RequirementsChecker::getMostRecentMessage
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::check
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::hasMessages
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::getMostRecentMessage
 	 *
 	 * @return void
 	 */
@@ -155,15 +155,15 @@ final class RequirementsCheckerTest extends TestCase {
 		}
 
 		$this->assertFalse( $checker->hasMessages() );
-		$this->assertInstanceOf( 'Whip_UpgradePhpMessage', $recentMessage );
+		$this->assertInstanceOf( '\Yoast\WHIPv2\Messages\Whip_UpgradePhpMessage', $recentMessage );
 	}
 
 	/**
 	 * Tests if there no message when the requirement is fulfilled.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::check
-	 * @covers Whip_RequirementsChecker::getMostRecentMessage
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::check
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::getMostRecentMessage
 	 *
 	 * @return void
 	 */
@@ -181,10 +181,10 @@ final class RequirementsCheckerTest extends TestCase {
 	 *
 	 * Verifies that an invalid version message is created and successfully transferred to a variable.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::check
-	 * @covers Whip_RequirementsChecker::getMostRecentMessage
-	 * @covers Whip_RequirementsChecker::hasMessages
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::check
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::getMostRecentMessage
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::hasMessages
 	 *
 	 * @return void
 	 */
@@ -201,16 +201,16 @@ final class RequirementsCheckerTest extends TestCase {
 
 		$this->assertNotEmpty( $recentMessage );
 		$this->assertFalse( $checker->hasMessages() );
-		$this->assertInstanceOf( 'Whip_InvalidVersionRequirementMessage', $recentMessage );
+		$this->assertInstanceOf( '\Yoast\WHIPv2\Messages\Whip_InvalidVersionRequirementMessage', $recentMessage );
 		$this->assertStringStartsWith( 'Invalid version detected', $recentMessage->body() );
 	}
 
 	/**
 	 * Tests if a specific comparison with a non-default operator is correctly handled.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::check
-	 * @covers Whip_RequirementsChecker::hasMessages
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::check
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::hasMessages
 	 *
 	 * @return void
 	 */
@@ -226,9 +226,9 @@ final class RequirementsCheckerTest extends TestCase {
 	/**
 	 * Tests if a specific comparison with a non-default operator is correctly handled.
 	 *
-	 * @covers Whip_RequirementsChecker::addRequirement
-	 * @covers Whip_RequirementsChecker::check
-	 * @covers Whip_RequirementsChecker::hasMessages
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::addRequirement
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::check
+	 * @covers \Yoast\WHIPv2\Whip_RequirementsChecker::hasMessages
 	 *
 	 * @return void
 	 */

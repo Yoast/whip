@@ -2,7 +2,7 @@
 
 namespace Yoast\WHIP\Tests\Unit;
 
-use Whip_VersionRequirement;
+use Yoast\WHIPv2\Whip_VersionRequirement;
 
 /**
  * Version requirements unit tests.
@@ -13,8 +13,8 @@ final class VersionRequirementTest extends TestCase {
 	 * Creates a new Whip_VersionRequirement with component php and version 5.2 and
 	 * tests if this is correctly created.
 	 *
-	 * @covers Whip_VersionRequirement::component
-	 * @covers Whip_VersionRequirement::version
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::component
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::version
 	 *
 	 * @return void
 	 */
@@ -29,12 +29,12 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
 	 * is created with an empty component.
 	 *
-	 * @covers Whip_VersionRequirement::validateParameters
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testComponentCannotBeEmpty() {
-		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Component cannot be empty.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_EmptyProperty', 'Component cannot be empty.' );
 
 		new Whip_VersionRequirement( '', '5.2' );
 	}
@@ -43,12 +43,12 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
 	 * is created with an empty version.
 	 *
-	 * @covers Whip_VersionRequirement::validateParameters
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testVersionCannotBeEmpty() {
-		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Version cannot be empty.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_EmptyProperty', 'Version cannot be empty.' );
 
 		new Whip_VersionRequirement( 'php', '' );
 	}
@@ -57,12 +57,12 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
 	 * is created with a false type for a component.
 	 *
-	 * @covers Whip_VersionRequirement::validateParameters
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testComponentMustBeString() {
-		$this->expectExceptionHelper( 'Whip_InvalidType', 'Component should be of type string. Found integer.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_InvalidType', 'Component should be of type string. Found integer.' );
 
 		new Whip_VersionRequirement( 123, '5.2' );
 	}
@@ -71,12 +71,12 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
 	 * is created with a false type for a version.
 	 *
-	 * @covers Whip_VersionRequirement::validateParameters
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testVersionMustBeString() {
-		$this->expectExceptionHelper( 'Whip_InvalidType', 'Version should be of type string. Found integer.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_InvalidType', 'Version should be of type string. Found integer.' );
 
 		new Whip_VersionRequirement( 'php', 123 );
 	}
@@ -85,12 +85,12 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
 	 * is created with an empty operator.
 	 *
-	 * @covers Whip_VersionRequirement::validateParameters
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testOperatorCannotBeEmpty() {
-		$this->expectExceptionHelper( 'Whip_EmptyProperty', 'Operator cannot be empty.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_EmptyProperty', 'Operator cannot be empty.' );
 
 		new Whip_VersionRequirement( 'php', '5.6', '' );
 	}
@@ -99,12 +99,12 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
 	 * is created with a false type for an operator.
 	 *
-	 * @covers Whip_VersionRequirement::validateParameters
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testOperatorMustBeString() {
-		$this->expectExceptionHelper( 'Whip_InvalidType', 'Operator should be of type string. Found integer.' );
+		$this->expectExceptionHelper( '\Yoast\WHIPv2\Exceptions\Whip_InvalidType', 'Operator should be of type string. Found integer.' );
 
 		new Whip_VersionRequirement( 'php', '5.2', 6 );
 	}
@@ -113,13 +113,13 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests if an Exception message is correctly thrown when a Whip_VersionRequirement
 	 * is created with an invalid operator.
 	 *
-	 * @covers Whip_VersionRequirement::validateParameters
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::validateParameters
 	 *
 	 * @return void
 	 */
 	public function testOperatorMustBeValid() {
 		$this->expectExceptionHelper(
-			'Whip_InvalidOperatorType',
+			'\Yoast\WHIPv2\Exceptions\Whip_InvalidOperatorType',
 			'Invalid operator of -> used. Please use one of the following operators: =, ==, ===, <, >, <=, >='
 		);
 
@@ -129,9 +129,9 @@ final class VersionRequirementTest extends TestCase {
 	/**
 	 * Creates a new Whip_VersionRequirement and tests if this is correctly created with its given arguments.
 	 *
-	 * @covers Whip_VersionRequirement::component
-	 * @covers Whip_VersionRequirement::version
-	 * @covers Whip_VersionRequirement::operator
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::component
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::version
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::operator
 	 *
 	 * @return void
 	 */
@@ -148,9 +148,9 @@ final class VersionRequirementTest extends TestCase {
 	 *
 	 * @dataProvider dataFromCompareString
 	 *
-	 * @covers Whip_VersionRequirement::component
-	 * @covers Whip_VersionRequirement::version
-	 * @covers Whip_VersionRequirement::operator
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::component
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::version
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::operator
 	 *
 	 * @param string $expectation   The expected output string.
 	 * @param string $component     The component for this version requirement.
@@ -188,13 +188,13 @@ final class VersionRequirementTest extends TestCase {
 	 * Tests whether fromCompareString() correctly throws an exception when provided
 	 * with an invalid comparison string.
 	 *
-	 * @covers Whip_VersionRequirement::fromCompareString
+	 * @covers \Yoast\WHIPv2\Whip_VersionRequirement::fromCompareString
 	 *
 	 * @return void
 	 */
 	public function testFromCompareStringException() {
 		$this->expectExceptionHelper(
-			'Whip_InvalidVersionComparisonString',
+			'\Yoast\WHIPv2\Exceptions\Whip_InvalidVersionComparisonString',
 			'Invalid version comparison string. Example of a valid version comparison string: >=5.3. Passed version comparison string: > 2.3'
 		);
 

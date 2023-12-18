@@ -5,6 +5,12 @@
  * @package Yoast\WHIP
  */
 
+use Yoast\WHIPv2\Presenters\Whip_WPMessagePresenter;
+use Yoast\WHIPv2\Whip_MessageDismisser;
+use Yoast\WHIPv2\Whip_RequirementsChecker;
+use Yoast\WHIPv2\Whip_VersionRequirement;
+use Yoast\WHIPv2\Whip_WPDismissOption;
+
 if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 	/**
 	 * Facade to quickly check if version requirements are met.

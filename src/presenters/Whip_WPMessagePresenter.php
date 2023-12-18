@@ -1,9 +1,11 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Presenters;
+
+use Yoast\WHIPv2\Interfaces\Whip_Message;
+use Yoast\WHIPv2\Interfaces\Whip_MessagePresenter;
+use Yoast\WHIPv2\Whip_MessageDismisser;
+use Yoast\WHIPv2\Whip_WPMessageDismissListener;
 
 /**
  * A message presenter to show a WordPress notice.
@@ -52,7 +54,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @return void
 	 */
 	public function registerHooks() {
-		add_action( 'admin_notices', array( $this, 'renderMessage' ) );
+		\add_action( 'admin_notices', array( $this, 'renderMessage' ) );
 	}
 
 	/**
@@ -68,14 +70,14 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 			return;
 		}
 
-		$dismissButton = sprintf(
+		$dismissButton = \sprintf(
 			'<a href="%2$s">%1$s</a>',
-			esc_html( $this->dismissMessage ),
-			esc_url( $dismissListener->getDismissURL() )
+			\esc_html( $this->dismissMessage ),
+			\esc_url( $dismissListener->getDismissURL() )
 		);
 
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- output correctly escaped directly above and in the `kses()` method.
-		printf(
+		\printf(
 			'<div class="error"><p>%1$s</p><p>%2$s</p></div>',
 			$this->kses( $this->message->body() ),
 			$dismissButton
@@ -91,7 +93,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @return string The cleaned message.
 	 */
 	public function kses( $message ) {
-		return wp_kses(
+		return \wp_kses(
 			$message,
 			array(
 				'a'      => array(

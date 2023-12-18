@@ -2,7 +2,7 @@
 
 namespace Yoast\WHIP\Tests\Unit;
 
-use Whip_MessagesManager;
+use Yoast\WHIPv2\Whip_MessagesManager;
 
 /**
  * Message Manager unit tests.
@@ -13,7 +13,7 @@ final class MessagesManagerTest extends TestCase {
 	 * Creates a MessagesManager, calls hasMessages and tests if it returns false
 	 * without a message, true when given a message.
 	 *
-	 * @covers Whip_MessagesManager::hasMessages
+	 * @covers \Yoast\WHIPv2\Whip_MessagesManager::hasMessages
 	 *
 	 * @return void
 	 */

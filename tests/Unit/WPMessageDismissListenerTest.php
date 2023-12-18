@@ -2,7 +2,7 @@
 
 namespace Yoast\WHIP\Tests\Unit;
 
-use Whip_WPMessageDismissListener;
+use Yoast\WHIPv2\Whip_WPMessageDismissListener;
 
 /**
  * Message Dismiss Listener unit tests.
@@ -16,7 +16,7 @@ final class WPMessageDismissListenerTest extends TestCase {
 	/**
 	 * Tests the listen method.
 	 *
-	 * @covers ::listen
+	 * @covers \Yoast\WHIPv2\Whip_WPMessageDismissListener::listen
 	 *
 	 * @dataProvider listenProvider
 	 *
@@ -29,7 +29,7 @@ final class WPMessageDismissListenerTest extends TestCase {
 	 * @return void
 	 */
 	public function testDismiss( $action, $nonce, $verifyNonceTimes, $isCorrectNonce, $dismissTimes ) {
-		$dismisser = $this->getMockBuilder( 'Whip_MessageDismisser' )
+		$dismisser = $this->getMockBuilder( '\Yoast\WHIPv2\Whip_MessageDismisser' )
 			->disableOriginalConstructor()
 			->getMock();
 

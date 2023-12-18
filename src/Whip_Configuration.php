@@ -1,9 +1,9 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Exceptions\Whip_InvalidType;
+use Yoast\WHIPv2\Interfaces\Whip_Requirement;
 
 /**
  * Class Whip_Configuration.
@@ -25,7 +25,7 @@ class Whip_Configuration {
 	 * @throws Whip_InvalidType When the $configuration parameter is not of the expected type.
 	 */
 	public function __construct( $configuration = array() ) {
-		if ( ! is_array( $configuration ) ) {
+		if ( ! \is_array( $configuration ) ) {
 			throw new Whip_InvalidType( 'Configuration', $configuration, 'array' );
 		}
 
@@ -56,6 +56,6 @@ class Whip_Configuration {
 	 * @return bool Whether or not the requirement is present in the configuration.
 	 */
 	public function hasRequirementConfigured( Whip_Requirement $requirement ) {
-		return array_key_exists( $requirement->component(), $this->configuration );
+		return \array_key_exists( $requirement->component(), $this->configuration );
 	}
 }

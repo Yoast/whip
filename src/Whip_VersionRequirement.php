@@ -1,9 +1,12 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Exceptions\Whip_EmptyProperty;
+use Yoast\WHIPv2\Exceptions\Whip_InvalidOperatorType;
+use Yoast\WHIPv2\Exceptions\Whip_InvalidType;
+use Yoast\WHIPv2\Exceptions\Whip_InvalidVersionComparisonString;
+use Yoast\WHIPv2\Interfaces\Whip_Requirement;
 
 /**
  * A value object containing a version requirement for a component version.
@@ -94,7 +97,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			([^>=<\s]+) # Matches anything except >, <, =, and whitespace.
 		`x';
 
-		if ( ! preg_match( $matcher, $comparisonString, $match ) ) {
+		if ( ! \preg_match( $matcher, $comparisonString, $match ) ) {
 			throw new Whip_InvalidVersionComparisonString( $comparisonString );
 		}
 
@@ -122,7 +125,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_EmptyProperty( 'Component' );
 		}
 
-		if ( ! is_string( $component ) ) {
+		if ( ! \is_string( $component ) ) {
 			throw new Whip_InvalidType( 'Component', $component, 'string' );
 		}
 
@@ -130,7 +133,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_EmptyProperty( 'Version' );
 		}
 
-		if ( ! is_string( $version ) ) {
+		if ( ! \is_string( $version ) ) {
 			throw new Whip_InvalidType( 'Version', $version, 'string' );
 		}
 
@@ -138,12 +141,12 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			throw new Whip_EmptyProperty( 'Operator' );
 		}
 
-		if ( ! is_string( $operator ) ) {
+		if ( ! \is_string( $operator ) ) {
 			throw new Whip_InvalidType( 'Operator', $operator, 'string' );
 		}
 
 		$validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' );
-		if ( ! in_array( $operator, $validOperators, true ) ) {
+		if ( ! \in_array( $operator, $validOperators, true ) ) {
 			throw new Whip_InvalidOperatorType( $operator, $validOperators );
 		}
 	}

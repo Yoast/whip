@@ -1,9 +1,9 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Interfaces\Whip_Message;
+use Yoast\WHIPv2\Messages\Whip_NullMessage;
 
 /**
  * Manages messages using a global to prevent duplicate messages.
@@ -14,7 +14,7 @@ class Whip_MessagesManager {
 	 * Whip_MessagesManager constructor.
 	 */
 	public function __construct() {
-		if ( ! array_key_exists( 'whip_messages', $GLOBALS ) ) {
+		if ( ! \array_key_exists( 'whip_messages', $GLOBALS ) ) {
 			$GLOBALS['whip_messages'] = array();
 		}
 	}
@@ -38,7 +38,7 @@ class Whip_MessagesManager {
 	 * @return bool Whether or not there are messages available.
 	 */
 	public function hasMessages() {
-		return isset( $GLOBALS['whip_messages'] ) && count( $GLOBALS['whip_messages'] ) > 0;
+		return isset( $GLOBALS['whip_messages'] ) && \count( $GLOBALS['whip_messages'] ) > 0;
 	}
 
 	/**
@@ -73,7 +73,7 @@ class Whip_MessagesManager {
 
 		$this->deleteMessages();
 
-		return array_pop( $messages );
+		return \array_pop( $messages );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Whip_MessagesManager {
 	 * @return array The sorted list of messages.
 	 */
 	private function sortByVersion( array $messages ) {
-		uksort( $messages, 'version_compare' );
+		\uksort( $messages, 'version_compare' );
 
 		return $messages;
 	}

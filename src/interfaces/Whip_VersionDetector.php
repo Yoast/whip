@@ -1,9 +1,6 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Interfaces;
 
 /**
  * An interface that represents a version detector and message.
