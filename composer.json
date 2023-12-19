@@ -28,9 +28,9 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"autoload": {
-		"classmap": [
-			"src/"
-		],
+		"psr-4": {
+			"Yoast\\WHIPv2\\": "src/"
+		},
 		"files": [
 			"src/facades/wordpress.php"
 		]
