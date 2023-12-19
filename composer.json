@@ -32,7 +32,7 @@
 			"Yoast\\WHIPv2\\": "src/"
 		},
 		"files": [
-			"src/facades/wordpress.php"
+			"src/Facades/wordpress.php"
 		]
 	},
 	"autoload-dev": {

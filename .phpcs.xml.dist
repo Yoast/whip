@@ -80,7 +80,7 @@
 		</properties>
 
 		<!-- Exclude WordPress example function. -->
-		<exclude-pattern>/src/facades/wordpress\.php$</exclude-pattern>
+		<exclude-pattern>/src/Facades/wordpress\.php$</exclude-pattern>
 
 		<!-- Exclude mocks of WP Core functions which comply with the WP function name rules instead. -->
 		<exclude-pattern>/tests/Unit/Doubles/WpCoreFunctionsMock\.php$</exclude-pattern>
@@ -101,7 +101,7 @@
 
 	<rule ref="Yoast.NamingConventions.ValidHookName.WrongPrefix">
 		<!-- Valid usage: Example code for external users of the module. -->
-		<exclude-pattern>/src/facades/wordpress\.php$</exclude-pattern>
+		<exclude-pattern>/src/Facades/wordpress\.php$</exclude-pattern>
 	</rule>
 
 	<!-- The variable parameters passed to the WHIP exceptions are mostly used to retrieve
@@ -111,6 +111,7 @@
 	</rule>
 
 	<rule ref="Yoast.Files.FileName.InvalidFunctionsFileName">
+		<exclude-pattern>/src/Facades/wordpress\.php$</exclude-pattern>
 		<exclude-pattern>/tests/Unit/Doubles/WPCoreFunctionsMock\.php$</exclude-pattern>
 	</rule>
 
