@@ -47,6 +47,11 @@
 				<element value="Yoast\WHIPv2"/>
 				<element value="whip"/>
 			</property>
+
+			<property name="psr4_paths" type="array">
+				<element key="Yoast\WHIPv2\\" value="src/"/>
+				<element key="Yoast\WHIP\Tests\\" value="tests/"/>
+			</property>
 		</properties>
 
 		<!-- Historically, this library has used camelCaps not snakecase for variable and function names. -->
@@ -79,34 +84,6 @@
 
 		<!-- Exclude mocks of WP Core functions which comply with the WP function name rules instead. -->
 		<exclude-pattern>/tests/Unit/Doubles/WpCoreFunctionsMock\.php$</exclude-pattern>
-	</rule>
-
-
-	<!--
-	#############################################################################
-	SNIFF SPECIFIC CONFIGURATION
-	#############################################################################
-	-->
-
-	<rule ref="Yoast.Files.FileName">
-		<properties>
-			<property name="psr4_paths" type="array">
-				<element key="Yoast\WHIP\Tests\\" value="tests/"/>
-			</property>
-		</properties>
-
-		<include-pattern>/tests/*\.php</include-pattern>
-	</rule>
-
-	<rule ref="Yoast.NamingConventions.NamespaceName">
-		<properties>
-			<property name="src_directory" type="array">
-				<element value="src"/>
-			</property>
-			<property name="psr4_paths" type="array">
-				<element key="Yoast\WHIP\Tests\\" value="tests/"/>
-			</property>
-		</properties>
 	</rule>
 
 
@@ -162,8 +139,8 @@
 	<!-- Textdomain is passed in dynamically which will not work correctly with gettext().
 		 Ticket: https://github.com/Yoast/whip/issues/2 -->
 	<rule ref="WordPress.WP.I18n.NonSingularStringLiteralDomain">
-		<exclude-pattern>/src/messages/Whip_HostMessage\.php$</exclude-pattern>
-		<exclude-pattern>/src/messages/Whip_UpgradePhpMessage\.php$</exclude-pattern>
+		<exclude-pattern>/src/Messages/Whip_HostMessage\.php$</exclude-pattern>
+		<exclude-pattern>/src/Messages/Whip_UpgradePhpMessage\.php$</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound">
