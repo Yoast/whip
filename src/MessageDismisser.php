@@ -1,19 +1,18 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Interfaces\DismissStorage;
 
 /**
  * A class to dismiss messages.
  */
-class Whip_MessageDismisser {
+class MessageDismisser {
 
 	/**
 	 * Storage object to manage the dismissal state.
 	 *
-	 * @var Whip_DismissStorage
+	 * @var DismissStorage
 	 */
 	protected $storage;
 
@@ -32,13 +31,13 @@ class Whip_MessageDismisser {
 	protected $threshold;
 
 	/**
-	 * Whip_MessageDismisser constructor.
+	 * MessageDismisser constructor.
 	 *
-	 * @param int                 $currentTime The current time.
-	 * @param int                 $threshold   The number of seconds the message will be dismissed.
-	 * @param Whip_DismissStorage $storage     Storage object to manage the dismissal state.
+	 * @param int            $currentTime The current time.
+	 * @param int            $threshold   The number of seconds the message will be dismissed.
+	 * @param DismissStorage $storage     Storage object to manage the dismissal state.
 	 */
-	public function __construct( $currentTime, $threshold, Whip_DismissStorage $storage ) {
+	public function __construct( $currentTime, $threshold, DismissStorage $storage ) {
 		$this->currentTime = $currentTime;
 		$this->threshold   = $threshold;
 		$this->storage     = $storage;
@@ -71,6 +70,6 @@ class Whip_MessageDismisser {
 	 * @return bool True when the nonce is valid.
 	 */
 	public function verifyNonce( $nonce, $action ) {
-		return (bool) wp_verify_nonce( $nonce, $action );
+		return (bool) \wp_verify_nonce( $nonce, $action );
 	}
 }

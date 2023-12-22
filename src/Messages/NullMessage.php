@@ -1,14 +1,13 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Messages;
+
+use Yoast\WHIPv2\Interfaces\Message;
 
 /**
- * Class Whip_Message.
+ * Class NullMessage.
  */
-class Whip_NullMessage implements Whip_Message {
+class NullMessage implements Message {
 
 	/**
 	 * Retrieves the message body.

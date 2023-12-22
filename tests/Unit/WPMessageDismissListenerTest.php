@@ -2,12 +2,12 @@
 
 namespace Yoast\WHIP\Tests\Unit;
 
-use Whip_WPMessageDismissListener;
+use Yoast\WHIPv2\WPMessageDismissListener;
 
 /**
  * Message Dismiss Listener unit tests.
  *
- * @coversDefaultClass Whip_WPMessageDismissListener
+ * @coversDefaultClass WPMessageDismissListener
  *
  * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Acronym throws the count off.
  */
@@ -16,7 +16,7 @@ final class WPMessageDismissListenerTest extends TestCase {
 	/**
 	 * Tests the listen method.
 	 *
-	 * @covers ::listen
+	 * @covers \Yoast\WHIPv2\WPMessageDismissListener::listen
 	 *
 	 * @dataProvider listenProvider
 	 *
@@ -29,11 +29,11 @@ final class WPMessageDismissListenerTest extends TestCase {
 	 * @return void
 	 */
 	public function testDismiss( $action, $nonce, $verifyNonceTimes, $isCorrectNonce, $dismissTimes ) {
-		$dismisser = $this->getMockBuilder( 'Whip_MessageDismisser' )
+		$dismisser = $this->getMockBuilder( '\Yoast\WHIPv2\MessageDismisser' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$instance = new Whip_WPMessageDismissListener( $dismisser );
+		$instance = new WPMessageDismissListener( $dismisser );
 
 		$_GET['action'] = $action;
 		$_GET['nonce']  = $nonce;
@@ -57,7 +57,7 @@ final class WPMessageDismissListenerTest extends TestCase {
 	public static function listenProvider() {
 		return array(
 			'correct action and nonce' => array(
-				'action'                => Whip_WPMessageDismissListener::ACTION_NAME,
+				'action'                => WPMessageDismissListener::ACTION_NAME,
 				'nonce'                 => 'the_right_nonce',
 				'verifyNonceTimes'      => 1,
 				'isCorrectNonce'        => true,
@@ -71,7 +71,7 @@ final class WPMessageDismissListenerTest extends TestCase {
 				'dismissTimes'          => 0,
 			),
 			'correct action incorrect nonce' => array(
-				'action'                => Whip_WPMessageDismissListener::ACTION_NAME,
+				'action'                => WPMessageDismissListener::ACTION_NAME,
 				'nonce'                 => 'wrong_nonce',
 				'verifyNonceTimes'      => 1,
 				'isCorrectNonce'        => false,

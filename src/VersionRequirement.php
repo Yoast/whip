@@ -1,14 +1,17 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Exceptions\EmptyProperty;
+use Yoast\WHIPv2\Exceptions\InvalidOperatorType;
+use Yoast\WHIPv2\Exceptions\InvalidType;
+use Yoast\WHIPv2\Exceptions\InvalidVersionComparisonString;
+use Yoast\WHIPv2\Interfaces\Requirement;
 
 /**
  * A value object containing a version requirement for a component version.
  */
-class Whip_VersionRequirement implements Whip_Requirement {
+class VersionRequirement implements Requirement {
 
 	/**
 	 * The component name.
@@ -32,7 +35,7 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	private $operator;
 
 	/**
-	 * Whip_Requirement constructor.
+	 * Requirement constructor.
 	 *
 	 * @param string $component The component name.
 	 * @param string $version   The component version.
@@ -79,9 +82,9 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 * @param string $component        The component for this version requirement.
 	 * @param string $comparisonString The comparison string for this version requirement.
 	 *
-	 * @return Whip_VersionRequirement The parsed version requirement.
+	 * @return VersionRequirement The parsed version requirement.
 	 *
-	 * @throws Whip_InvalidVersionComparisonString When an invalid version comparison string is passed.
+	 * @throws InvalidVersionComparisonString When an invalid version comparison string is passed.
 	 */
 	public static function fromCompareString( $component, $comparisonString ) {
 
@@ -94,14 +97,14 @@ class Whip_VersionRequirement implements Whip_Requirement {
 			([^>=<\s]+) # Matches anything except >, <, =, and whitespace.
 		`x';
 
-		if ( ! preg_match( $matcher, $comparisonString, $match ) ) {
-			throw new Whip_InvalidVersionComparisonString( $comparisonString );
+		if ( ! \preg_match( $matcher, $comparisonString, $match ) ) {
+			throw new InvalidVersionComparisonString( $comparisonString );
 		}
 
 		$version  = $match[2];
 		$operator = $match[1];
 
-		return new Whip_VersionRequirement( $component, $version, $operator );
+		return new VersionRequirement( $component, $version, $operator );
 	}
 
 	/**
@@ -113,38 +116,38 @@ class Whip_VersionRequirement implements Whip_Requirement {
 	 *
 	 * @return void
 	 *
-	 * @throws Whip_EmptyProperty       When any of the parameters is empty.
-	 * @throws Whip_InvalidOperatorType When the $operator parameter is invalid.
-	 * @throws Whip_InvalidType         When any of the parameters is not of the expected type.
+	 * @throws EmptyProperty       When any of the parameters is empty.
+	 * @throws InvalidOperatorType When the $operator parameter is invalid.
+	 * @throws InvalidType         When any of the parameters is not of the expected type.
 	 */
 	private function validateParameters( $component, $version, $operator ) {
 		if ( empty( $component ) ) {
-			throw new Whip_EmptyProperty( 'Component' );
+			throw new EmptyProperty( 'Component' );
 		}
 
-		if ( ! is_string( $component ) ) {
-			throw new Whip_InvalidType( 'Component', $component, 'string' );
+		if ( ! \is_string( $component ) ) {
+			throw new InvalidType( 'Component', $component, 'string' );
 		}
 
 		if ( empty( $version ) ) {
-			throw new Whip_EmptyProperty( 'Version' );
+			throw new EmptyProperty( 'Version' );
 		}
 
-		if ( ! is_string( $version ) ) {
-			throw new Whip_InvalidType( 'Version', $version, 'string' );
+		if ( ! \is_string( $version ) ) {
+			throw new InvalidType( 'Version', $version, 'string' );
 		}
 
 		if ( empty( $operator ) ) {
-			throw new Whip_EmptyProperty( 'Operator' );
+			throw new EmptyProperty( 'Operator' );
 		}
 
-		if ( ! is_string( $operator ) ) {
-			throw new Whip_InvalidType( 'Operator', $operator, 'string' );
+		if ( ! \is_string( $operator ) ) {
+			throw new InvalidType( 'Operator', $operator, 'string' );
 		}
 
 		$validOperators = array( '=', '==', '===', '<', '>', '<=', '>=' );
-		if ( ! in_array( $operator, $validOperators, true ) ) {
-			throw new Whip_InvalidOperatorType( $operator, $validOperators );
+		if ( ! \in_array( $operator, $validOperators, true ) ) {
+			throw new InvalidOperatorType( $operator, $validOperators );
 		}
 	}
 }

@@ -2,12 +2,12 @@
 
 namespace Yoast\WHIP\Tests\Unit\Doubles;
 
-use Whip_DismissStorage;
+use Yoast\WHIPv2\Interfaces\DismissStorage;
 
 /**
  * Test helper.
  */
-final class DismissStorageMock implements Whip_DismissStorage {
+final class DismissStorageMock implements DismissStorage {
 
 	/**
 	 * Holds the dismissed state.

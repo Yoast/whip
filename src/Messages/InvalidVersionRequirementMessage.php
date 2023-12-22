@@ -1,19 +1,19 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Messages;
+
+use Yoast\WHIPv2\Interfaces\Message;
+use Yoast\WHIPv2\VersionRequirement;
 
 /**
  * Class Whip_InvalidVersionMessage.
  */
-class Whip_InvalidVersionRequirementMessage implements Whip_Message {
+class InvalidVersionRequirementMessage implements Message {
 
 	/**
 	 * Object containing the version requirement for a component.
 	 *
-	 * @var Whip_VersionRequirement
+	 * @var VersionRequirement
 	 */
 	private $requirement;
 
@@ -25,12 +25,12 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	private $detected;
 
 	/**
-	 * Whip_InvalidVersionRequirementMessage constructor.
+	 * InvalidVersionRequirementMessage constructor.
 	 *
-	 * @param Whip_VersionRequirement $requirement Object containing the version requirement for a component.
-	 * @param string|int              $detected    Detected version requirement or -1 if not found.
+	 * @param VersionRequirement $requirement Object containing the version requirement for a component.
+	 * @param string|int         $detected    Detected version requirement or -1 if not found.
 	 */
-	public function __construct( Whip_VersionRequirement $requirement, $detected ) {
+	public function __construct( VersionRequirement $requirement, $detected ) {
 		$this->requirement = $requirement;
 		$this->detected    = $detected;
 	}
@@ -41,7 +41,7 @@ class Whip_InvalidVersionRequirementMessage implements Whip_Message {
 	 * @return string Message.
 	 */
 	public function body() {
-		return sprintf(
+		return \sprintf(
 			'Invalid version detected for %s. Found %s but expected %s.',
 			$this->requirement->component(),
 			$this->detected,

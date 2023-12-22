@@ -1,14 +1,18 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Presenters;
+
+use Yoast\WHIPv2\Interfaces\Message;
+use Yoast\WHIPv2\Interfaces\MessagePresenter;
+use Yoast\WHIPv2\MessageDismisser;
+use Yoast\WHIPv2\WPMessageDismissListener;
 
 /**
  * A message presenter to show a WordPress notice.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Sniff does not count acronyms correctly.
  */
-class Whip_WPMessagePresenter implements Whip_MessagePresenter {
+class WPMessagePresenter implements MessagePresenter {
 
 	/**
 	 * The string to show to dismiss the message.
@@ -20,25 +24,25 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	/**
 	 * The message to be displayed.
 	 *
-	 * @var Whip_Message
+	 * @var Message
 	 */
 	private $message;
 
 	/**
 	 * Dismisser object.
 	 *
-	 * @var Whip_MessageDismisser
+	 * @var MessageDismisser
 	 */
 	private $dismisser;
 
 	/**
-	 * Whip_WPMessagePresenter constructor.
+	 * WPMessagePresenter constructor.
 	 *
-	 * @param Whip_Message          $message        The message to use in the presenter.
-	 * @param Whip_MessageDismisser $dismisser      Dismisser object.
-	 * @param string                $dismissMessage The copy to show to dismiss the message.
+	 * @param Message          $message        The message to use in the presenter.
+	 * @param MessageDismisser $dismisser      Dismisser object.
+	 * @param string           $dismissMessage The copy to show to dismiss the message.
 	 */
-	public function __construct( Whip_Message $message, Whip_MessageDismisser $dismisser, $dismissMessage ) {
+	public function __construct( Message $message, MessageDismisser $dismisser, $dismissMessage ) {
 		$this->message        = $message;
 		$this->dismisser      = $dismisser;
 		$this->dismissMessage = $dismissMessage;
@@ -52,7 +56,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @return void
 	 */
 	public function registerHooks() {
-		add_action( 'admin_notices', array( $this, 'renderMessage' ) );
+		\add_action( 'admin_notices', array( $this, 'renderMessage' ) );
 	}
 
 	/**
@@ -61,21 +65,21 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @return void
 	 */
 	public function renderMessage() {
-		$dismissListener = new Whip_WPMessageDismissListener( $this->dismisser );
+		$dismissListener = new WPMessageDismissListener( $this->dismisser );
 		$dismissListener->listen();
 
 		if ( $this->dismisser->isDismissed() ) {
 			return;
 		}
 
-		$dismissButton = sprintf(
+		$dismissButton = \sprintf(
 			'<a href="%2$s">%1$s</a>',
-			esc_html( $this->dismissMessage ),
-			esc_url( $dismissListener->getDismissURL() )
+			\esc_html( $this->dismissMessage ),
+			\esc_url( $dismissListener->getDismissURL() )
 		);
 
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- output correctly escaped directly above and in the `kses()` method.
-		printf(
+		\printf(
 			'<div class="error"><p>%1$s</p><p>%2$s</p></div>',
 			$this->kses( $this->message->body() ),
 			$dismissButton
@@ -91,7 +95,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @return string The cleaned message.
 	 */
 	public function kses( $message ) {
-		return wp_kses(
+		return \wp_kses(
 			$message,
 			array(
 				'a'      => array(

@@ -1,14 +1,11 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
 
 /**
  * Represents a host.
  */
-class Whip_Host {
+class Host {
 
 	/**
 	 * Key to an environment variable which should be set to the name of the host.
@@ -30,7 +27,7 @@ class Whip_Host {
 	 * @return string The name of the host.
 	 */
 	public static function name() {
-		$name = (string) getenv( self::HOST_NAME_KEY );
+		$name = (string) \getenv( self::HOST_NAME_KEY );
 
 		return self::filterName( $name );
 	}
@@ -44,8 +41,8 @@ class Whip_Host {
 	 * @return string The filtered name of the host.
 	 */
 	private static function filterName( $name ) {
-		if ( function_exists( 'apply_filters' ) ) {
-			return (string) apply_filters( strtolower( self::HOST_NAME_KEY ), $name );
+		if ( \function_exists( 'apply_filters' ) ) {
+			return (string) \apply_filters( \strtolower( self::HOST_NAME_KEY ), $name );
 		}
 
 		return $name;
@@ -59,7 +56,7 @@ class Whip_Host {
 	 * @return string The message as set by the host.
 	 */
 	public static function message( $messageKey ) {
-		$message = (string) getenv( $messageKey );
+		$message = (string) \getenv( $messageKey );
 
 		return self::filterMessage( $messageKey, $message );
 	}
@@ -74,8 +71,8 @@ class Whip_Host {
 	 * @return string
 	 */
 	private static function filterMessage( $messageKey, $message ) {
-		if ( function_exists( 'apply_filters' ) ) {
-			return (string) apply_filters( strtolower( $messageKey ), $message );
+		if ( \function_exists( 'apply_filters' ) ) {
+			return (string) \apply_filters( \strtolower( $messageKey ), $message );
 		}
 
 		return $message;
@@ -101,7 +98,7 @@ class Whip_Host {
 	 * @return string The new URL to the hosting overview page.
 	 */
 	private static function filterHostingPageUrl( $url ) {
-		if ( function_exists( 'apply_filters' ) && apply_filters( self::HOSTING_PAGE_FILTER_KEY, false ) ) {
+		if ( \function_exists( 'apply_filters' ) && \apply_filters( self::HOSTING_PAGE_FILTER_KEY, false ) ) {
 			return 'https://wordpress.org/hosting/';
 		}
 

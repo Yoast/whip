@@ -1,14 +1,11 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Interfaces;
 
 /**
- * Interface Whip_DismissStorage.
+ * Interface DismissStorage.
  */
-interface Whip_DismissStorage {
+interface DismissStorage {
 
 	/**
 	 * Saves the value.

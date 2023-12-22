@@ -1,14 +1,11 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Interfaces;
 
 /**
- * Interface Whip_Message.
+ * Interface Message.
  */
-interface Whip_Message {
+interface Message {
 
 	/**
 	 * Retrieves the message body.

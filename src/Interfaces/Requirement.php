@@ -1,14 +1,11 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2\Interfaces;
 
 /**
- * Interface Whip_Requirement.
+ * Interface Requirement.
  */
-interface Whip_Requirement {
+interface Requirement {
 
 	/**
 	 * Retrieves the component name defined for the requirement.

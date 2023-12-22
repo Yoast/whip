@@ -1,20 +1,20 @@
 <?php
-/**
- * WHIP libary file.
- *
- * @package Yoast\WHIP
- */
+
+namespace Yoast\WHIPv2;
+
+use Yoast\WHIPv2\Interfaces\Message;
+use Yoast\WHIPv2\Messages\NullMessage;
 
 /**
  * Manages messages using a global to prevent duplicate messages.
  */
-class Whip_MessagesManager {
+class MessagesManager {
 
 	/**
-	 * Whip_MessagesManager constructor.
+	 * MessagesManager constructor.
 	 */
 	public function __construct() {
-		if ( ! array_key_exists( 'whip_messages', $GLOBALS ) ) {
+		if ( ! \array_key_exists( 'whip_messages', $GLOBALS ) ) {
 			$GLOBALS['whip_messages'] = array();
 		}
 	}
@@ -22,12 +22,12 @@ class Whip_MessagesManager {
 	/**
 	 * Adds a message to the Messages Manager.
 	 *
-	 * @param Whip_Message $message The message to add.
+	 * @param Message $message The message to add.
 	 *
 	 * @return void
 	 */
-	public function addMessage( Whip_Message $message ) {
-		$whipVersion = require __DIR__ . '/configs/version.php';
+	public function addMessage( Message $message ) {
+		$whipVersion = require __DIR__ . '/Configs/version.php';
 
 		$GLOBALS['whip_messages'][ $whipVersion ] = $message;
 	}
@@ -38,7 +38,7 @@ class Whip_MessagesManager {
 	 * @return bool Whether or not there are messages available.
 	 */
 	public function hasMessages() {
-		return isset( $GLOBALS['whip_messages'] ) && count( $GLOBALS['whip_messages'] ) > 0;
+		return isset( $GLOBALS['whip_messages'] ) && \count( $GLOBALS['whip_messages'] ) > 0;
 	}
 
 	/**
@@ -62,18 +62,18 @@ class Whip_MessagesManager {
 	/**
 	 * Gets the latest message.
 	 *
-	 * @return Whip_Message The message. Returns a NullMessage if none is found.
+	 * @return Message The message. Returns a NullMessage if none is found.
 	 */
 	public function getLatestMessage() {
 		if ( ! $this->hasMessages() ) {
-			return new Whip_NullMessage();
+			return new NullMessage();
 		}
 
 		$messages = $this->sortByVersion( $this->listMessages() );
 
 		$this->deleteMessages();
 
-		return array_pop( $messages );
+		return \array_pop( $messages );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Whip_MessagesManager {
 	 * @return array The sorted list of messages.
 	 */
 	private function sortByVersion( array $messages ) {
-		uksort( $messages, 'version_compare' );
+		\uksort( $messages, 'version_compare' );
 
 		return $messages;
 	}
