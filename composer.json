@@ -56,7 +56,7 @@
 			"Yoast\\WHIP\\Config\\Composer\\Actions::check_coding_standards"
 		],
 		"check-cs-thresholds": [
-			"@putenv YOASTCS_THRESHOLD_ERRORS=10",
+			"@putenv YOASTCS_THRESHOLD_ERRORS=0",
 			"@putenv YOASTCS_THRESHOLD_WARNINGS=0",
 			"Yoast\\WHIP\\Config\\Composer\\Actions::check_cs_thresholds"
 		],

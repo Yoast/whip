@@ -7,6 +7,8 @@ use Yoast\WHIPv2\VersionRequirement;
 
 /**
  * Class Whip_InvalidVersionMessage.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Name should be descriptive and was historically (before namespacing) already set to this.
  */
 class InvalidVersionRequirementMessage implements Message {
 

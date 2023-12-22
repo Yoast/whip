@@ -15,7 +15,7 @@ if ( ! function_exists( 'whip_wp_check_versions' ) ) {
 	/**
 	 * Facade to quickly check if version requirements are met.
 	 *
-	 * @param array $requirements The requirements to check.
+	 * @param array<string> $requirements The requirements to check.
 	 *
 	 * @return void
 	 */

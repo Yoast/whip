@@ -6,6 +6,8 @@ use Exception;
 
 /**
  * Exception for an invalid version comparison string.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Name should be descriptive and was historically (before namespacing) already set to this.
  */
 class InvalidVersionComparisonString extends Exception {
 

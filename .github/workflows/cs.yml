@@ -40,22 +40,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Determine the base branch for the file diff
-        id: base_branch
-        env:
-          BASE_REF: ${{ github.base_ref }}
-        run: |
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            echo "NAME=$BASE_REF" >> $GITHUB_OUTPUT
-            echo "REF=origin/$BASE_REF" >> $GITHUB_OUTPUT
-          else
-            echo 'NAME=main' >> $GITHUB_OUTPUT
-            echo "REF=origin/main" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Fetch base branch
-        run: git fetch --no-tags --depth=1 origin ${{ steps.base_branch.outputs.NAME }}
-
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -76,18 +60,12 @@ jobs:
           # Bust the cache at least once a month - output format: YYYY-MM.
           custom-cache-suffix: $(date -u "+%Y-%m")
 
-      # Check the codestyle of the files against a threshold of expected errors and warnings.
-      - name: Check PHP code style against the thresholds
-        run: composer check-cs-thresholds
-
-      # Check the codestyle only of the files which were changed in the current branch.
-      # This step will only be executed if the threshold check exited with a failure status.
-      # The results of this CS check will be shown inline in the PR via the CS2PR tool.
+      # Check the codestyle of the files.
+      # The results of the CS check will be shown inline in the PR via the CS2PR tool.
       # @link https://github.com/staabm/annotate-pull-request-from-checkstyle/
-      - name: Check PHP code style for the changes made in the branch only
-        if: ${{ failure() }}
+      - name: Check PHP code style
         id: phpcs
-        run: composer check-branch-cs -- ${{ steps.base_branch.outputs.REF }}
+        run: composer check-cs-warnings -- --no-cache --report-full --report-checkstyle=./phpcs-report.xml
 
       - name: Show PHPCS results in PR
         if: ${{ always() && steps.phpcs.outcome == 'failure' }}

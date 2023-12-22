@@ -13,14 +13,14 @@ class Configuration {
 	/**
 	 * The configuration to use.
 	 *
-	 * @var array
+	 * @var array<string>
 	 */
 	private $configuration;
 
 	/**
 	 * Configuration constructor.
 	 *
-	 * @param array $configuration The configuration to use.
+	 * @param array<string> $configuration The configuration to use.
 	 *
 	 * @throws InvalidType When the $configuration parameter is not of the expected type.
 	 */
