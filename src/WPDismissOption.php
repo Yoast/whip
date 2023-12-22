@@ -2,12 +2,14 @@
 
 namespace Yoast\WHIPv2;
 
-use Yoast\WHIPv2\Interfaces\Whip_DismissStorage;
+use Yoast\WHIPv2\Interfaces\DismissStorage;
 
 /**
  * Represents the WordPress option for saving the dismissed messages.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Sniff does not count acronyms correctly.
  */
-class Whip_WPDismissOption implements Whip_DismissStorage {
+class WPDismissOption implements DismissStorage {
 
 	/**
 	 * WordPress option name.

@@ -2,16 +2,16 @@
 
 namespace Yoast\WHIPv2;
 
-use Yoast\WHIPv2\Interfaces\Whip_Message;
-use Yoast\WHIPv2\Messages\Whip_NullMessage;
+use Yoast\WHIPv2\Interfaces\Message;
+use Yoast\WHIPv2\Messages\NullMessage;
 
 /**
  * Manages messages using a global to prevent duplicate messages.
  */
-class Whip_MessagesManager {
+class MessagesManager {
 
 	/**
-	 * Whip_MessagesManager constructor.
+	 * MessagesManager constructor.
 	 */
 	public function __construct() {
 		if ( ! \array_key_exists( 'whip_messages', $GLOBALS ) ) {
@@ -22,11 +22,11 @@ class Whip_MessagesManager {
 	/**
 	 * Adds a message to the Messages Manager.
 	 *
-	 * @param Whip_Message $message The message to add.
+	 * @param Message $message The message to add.
 	 *
 	 * @return void
 	 */
-	public function addMessage( Whip_Message $message ) {
+	public function addMessage( Message $message ) {
 		$whipVersion = require __DIR__ . '/Configs/version.php';
 
 		$GLOBALS['whip_messages'][ $whipVersion ] = $message;
@@ -62,11 +62,11 @@ class Whip_MessagesManager {
 	/**
 	 * Gets the latest message.
 	 *
-	 * @return Whip_Message The message. Returns a NullMessage if none is found.
+	 * @return Message The message. Returns a NullMessage if none is found.
 	 */
 	public function getLatestMessage() {
 		if ( ! $this->hasMessages() ) {
-			return new Whip_NullMessage();
+			return new NullMessage();
 		}
 
 		$messages = $this->sortByVersion( $this->listMessages() );

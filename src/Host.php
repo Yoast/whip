@@ -5,7 +5,7 @@ namespace Yoast\WHIPv2;
 /**
  * Represents a host.
  */
-class Whip_Host {
+class Host {
 
 	/**
 	 * Key to an environment variable which should be set to the name of the host.

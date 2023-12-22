@@ -3,9 +3,9 @@
 namespace Yoast\WHIPv2\Interfaces;
 
 /**
- * Interface Whip_Listener.
+ * Interface Listener.
  */
-interface Whip_Listener {
+interface Listener {
 
 	/**
 	 * Method that should implement the listen functionality.

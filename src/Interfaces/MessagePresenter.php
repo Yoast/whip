@@ -3,9 +3,9 @@
 namespace Yoast\WHIPv2\Interfaces;
 
 /**
- * Interface Whip_MessagePresenter.
+ * Interface MessagePresenter.
  */
-interface Whip_MessagePresenter {
+interface MessagePresenter {
 
 	/**
 	 * Renders the message.

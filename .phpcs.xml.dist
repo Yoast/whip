@@ -140,14 +140,15 @@
 	<!-- Textdomain is passed in dynamically which will not work correctly with gettext().
 		 Ticket: https://github.com/Yoast/whip/issues/2 -->
 	<rule ref="WordPress.WP.I18n.NonSingularStringLiteralDomain">
-		<exclude-pattern>/src/Messages/Whip_HostMessage\.php$</exclude-pattern>
-		<exclude-pattern>/src/Messages/Whip_UpgradePhpMessage\.php$</exclude-pattern>
+		<exclude-pattern>/src/Messages/HostMessage\.php$</exclude-pattern>
+		<exclude-pattern>/src/Messages/UpgradePhpMessage\.php$</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound">
 		<!-- These hook setups should be reviewed.
 			 Ticket: https://github.com/Yoast/whip/issues/67 -->
-		<exclude-pattern>/src/Whip_Host\.php$</exclude-pattern>
+		<exclude-pattern>/src/Host\.php$</exclude-pattern>
+		<exclude-pattern>/src/Messages/UpgradePhpMessage\.php$</exclude-pattern>
 	</rule>
 
 </ruleset>

@@ -2,14 +2,14 @@
 
 namespace Yoast\WHIPv2\Messages;
 
-use Yoast\WHIPv2\Exceptions\Whip_EmptyProperty;
-use Yoast\WHIPv2\Exceptions\Whip_InvalidType;
-use Yoast\WHIPv2\Interfaces\Whip_Message;
+use Yoast\WHIPv2\Exceptions\EmptyProperty;
+use Yoast\WHIPv2\Exceptions\InvalidType;
+use Yoast\WHIPv2\Interfaces\Message;
 
 /**
- * Class Whip_Message.
+ * Class BasicMessage.
  */
-class Whip_BasicMessage implements Whip_Message {
+class BasicMessage implements Message {
 
 	/**
 	 * Message body.
@@ -19,7 +19,7 @@ class Whip_BasicMessage implements Whip_Message {
 	private $body;
 
 	/**
-	 * Whip_Message constructor.
+	 * Message constructor.
 	 *
 	 * @param string $body Message body.
 	 */
@@ -45,16 +45,16 @@ class Whip_BasicMessage implements Whip_Message {
 	 *
 	 * @return void
 	 *
-	 * @throws Whip_EmptyProperty When the $body parameter is empty.
-	 * @throws Whip_InvalidType   When the $body parameter is not of the expected type.
+	 * @throws EmptyProperty When the $body parameter is empty.
+	 * @throws InvalidType   When the $body parameter is not of the expected type.
 	 */
 	private function validateParameters( $body ) {
 		if ( empty( $body ) ) {
-			throw new Whip_EmptyProperty( 'Message body' );
+			throw new EmptyProperty( 'Message body' );
 		}
 
 		if ( ! \is_string( $body ) ) {
-			throw new Whip_InvalidType( 'Message body', $body, 'string' );
+			throw new InvalidType( 'Message body', $body, 'string' );
 		}
 	}
 }

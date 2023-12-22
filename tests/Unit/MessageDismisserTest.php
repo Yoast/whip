@@ -3,7 +3,7 @@
 namespace Yoast\WHIP\Tests\Unit;
 
 use Yoast\WHIP\Tests\Unit\Doubles\DismissStorageMock;
-use Yoast\WHIPv2\Whip_MessageDismisser;
+use Yoast\WHIPv2\MessageDismisser;
 
 /**
  * Message Dismisser unit tests.
@@ -11,17 +11,17 @@ use Yoast\WHIPv2\Whip_MessageDismisser;
 final class MessageDismisserTest extends TestCase {
 
 	/**
-	 * Tests if Whip_MessageDismisser correctly updates Whip_DismissStorage.
+	 * Tests if MessageDismisser correctly updates DismissStorage.
 	 *
-	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::__construct
-	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::dismiss
+	 * @covers \Yoast\WHIPv2\MessageDismisser::__construct
+	 * @covers \Yoast\WHIPv2\MessageDismisser::dismiss
 	 *
 	 * @return void
 	 */
 	public function testDismiss() {
 		$currentTime = \time();
 		$storage     = new DismissStorageMock();
-		$dismisser   = new Whip_MessageDismisser( $currentTime, ( \WEEK_IN_SECONDS * 4 ), $storage );
+		$dismisser   = new MessageDismisser( $currentTime, ( \WEEK_IN_SECONDS * 4 ), $storage );
 
 		$this->assertSame( 0, $storage->get() );
 
@@ -35,8 +35,8 @@ final class MessageDismisserTest extends TestCase {
 	 *
 	 * @dataProvider versionNumbersProvider
 	 *
-	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::__construct
-	 * @covers \Yoast\WHIPv2\Whip_MessageDismisser::isDismissed
+	 * @covers \Yoast\WHIPv2\MessageDismisser::__construct
+	 * @covers \Yoast\WHIPv2\MessageDismisser::isDismissed
 	 *
 	 * @param int  $savedTime   The saved time.
 	 * @param int  $currentTime The current time.
@@ -47,7 +47,7 @@ final class MessageDismisserTest extends TestCase {
 	public function testIsDismissibleWithVersions( $savedTime, $currentTime, $expected ) {
 		$storage = new DismissStorageMock();
 		$storage->set( $savedTime );
-		$dismisser = new Whip_MessageDismisser( $currentTime, ( \WEEK_IN_SECONDS * 4 ), $storage );
+		$dismisser = new MessageDismisser( $currentTime, ( \WEEK_IN_SECONDS * 4 ), $storage );
 
 		$this->assertSame( $expected, $dismisser->isDismissed() );
 	}

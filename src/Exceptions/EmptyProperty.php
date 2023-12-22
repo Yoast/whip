@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class EmptyProperty.
  */
-class Whip_EmptyProperty extends Exception {
+class EmptyProperty extends Exception {
 
 	/**
 	 * EmptyProperty constructor.

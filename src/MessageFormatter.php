@@ -5,7 +5,7 @@ namespace Yoast\WHIPv2;
 /**
  * A helper class to format messages.
  */
-final class Whip_MessageFormatter {
+final class MessageFormatter {
 
 	/**
 	 * Wraps a piece of text in HTML strong tags.

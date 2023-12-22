@@ -2,15 +2,17 @@
 
 namespace Yoast\WHIPv2\Presenters;
 
-use Yoast\WHIPv2\Interfaces\Whip_Message;
-use Yoast\WHIPv2\Interfaces\Whip_MessagePresenter;
-use Yoast\WHIPv2\Whip_MessageDismisser;
-use Yoast\WHIPv2\Whip_WPMessageDismissListener;
+use Yoast\WHIPv2\Interfaces\Message;
+use Yoast\WHIPv2\Interfaces\MessagePresenter;
+use Yoast\WHIPv2\MessageDismisser;
+use Yoast\WHIPv2\WPMessageDismissListener;
 
 /**
  * A message presenter to show a WordPress notice.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Sniff does not count acronyms correctly.
  */
-class Whip_WPMessagePresenter implements Whip_MessagePresenter {
+class WPMessagePresenter implements MessagePresenter {
 
 	/**
 	 * The string to show to dismiss the message.
@@ -22,25 +24,25 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	/**
 	 * The message to be displayed.
 	 *
-	 * @var Whip_Message
+	 * @var Message
 	 */
 	private $message;
 
 	/**
 	 * Dismisser object.
 	 *
-	 * @var Whip_MessageDismisser
+	 * @var MessageDismisser
 	 */
 	private $dismisser;
 
 	/**
-	 * Whip_WPMessagePresenter constructor.
+	 * WPMessagePresenter constructor.
 	 *
-	 * @param Whip_Message          $message        The message to use in the presenter.
-	 * @param Whip_MessageDismisser $dismisser      Dismisser object.
-	 * @param string                $dismissMessage The copy to show to dismiss the message.
+	 * @param Message          $message        The message to use in the presenter.
+	 * @param MessageDismisser $dismisser      Dismisser object.
+	 * @param string           $dismissMessage The copy to show to dismiss the message.
 	 */
-	public function __construct( Whip_Message $message, Whip_MessageDismisser $dismisser, $dismissMessage ) {
+	public function __construct( Message $message, MessageDismisser $dismisser, $dismissMessage ) {
 		$this->message        = $message;
 		$this->dismisser      = $dismisser;
 		$this->dismissMessage = $dismissMessage;
@@ -63,7 +65,7 @@ class Whip_WPMessagePresenter implements Whip_MessagePresenter {
 	 * @return void
 	 */
 	public function renderMessage() {
-		$dismissListener = new Whip_WPMessageDismissListener( $this->dismisser );
+		$dismissListener = new WPMessageDismissListener( $this->dismisser );
 		$dismissListener->listen();
 
 		if ( $this->dismisser->isDismissed() ) {

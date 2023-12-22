@@ -2,16 +2,16 @@
 
 namespace Yoast\WHIPv2;
 
-use Yoast\WHIPv2\Exceptions\Whip_InvalidType;
-use Yoast\WHIPv2\Interfaces\Whip_Message;
-use Yoast\WHIPv2\Interfaces\Whip_Requirement;
-use Yoast\WHIPv2\Messages\Whip_InvalidVersionRequirementMessage;
-use Yoast\WHIPv2\Messages\Whip_UpgradePhpMessage;
+use Yoast\WHIPv2\Exceptions\InvalidType;
+use Yoast\WHIPv2\Interfaces\Message;
+use Yoast\WHIPv2\Interfaces\Requirement;
+use Yoast\WHIPv2\Messages\InvalidVersionRequirementMessage;
+use Yoast\WHIPv2\Messages\UpgradePhpMessage;
 
 /**
  * Main controller class to require a certain version of software.
  */
-class Whip_RequirementsChecker {
+class RequirementsChecker {
 
 	/**
 	 * Requirements the environment should comply with.
@@ -23,14 +23,14 @@ class Whip_RequirementsChecker {
 	/**
 	 * The configuration to check.
 	 *
-	 * @var Whip_Configuration
+	 * @var Configuration
 	 */
 	private $configuration;
 
 	/**
 	 * Message Manager.
 	 *
-	 * @var Whip_MessagesManager
+	 * @var MessagesManager
 	 */
 	private $messageManager;
 
@@ -42,28 +42,28 @@ class Whip_RequirementsChecker {
 	private $textdomain;
 
 	/**
-	 * Whip_RequirementsChecker constructor.
+	 * RequirementsChecker constructor.
 	 *
 	 * @param array  $configuration The configuration to check.
 	 * @param string $textdomain    The text domain to use for translations.
 	 *
-	 * @throws Whip_InvalidType When the $configuration parameter is not of the expected type.
+	 * @throws InvalidType When the $configuration parameter is not of the expected type.
 	 */
 	public function __construct( $configuration = array(), $textdomain = 'default' ) {
 		$this->requirements   = array();
-		$this->configuration  = new Whip_Configuration( $configuration );
-		$this->messageManager = new Whip_MessagesManager();
+		$this->configuration  = new Configuration( $configuration );
+		$this->messageManager = new MessagesManager();
 		$this->textdomain     = $textdomain;
 	}
 
 	/**
 	 * Adds a requirement to the list of requirements if it doesn't already exist.
 	 *
-	 * @param Whip_Requirement $requirement The requirement to add.
+	 * @param Requirement $requirement The requirement to add.
 	 *
 	 * @return void
 	 */
-	public function addRequirement( Whip_Requirement $requirement ) {
+	public function addRequirement( Requirement $requirement ) {
 		// Only allow unique entries to ensure we're not checking specific combinations multiple times.
 		if ( $this->requirementExistsForComponent( $requirement->component() ) ) {
 			return;
@@ -110,11 +110,11 @@ class Whip_RequirementsChecker {
 	/**
 	 * Determines whether a requirement has been fulfilled.
 	 *
-	 * @param Whip_Requirement $requirement The requirement to check.
+	 * @param Requirement $requirement The requirement to check.
 	 *
 	 * @return bool Whether or not the requirement is fulfilled.
 	 */
-	private function requirementIsFulfilled( Whip_Requirement $requirement ) {
+	private function requirementIsFulfilled( Requirement $requirement ) {
 		$availableVersion = $this->configuration->configuredVersion( $requirement );
 		$requiredVersion  = $requirement->version();
 
@@ -146,17 +146,17 @@ class Whip_RequirementsChecker {
 	/**
 	 * Adds a message to the message manager for requirements that cannot be fulfilled.
 	 *
-	 * @param Whip_Requirement $requirement The requirement that cannot be fulfilled.
+	 * @param Requirement $requirement The requirement that cannot be fulfilled.
 	 *
 	 * @return void
 	 */
-	private function addMissingRequirementMessage( Whip_Requirement $requirement ) {
+	private function addMissingRequirementMessage( Requirement $requirement ) {
 		switch ( $requirement->component() ) {
 			case 'php':
-				$this->messageManager->addMessage( new Whip_UpgradePhpMessage( $this->textdomain ) );
+				$this->messageManager->addMessage( new UpgradePhpMessage( $this->textdomain ) );
 				break;
 			default:
-				$this->messageManager->addMessage( new Whip_InvalidVersionRequirementMessage( $requirement, $this->configuration->configuredVersion( $requirement ) ) );
+				$this->messageManager->addMessage( new InvalidVersionRequirementMessage( $requirement, $this->configuration->configuredVersion( $requirement ) ) );
 				break;
 		}
 	}
@@ -173,7 +173,7 @@ class Whip_RequirementsChecker {
 	/**
 	 * Gets the most recent message from the message manager.
 	 *
-	 * @return Whip_Message The latest message.
+	 * @return Message The latest message.
 	 */
 	public function getMostRecentMessage() {
 		return $this->messageManager->getLatestMessage();

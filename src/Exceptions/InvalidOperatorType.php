@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class InvalidOperatorType.
  */
-class Whip_InvalidOperatorType extends Exception {
+class InvalidOperatorType extends Exception {
 
 	/**
 	 * InvalidOperatorType constructor.

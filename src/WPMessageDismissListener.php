@@ -2,12 +2,14 @@
 
 namespace Yoast\WHIPv2;
 
-use Yoast\WHIPv2\Interfaces\Whip_Listener;
+use Yoast\WHIPv2\Interfaces\Listener;
 
 /**
  * Listener for dismissing a message.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Sniff does not count acronyms correctly.
  */
-class Whip_WPMessageDismissListener implements Whip_Listener {
+class WPMessageDismissListener implements Listener {
 
 	/**
 	 * The name of the dismiss action expected to be passed via $_GET.
@@ -19,16 +21,16 @@ class Whip_WPMessageDismissListener implements Whip_Listener {
 	/**
 	 * The object for dismissing a message.
 	 *
-	 * @var Whip_MessageDismisser
+	 * @var MessageDismisser
 	 */
 	protected $dismisser;
 
 	/**
 	 * Sets the dismisser attribute.
 	 *
-	 * @param Whip_MessageDismisser $dismisser The object for dismissing a message.
+	 * @param MessageDismisser $dismisser The object for dismissing a message.
 	 */
-	public function __construct( Whip_MessageDismisser $dismisser ) {
+	public function __construct( MessageDismisser $dismisser ) {
 		$this->dismisser = $dismisser;
 	}
 

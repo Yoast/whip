@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class InvalidType.
  */
-class Whip_InvalidType extends Exception {
+class InvalidType extends Exception {
 
 	/**
 	 * InvalidType constructor.

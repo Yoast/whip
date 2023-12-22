@@ -7,7 +7,7 @@ use Exception;
 /**
  * Exception for an invalid version comparison string.
  */
-class Whip_InvalidVersionComparisonString extends Exception {
+class InvalidVersionComparisonString extends Exception {
 
 	/**
 	 * InvalidVersionComparisonString constructor.
