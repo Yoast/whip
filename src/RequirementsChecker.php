@@ -16,7 +16,7 @@ class RequirementsChecker {
 	/**
 	 * Requirements the environment should comply with.
 	 *
-	 * @var array
+	 * @var array<Requirement>
 	 */
 	private $requirements;
 
@@ -44,8 +44,8 @@ class RequirementsChecker {
 	/**
 	 * RequirementsChecker constructor.
 	 *
-	 * @param array  $configuration The configuration to check.
-	 * @param string $textdomain    The text domain to use for translations.
+	 * @param array<Requirement> $configuration The configuration to check.
+	 * @param string             $textdomain    The text domain to use for translations.
 	 *
 	 * @throws InvalidType When the $configuration parameter is not of the expected type.
 	 */

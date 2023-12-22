@@ -44,7 +44,7 @@ class MessagesManager {
 	/**
 	 * Lists the messages that are currently available.
 	 *
-	 * @return array The messages that are currently set.
+	 * @return array<Message> The messages that are currently set.
 	 */
 	public function listMessages() {
 		return $GLOBALS['whip_messages'];
@@ -79,9 +79,9 @@ class MessagesManager {
 	/**
 	 * Sorts the list of messages based on the version number.
 	 *
-	 * @param array $messages The list of messages to sort.
+	 * @param array<Message> $messages The list of messages to sort.
 	 *
-	 * @return array The sorted list of messages.
+	 * @return array<Message> The sorted list of messages.
 	 */
 	private function sortByVersion( array $messages ) {
 		\uksort( $messages, 'version_compare' );
