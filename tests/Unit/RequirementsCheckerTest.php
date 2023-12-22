@@ -134,7 +134,7 @@ final class RequirementsCheckerTest extends TestCase {
 	 * @return void
 	 */
 	public function testCheckIfPHPRequirementIsNotFulfilled() {
-		$checker = new RequirementsChecker( array( 'php' => 4 ) );
+		$checker = new RequirementsChecker( array( 'php' => '4' ) );
 
 		$checker->addRequirement( new VersionRequirement( 'php', '5.6' ) );
 		$checker->check();
@@ -189,7 +189,7 @@ final class RequirementsCheckerTest extends TestCase {
 	 * @return void
 	 */
 	public function testCheckIfRequirementIsNotFulfilled() {
-		$checker = new RequirementsChecker( array( 'mysql' => 4 ) );
+		$checker = new RequirementsChecker( array( 'mysql' => '4' ) );
 
 		$checker->addRequirement( new VersionRequirement( 'mysql', '5.6' ) );
 		$checker->check();
@@ -215,7 +215,7 @@ final class RequirementsCheckerTest extends TestCase {
 	 * @return void
 	 */
 	public function testCheckIfRequirementIsFulfilledWithSpecificComparison() {
-		$checker = new RequirementsChecker( array( 'php' => 4 ) );
+		$checker = new RequirementsChecker( array( 'php' => '4' ) );
 
 		$checker->addRequirement( new VersionRequirement( 'php', '5.2', '<' ) );
 		$checker->check();
@@ -233,7 +233,7 @@ final class RequirementsCheckerTest extends TestCase {
 	 * @return void
 	 */
 	public function testCheckIfRequirementIsNotFulfilledWithSpecificComparison() {
-		$checker = new RequirementsChecker( array( 'php' => 4 ) );
+		$checker = new RequirementsChecker( array( 'php' => '4' ) );
 
 		$checker->addRequirement( new VersionRequirement( 'php', '5.2', '>=' ) );
 		$checker->check();
