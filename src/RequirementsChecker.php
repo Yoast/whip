@@ -44,8 +44,8 @@ class RequirementsChecker {
 	/**
 	 * RequirementsChecker constructor.
 	 *
-	 * @param array<Requirement> $configuration The configuration to check.
-	 * @param string             $textdomain    The text domain to use for translations.
+	 * @param array<string, string> $configuration The configuration to check.
+	 * @param string                $textdomain    The text domain to use for translations.
 	 *
 	 * @throws InvalidType When the $configuration parameter is not of the expected type.
 	 */

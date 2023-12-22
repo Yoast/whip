@@ -20,7 +20,7 @@ class Configuration {
 	/**
 	 * Configuration constructor.
 	 *
-	 * @param array<string> $configuration The configuration to use.
+	 * @param array<string, string> $configuration The configuration to use.
 	 *
 	 * @throws InvalidType When the $configuration parameter is not of the expected type.
 	 */
