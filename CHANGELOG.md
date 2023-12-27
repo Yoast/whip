@@ -19,12 +19,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 * Compatibility with PHP >= 8.2: prevent a deprecation notice about dynamic properties usage from being thrown in the `RequirementsChecker` class. [#117]
+* Security hardening: added sanitization to the notification dismiss action. [#131]
 
 [#158]: https://github.com/Yoast/whip/pull/158
 [#157]: https://github.com/Yoast/whip/pull/157
 [#150]: https://github.com/Yoast/whip/pull/150
 [#146]: https://github.com/Yoast/whip/pull/146
 [#138]: https://github.com/Yoast/whip/pull/138
+[#131]: https://github.com/Yoast/whip/pull/131
 [#117]: https://github.com/Yoast/whip/pull/117
 
 ## [1.2.0] - 2021-07-20
