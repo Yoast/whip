@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 2023-12-28
+### Changed
+* All the source classes are now namespaced under `Yoast\WHIPv2`. The version number in the namespaced will be bumped up with every major version. [#157]
+    The classes have also been renamed to remove the `Whip_` prefix, and the folders' names have been capitalized to follow the PSR-4 standard.
+* The `Requirement` interface now declares explicitly two methods: `version() ` and `operator()`. [#146]
+* General housekeeping.
+
+### Fixed
+
+* Compatibility with PHP >= 8.2: prevent a deprecation notice about dynamic properties usage from being thrown in the `RequirementsChecker` class. [#117]
+
+[#157]: https://github.com/Yoast/whip/pull/157
+[#146]: https://github.com/Yoast/whip/pull/146
+[#117]: https://github.com/Yoast/whip/pull/117
+
 ## [1.2.0] - 2021-07-20
 
 :warning: This version drops support for PHP 5.2!
