@@ -9,18 +9,7 @@ A WordPress package to nudge users to upgrade their software versions (starting 
 
 ## Requirements
 
-The following versions of PHP are supported:
-
-* PHP 5.3
-* PHP 5.4
-* PHP 5.5
-* PHP 5.6
-* PHP 7.0
-* PHP 7.1
-* PHP 7.2
-* PHP 7.3
-* PHP 7.4
-* PHP 8.0
+All the PHP versions from 5.3 up to the latest are supported.
 
 WordPress is also required for certain functionality:
 
