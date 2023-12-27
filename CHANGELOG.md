@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 * All the source classes are now namespaced under `Yoast\WHIPv2`. The version number in the namespaced will be bumped up with every major version. [#157]
     The classes have also been renamed to remove the `Whip_` prefix, and the folders' names have been capitalized to follow the PSR-4 standard.
-* The `Requirement` interface now declares explicitly two methods: `version() ` and `operator()`. [#146]
+* The `Requirement` interface now explicitly declares the following two additional methods: `version() ` and `operator()` and classes implementing the interface should ensure these methods are available. [#146]
 * General housekeeping.
 
 ### Fixed
