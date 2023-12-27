@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 2023-12-28
+### Added
+* Tested against PHP 8.3. [#138], [#150]
+
+### Changed
+* All the source classes are now namespaced under `Yoast\WHIPv2`. The version number in the namespaced will be bumped up with every major version. [#157]
+    The classes have also been renamed to remove the `Whip_` prefix, and the folders' names have been capitalized to follow the PSR-4 standard.
+* The `Requirement` interface now explicitly declares the following two additional methods: `version() ` and `operator()` and classes implementing the interface should ensure these methods are available. [#146]
+* General housekeeping.
+
+### Removed
+* The deprecated `Whip_WPMessagePresenter:register_hooks()` method has been removed. [#158]
+
+### Fixed
+* Compatibility with PHP >= 8.2: prevent a deprecation notice about dynamic properties usage from being thrown in the `RequirementsChecker` class. [#117]
+* Security hardening: added sanitization to the notification dismiss action. [#131]
+
+[#158]: https://github.com/Yoast/whip/pull/158
+[#157]: https://github.com/Yoast/whip/pull/157
+[#150]: https://github.com/Yoast/whip/pull/150
+[#146]: https://github.com/Yoast/whip/pull/146
+[#138]: https://github.com/Yoast/whip/pull/138
+[#131]: https://github.com/Yoast/whip/pull/131
+[#117]: https://github.com/Yoast/whip/pull/117
+
 ## [1.2.0] - 2021-07-20
 
 :warning: This version drops support for PHP 5.2!
