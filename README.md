@@ -84,7 +84,7 @@ add_filter( 'whip_hosting_page_url_wordpress', '__return_true' );
 
 We follow [semantic versioning][semver] with an extra strict rule for MAJOR versions. We will do a major version bump whenever we add new methods. We have to do this because of the shared namespace in PHP. When this package will be used in multiple plugins we cannot safely add and use a method without bumping a major version. This is because the version without the new method may be autoloaded and then a fatal error occurs.
 
-This also means that any major version bump is accompanied by a change of all class names in the package. So for version 2 of this package all classes will be postfixed with `_v2`. This prevents fatal errors when two plugins include different versions of this package.
+This also means that any major version bump is accompanied by an update of every namespace in the package. So for version 3 of this package all the `Yoast\WHIPv2` namespaces will become `Yoast\WHIPv3`. This prevents fatal errors when two plugins include different versions of this package.
 
 ## Changelog
 
