@@ -87,7 +87,7 @@ class Actions {
 		$branch = 'main';
 
 		$args = $event->getArguments();
-		if ( ! empty( $args ) ) {
+		if ( ! empty( $args[0] ) ) {
 			$branch = $args[0];
 		}
 
