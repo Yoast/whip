@@ -38,7 +38,7 @@ final class ConfigurationTest extends TestCase {
 		$requirement
 			->expects( $this->any() )
 			->method( 'component' )
-			->will( $this->returnValue( 'mysql' ) );
+			->willReturn( 'mysql' );
 
 		$this->assertSame( -1, $configuration->configuredVersion( $requirement ) );
 	}
@@ -59,7 +59,7 @@ final class ConfigurationTest extends TestCase {
 		$requirement
 			->expects( $this->any() )
 			->method( 'component' )
-			->will( $this->returnValue( 'php' ) );
+			->willReturn( 'php' );
 
 		$this->assertSame( '5.6', $configuration->configuredVersion( $requirement ) );
 	}
@@ -80,7 +80,7 @@ final class ConfigurationTest extends TestCase {
 		$requirement
 			->expects( $this->any() )
 			->method( 'component' )
-			->will( $this->returnValue( 'php' ) );
+			->willReturn( 'php' );
 
 		$falseRequirement = $this->getMockBuilder( '\Yoast\WHIPv2\Interfaces\Requirement' )
 			->setMethods( array( 'component', 'version', 'operator' ) )
@@ -89,7 +89,7 @@ final class ConfigurationTest extends TestCase {
 		$falseRequirement
 			->expects( $this->any() )
 			->method( 'component' )
-			->will( $this->returnValue( 'mysql' ) );
+			->willReturn( 'mysql' );
 
 		$this->assertTrue( $configuration->hasRequirementConfigured( $requirement ) );
 		$this->assertFalse( $configuration->hasRequirementConfigured( $falseRequirement ) );
