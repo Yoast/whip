@@ -7,7 +7,7 @@ use Yoast\WHIPv2\WPMessageDismissListener;
 /**
  * Message Dismiss Listener unit tests.
  *
- * @coversDefaultClass WPMessageDismissListener
+ * @coversDefaultClass \Yoast\WHIPv2\WPMessageDismissListener
  *
  * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- Acronym throws the count off.
  */
@@ -16,7 +16,7 @@ final class WPMessageDismissListenerTest extends TestCase {
 	/**
 	 * Tests the listen method.
 	 *
-	 * @covers \Yoast\WHIPv2\WPMessageDismissListener::listen
+	 * @covers ::listen
 	 *
 	 * @dataProvider listenProvider
 	 *
