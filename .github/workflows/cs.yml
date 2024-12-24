@@ -10,7 +10,6 @@ on:
       - 'LICENSE'
       - 'phpunit.xml.dist'
       - '.github/dependabot.yml'
-      - '.github/workflows/test.yml'
       - 'images/**'
   pull_request:
     paths-ignore:
@@ -20,7 +19,6 @@ on:
       - 'LICENSE'
       - 'phpunit.xml.dist'
       - '.github/dependabot.yml'
-      - '.github/workflows/test.yml'
       - 'images/**'
   # Allow manually triggering the workflow.
   workflow_dispatch:
@@ -32,6 +30,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  actionlint:
+    name: 'Lint GH Action workflows'
+    uses: Yoast/.github/.github/workflows/reusable-actionlint.yml@main
+
   checkcs:
     name: 'Check code style'
     runs-on: ubuntu-latest
