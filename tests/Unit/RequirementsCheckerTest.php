@@ -32,7 +32,7 @@ final class RequirementsCheckerTest extends TestCase {
 	/**
 	 * Tests if RequirementsChecker throws an error when passed an invalid requirement.
 	 *
-	 * @covers   RequirementsChecker::addRequirement
+	 * @covers   \Yoast\WHIPv2\RequirementsChecker::addRequirement
 	 * @requires PHP 7
 	 *
 	 * @return void
