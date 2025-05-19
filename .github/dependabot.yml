@@ -15,8 +15,6 @@ updates:
       prefix: "GH Actions:"
     labels:
       - "yoast cs/qa"
-    reviewers:
-      - "jrfnl"
 
   # Maintain dependencies for Composer.
   - package-ecosystem: "composer"
@@ -29,5 +27,3 @@ updates:
       prefix: "Composer:"
     labels:
       - "yoast cs/qa"
-    reviewers:
-      - "jrfnl"
