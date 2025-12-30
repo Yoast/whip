@@ -68,6 +68,8 @@ jobs:
           ini-values: zend.assertions=1, assert.exception=1, error_reporting=-1, display_errors=On, display_startup_errors=On
           coverage: ${{ matrix.coverage == true && 'xdebug' || 'none' }}
           tools: cs2pr
+        env:
+          fail-fast: true
 
       # YoastCS 3.0 has a PHP 7.2 minimum which conflicts with the requirements of this package.
       - name: 'Composer: remove YoastCS'
