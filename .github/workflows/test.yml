@@ -77,6 +77,15 @@ jobs:
       - name: 'Composer: remove YoastCS'
         run: composer remove --dev yoast/yoastcs --no-update --no-interaction
 
+      # Related to PHPUnit CVE https://github.com/advisories/GHSA-vvj3-c3rp-c85p
+      # No "safe" versions were released for PHPUnit < 8.x, which means that the Roave security advisories
+      # package will now block installation of the PHPUnit versions we need to test on PHP 7.1 and lower.
+      # While correct, in this case, running the tests takes precedence over the negligible security
+      # risk, as the security issue is related to `phpt` tests, which are not used in this package.
+      - name: 'Composer: remove security advisories'
+        if: ${{ matrix.php_version <= '7.1' }}
+        run: composer remove --dev roave/security-advisories --no-update --no-interaction
+
       # Install dependencies and handle caching in one go.
       # @link https://github.com/marketplace/actions/install-php-dependencies-with-composer
       - name: Install Composer dependencies
