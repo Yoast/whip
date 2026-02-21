@@ -37,7 +37,7 @@ abstract class TestCase extends PHPUnit_TestCase {
 				$this->expectExceptionMessage( $message );
 			}
 
-			if ( isset( $code ) ) {
+			if ( $code !== null ) {
 				$this->expectExceptionCode( $code );
 			}
 		}
