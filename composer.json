@@ -23,9 +23,9 @@
 		"php-parallel-lint/php-parallel-lint": "^1.4.0",
 		"phpunit/phpunit": "^4.8.36 || ^5.7.21 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
 		"roave/security-advisories": "dev-master",
-		"yoast/yoastcs": "^3.3.0"
+		"yoast/yoastcs": "^3.4.0"
 	},
-	"minimum-stability": "dev",
+	"minimum-stability": "alpha",
 	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
